@@ -8,25 +8,30 @@ Dada uma função $f: \mathbb{R}^n \to \mathbb{R}$ definida como \[f(x) = c^tx,\
 	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n \leq b_2 \\
 	\vdots \\
 	a_{m1}x_1 + a_{m2}x_2 + \ldots + a_{mn}x_n \leq b_m
-\end{gather*} chamamos a função a ser otimizada $f(x)$ de \textbf{função objetivo}, as variáveis $x_1, \ldots, x_2$ de \textbf{variáveis de decisão} e o conjunto de inequações de \textbf{restrições}. A verdade que as restrições não necessariamente precisam ser da forma $a^t_i x \leq b_i$, podendo ser da forma $a^t_i x \geq b_i$ ou  $a^t_i x = b_i$.
+\end{gather*} chamamos a função a ser otimizada $f(x)$ de \textbf{função objetivo}, as variáveis $x_1, \ldots, x_2$ de \textbf{variáveis de decisão} e o conjunto de inequações de \textbf{restrições}. A verdade que as restrições não necessariamente precisam ser da forma $a^t_i x \leq b_i$, podendo ser da forma $a^t_i x \geq b_i$ ou  $a^t_i x = b_i$. O conjunto dos vetores $x \in \mathbb{R}$ que são solução para o Problema de Programação Linear é chamado de \textbf{conjunto viável}, ou factível.
 
-Além disso, para facilitar a notação, podemos usar uma notação matricial para representar o conjunto de restrições. Se $a_{ij}$ é a entrada da i-ésima linha e j-ésima coluna da matriz $A$, então reduzimos a restrições simplesmente a \[Ax \leq b\]ou também
+\subsection{Notação Matricial}
+
+Para facilitar a notação, podemos usar a representação matricial para o conjunto de restrições. Se $a_{ij}$ é a entrada da i-ésima linha e j-ésima coluna da matriz $A$, de modo que
 \begin{gather*}
-\begin{bmatrix}
+A = \begin{bmatrix}
 	a_{11} & a_{12} & \ldots & a_{1n} \\
 	a_{21} & a_{22} & \ldots & a_{2n} \\
 	\vdots & \vdots & \ddots & \vdots \\
 	a_{m1} & a_{m2} & \ldots & a_{mn} \\
 \end{bmatrix}
-\begin{bmatrix}
+\end{gather*}
+então reduzimos as restrições simplesmente a \[Ax \leq b\], tal que
+\begin{align*}
+x = \begin{bmatrix}
 	x_1 \\ x_2 \\ \vdots \\ x_n
 \end{bmatrix}
-\leq
-\begin{bmatrix}
+\hspace{1cm}
+b = \begin{bmatrix}
 	b_1 \\ b_2 \\ \vdots \\ b_m
 \end{bmatrix}
-\end{gather*}
-Notação de desigualdades para matrizes pode parecer estranha, e realmente é. Mas ela é muito comum ao descrever como os quais estamos lidando. Nesta notação, temos que: se $a_{i}$ o vetor cujas componentes são as entradas da i-ésima linha de $A$, então a desigualdade acima diz que, para todo $i=1,2,\ldots,m$ é verdade que \[a^t_ix \leq b_i\].
+\end{align*}
+Notação de desigualdades para matrizes pode parecer estranha, e realmente é. Mas ela é muito comum ao descrever problemas como os quais estamos lidando. Nesta notação, temos que: se $a_{i}$ é o vetor cujas componentes são as entradas da i-ésima linha de $A$, então a desigualdade acima diz que, para todo $i=1,2,\ldots,m$ é verdade que \[a^t_ix \leq b_i\].
 
 \subsection{Restrições de Não Negatividade}
 Por se tratar de um ramo que se desenvolveu em boa parte a partir de problemas concretos, a programação linear lida com variáveis de decisão que geralmente representam quantidades de alguma grandeza do mundo real, e por isso são não negativas. Logo, é comum a adição ao conjunto de restrições a expressão \[x \geq 0\]que significa que todas as componentes do vetor das variáveis de decisão são não negativas.
@@ -55,12 +60,14 @@ Logo, para transformar passar de um problema para outro, basta multiplicarmos os
 Um PPL está na forma \textbf{padrão} se todas as restrições são igualdades e todas as variáveis são não negativas. O método simplex, por exemplo, resolve programas lineares apenas quando estão na forma padrão.
 
 A forma canônica de um PPL depende do tipo de otimização que estamos buscando. Se o problema é de maximização, então sua forma canônica é dada por
-\begin{gather*}
-	\max z = c^tx \\
-	Ax \leq b
-\end{gather*}
+\begin{align*}
+\text{Maximizar:} \quad z & = c^t x \\
+\text{sujeito a:} \quad Ax & \leq b \\
+				  \quad x & \geq 0
+\end{align*}
 e quando de minimização, então sua forma canônica é
-\begin{gather*}
-	\min z = c^tx \\
-	Ax \geq b
-\end{gather*}
+\begin{align*}
+	\text{Minimizar:} \quad z & = c^t x \\
+	\text{sujeito a:} \quad Ax  & \geq b \\
+	\quad  x  & \geq 0
+\end{align*}

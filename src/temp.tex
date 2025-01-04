@@ -7,9 +7,21 @@
 \usepackage{parskip}
 \usepackage{indentfirst}
 \usepackage{geometry}
-\usepackage{lmodern}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{float}
 
 \setlength{\parindent}{1.25cm}
 
+\renewcommand{\proofname}{Demonstração}
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
+\newcommand{\problemaPL}[3]{%
+	\begin{aligned}
+		\text{#1:} \quad #2 \\
+		\text{sujeito a:} \quad #3
+	\end{aligned}
+}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand{\transp}[1]{\vec{#1}^\intercal}
