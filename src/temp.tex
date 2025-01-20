@@ -17,6 +17,21 @@
 \renewcommand{\proofname}{Demonstração}
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
+% Redefinir o ambiente proof para desativar a indentação dentro dele
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont\topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item[\hskip\labelsep
+	\itshape
+	#1\@addpunct{.}]\ignorespaces
+	\setlength{\parindent}{0pt} % Remove indentação
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
 \newcommand{\problemaPL}[3]{%
 	\begin{aligned}
 		\text{#1:} \quad #2 \\
@@ -26,3 +41,4 @@
 
 \renewcommand{\vec}{\mathbf}
 \newcommand{\transp}[1]{\vec{#1}^\intercal}
+\newcommand{\cone}[1]{\mathrm{Cone}(#1)}

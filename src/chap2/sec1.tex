@@ -8,6 +8,8 @@
 
 \newtheorem{def:cone}[def:conjunto convexo]{Definição}
 
+\newtheorem{def:cone hull}[def:conjunto convexo]{Definição}
+
 \newtheorem{def:cone convexo}[def:conjunto convexo]{Definição}
 
 \newtheorem{def:cpc}[def:conjunto convexo]{Definição}
@@ -27,15 +29,16 @@ Um dos conceitos mais fundamentais para a Teoria de PL é a de \textbf{convexida
 
 Aqueles com algum conhecimento de geometria analítica devem se lembrar que uma combinação linear de vetores na forma $\lambda x_1 + (1 - \lambda)x_2$ com $\lambda \in [0, 1]$ define o segmento de reta que une as extremidades desses vetores. Esse tipo de combinação é chamada de convexa.
 
-De forma mais geral, uma combinação linear convexa é aquela em que a soma dos escalares é igual a 1. Então supondo um conjunto de geradores formado por $x_1, \ldots, x_n$ e escalares $\lambda_1, \ldots, \lambda_n$, então a combinação linear
-\[x = \sum_{i=1}^{n} \lambda_i x_i\] é convexa se \[\sum_{i=1}^{n} \lambda_i = 1\]
+De forma mais geral, uma combinação linear convexa é aquela em que todos os escales são positivos e sua soma é igual a 1. Então supondo um conjunto de geradores formado por $x_1, \ldots, x_n$ e escalares $\lambda_1, \ldots, \lambda_n$, então a combinação linear
+\[x = \sum_{i=1}^{n} \lambda_i x_i\] é convexa se \[\sum_{i=1}^{n} \lambda_i = 1,\ 0 \leq \lambda_i \leq 1\]
+Além disso, chamamos de combinação estritamente convexa aquelas em que os escales são estritamente maiores que zero ou menores que 1.
 
 
 
 \subsection{Semiespaços e Hiperplanos}
-Semiespaços e hiperplanos generalizam o conceito geométrico do plano que é dividido por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um espaço de dimensão $n-1$ que divide o primeiro em dois semiespaços. 
+Semiespaços e hiperplanos generalizam o conceito geométrico do plano que é dividido por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um espaço de dimensão $n-1$. Um hiperplano divide o $\mathbb{R}^n$ em dois semiespaços. 
 
-Algebricamente, um hiperplano $H$ é o conjunto dos vetores $x \in \mathbb{R}^n$ que solucionam uma equação linear na forma $a^\top x = k$, onde $k \in \mathbb{R}$ é uma constante e $a \in \mathbb{R}^n$ é um vetor não nulo, geralmente conhecido como vetor normal ou gradiente.
+Algebricamente, um hiperplano $H$ é o conjunto dos vetores $x \in \mathbb{R}^n$ que solucionam uma equação linear na forma $\transp{a} x = k$, onde $k \in \mathbb{R}$ é uma constante e $a \in \mathbb{R}^n$ é um vetor não nulo, geralmente conhecido como vetor normal ou gradiente.
 
 \begin{equation*}
 	H = \{x\ |\ a^\intercal x = k\}
@@ -81,15 +84,23 @@ Para aqueles que não lembrarem, o conceito de limitado na matemática não é e
 
 Das definições percebemos que poliedros convexos podem ser dados como um sistema de inequações ou equações lineares. Por conseguinte, o espaço das soluções viáveis $R$ de um problema de PL é um poliedro convexo. Contudo, nem sempre esse espaço será um politopo, pois nem sempre temos um conjunto limitado de soluções factíveis.
 
+Visto isso, passaremos a nos referir a conjuntos convexos definidos como $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec{p}\}$, onde $A$ é uma matriz $m \times n$, como \textbf{conjunto poliédrico} ou \textbf{poliedro}. 
+
 \subsection{Cone Convexo}
 
-Algebricamente, um cone é definido como um conjunto $C$ em que para todo $\mathbf{x} \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade que \(\lambda \mathbf{x} \in C\). Dessa definição segue que a origem sempre é um membro do cone, caso em que $\lambda = 0$. Uma classe especial dos cones são os convexos, que são definidos como
+\textbf{Cones lineares}, chamados geralmente apenas de cones, são um subconjunto de um espaço vetorial $\mathbb{V}$ fechado sobre multiplicação por escalar positivo. Algebricamente, um cone é definido como um conjunto $C$ em que para todo $\mathbf{x} \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade que \(\lambda \mathbf{x} \in C\). Dessa definição segue que a origem sempre é um membro do cone, caso em que $\lambda = 0$. Uma classe especial dos cones são os convexos, que são definidos como
 
 \begin{def:cone convexo}
 	Um cone $C$ é convexo se para quaisquer $\mathbf{x_1, x_2} \in C$ temos que $\mathbf{x_1} + \mathbf{x_2} \in C$
 \end{def:cone convexo}
 
-Do que foi dito até então, é fácil ver que, se a soma de quaisquer elementos de um cone está nele, então uma combinação linear convexa também estará.
+Do que foi dito até então, é fácil ver que, se um conjunto é fechado por multiplicação por escalares positivos e sobre soma, então ele é um conjunto convexo.
+
+Devido a essas definições, combinações lineares entre pontos tais que os escales são estritamente positivos são chamadas de combinações cônicas. Dito isso, iremos enunciar uma definição que será mais importante no futuro.
+
+\begin{def:cone hull}
+	Seja $P$ um conjunto de pontos em um espaço vetorial $\mathbb{V}$. Chama-se envoltória cônica o conjunto $\cone{P}$ dado como o menor cone que contém os pontos de $P$.
+\end{def:cone hull}
 
 Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
 

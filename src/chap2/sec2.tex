@@ -17,6 +17,8 @@
 
 \newtheorem{prop:hiperplano e ponto extremo}[prop:combinação convexa]{Proposição}
 
+\newtheorem{prop:direção}[prop:combinação convexa]{Proposição}
+
 \newtheorem{prop:aresta}[prop:combinação convexa]{Proposição}
 
 %=================== Teoremas ===================
@@ -65,7 +67,7 @@ Essa proposição, num primeiro momento, parece estar desconectada da ideia dos 
 
 \begin{prop:hiperplano e ponto extremo}
 	\label{prop:hiperplano e ponto extremo}
-	Sejam os vetores $\vec{x}'$ e $\vec{x}''$ pertencentes a um mesmo semiespaço $H^-$. Se uma combinação estritamente convexa desses vetores está no hiperplano $H$, então ambos os vetores pertencem a esse hiperplano.
+	Sejam os pontos $\vec{x}'$ e $\vec{x}''$ pertencentes a um mesmo semiespaço $H^-$. Se uma combinação estritamente convexa desses pontos está no hiperplano $H$, então ambos os pontos pertencem a esse hiperplano.
 	
 	\begin{proof}
 		Seja $\bar{\vec{x}}$ uma combinação estritamente convexa de $\vec{x}'$ e $\vec{x}''$ tal que 
@@ -88,11 +90,11 @@ Essa proposição, num primeiro momento, parece estar desconectada da ideia dos 
 	\end{proof} 
 \end{prop:hiperplano e ponto extremo}
 
-Com esse último resultado em mãos, agora iremos caracterizar os pontos extremos a partir das noções já vistas de semiespaços e hiperplanos. Para viés de síntese, sendo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$, com $A$ sendo $m \times n$, iremos chamar os $n + m$ hiperplanos associados aos semiespaços definidores de $X$ (as $n$ restrições agrupadas em $A$ mais a $m$ restrições de não negatividade) de hiperplanos definidores de $X$.  
+Com esse último resultado em mãos, agora iremos caracterizar os pontos extremos a partir das noções já vistas de semiespaços e hiperplanos. Para viés de síntese, sendo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$, com $A$ sendo $m \times n$, iremos chamar os $n + m$ hiperplanos associados aos semiespaços definidores de $X$ (as $n$ restrições agrupadas em $A$ mais a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de $X$.  
 
 \begin{thm:ponto extremo}
 	\label{thm:ponto extremo}
-	Um vetor $\bar{\vec{x}}$ é ponto extremo de um conjunto convexo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$, com $A \in \mathbb{R}^{m \times n}$, se $\bar{\vec{x}}$ pertence a pelo menos $n$ hiperplanos linearmente independentes que definem $X$.
+	Um vetor $\bar{\vec{x}}$ é ponto extremo de um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq \vec{p}\}$, com $A \in \mathbb{R}^{m \times n}$, se $\bar{\vec{x}}$ pertence a pelo menos $n$ hiperplanos linearmente independentes que definem $X$.
 	
 	\begin{proof}
 		Suponha por contradição que $\bar{\vec{x}}$ pertence a pelo menos $n$ hiperplanos linearmente independentes definidores de $X$, mas não é um ponto extremo. Com efeito, $\bar{\vec{x}}$ pode ser dado como combinação estritamente convexa de vetores $\vec{x}'$ e $\vec{x}''$ em $X$. Pela Proposição \ref{prop:hiperplano e ponto extremo}, tanto $\bar{\vec{x}}'$ quanto $\bar{\vec{x}}''$ devem pertencer a esses $n$ hiperplanos definidores.
@@ -131,7 +133,7 @@ Com esse último resultado em mãos, agora iremos caracterizar os pontos extremo
 Você talvez deve estar se perguntando agora sobre os pontos extremos que pertencem a mais do que $n$ dos hiperplanos definidores. Para esses pontos usamos uma nomenclatura especial, que iremos formalizar na definição a seguir.
 
 \begin{def:ponto degenerado}
-	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto convexo em que $A$ é $m \times n$. Se $\vec{x}$ é um ponto extremo de $X$ tal que $\vec{x}$ pertença a mais do que $n$ dos $n + m$ hiperplanos definidores de $X$, então $\vec{x}$ é chamado de \textbf{ponto extremo degenerado}. O número excedente de hiperplanos que possuem $\vec{x}$ é chamado de \textbf{ordem de degeneração}.
+	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto poliédrico em que $A$ é $m \times n$. Se $\vec{x}$ é um ponto extremo de $X$ tal que $\vec{x}$ pertença a mais do que $n$ dos $n + m$ hiperplanos definidores de $X$, então $\vec{x}$ é chamado de \textbf{ponto extremo degenerado}. O número excedente de hiperplanos que possuem $\vec{x}$ é chamado de \textbf{ordem de degeneração}.
 \end{def:ponto degenerado}
 
 Em resumo, podemos definir um ponto extremo com $n$ hiperplanos definidores linearmente independentes do nosso conjunto convexo $X$. Se existe mais de uma maneira de definir esse ponto extremos com $n$ hiperplanos, então esse ponto é um ponto degenerado.
@@ -225,10 +227,53 @@ Um raio também é uma classe de conjuntos convexos, que são definidos a seguir
 Podemos também interpretar raios geometricamente como sendo uma semirreta com origem em $\mathbf{x}$, dito como o vértice do raio, e que se estende na direção do vetor $\mathbf{d}$, chamado de diretor ou direção do raio.
 
 \begin{def:direção}
-	Seja $X$ um conjunto convexo contido no $\mathbb{R}^n$. O vetor não nulo $\vec{d} \in \mathbb{R}^n$ é uma direção de $X$ com vértice em $\vec{x_0} \in X$ se para qualquer $\lambda \geq 0$ é verdade que $\vec{x_0} + \lambda \vec{d} \in X$  
+	Seja $X$ um conjunto convexo contido no $\mathbb{R}^n$. O vetor não nulo $\vec{d} \in \mathbb{R}^n$ é uma direção de $X$ se para qualquer ponto $\vec{x_0} \in X$ e qualquer $\lambda \geq 0$ é verdade que $\vec{x_0} + \lambda \vec{d} \in X$  
 \end{def:direção}
 
-A Definição expande a noção de direção para qualquer conjunto convexo além dos raios. Dessa forma, uma direção pode ser entendida como uma semirreta que está contida num conjunto convexo. Disso segue que um conjunto convexo que possui uma direção não pode ser limitado, já que semirretas estendem-se indefinitivamente.
+A Definição expande a noção de direção para qualquer conjunto convexo além dos raios. Podemos dizer, então, que um conjunto $X$ possui uma direção se ele contém um raio. Observe também que um conjunto convexo $X$ possui uma direção se, e somente se, ele não é limitado. A demonstração disso fica como exercício para o leitor\footnote{Tente argumentar o porquê de $X$ possuir uma direção implicar em ele não poder ter uma bola o contendo. Para a recíproca, argumente o porquê de um conjunto ser contido por uma bola não poder ter uma direção na qual ele se estende indefinitivamente.}. 
+
+Agora iremos nos aprofundar um pouco mais nas características algébricas de uma direção para um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$. Se temos que para todo $\vec{x} \in X$, $\vec{x} + \lambda \vec{d} \in X$, então é verdade que
+\begin{gather*}
+	A (\vec{x} + \lambda \vec{d}) \leq \vec{b} \\
+	\vec{x} + \lambda \vec{d} \geq 0
+\end{gather*}
+
+Porém, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve satisfazer algumas condições algébricas a mais, que serão formalizadas no seguinte enunciado.
+
+\begin{prop:direção}
+	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto poliédrico. O vetor $\vec{d}$ é uma diereção de $X$ se, e somente se, 
+	\begin{equation*}
+		\vec{d} > 0, \quad A\vec{d} \leq 0
+	\end{equation*}
+	
+	\begin{proof}
+		Com efeito, se $\vec{d}$ é uma direção de $X$, então
+		\begin{align*}
+			A (\vec{x} + \lambda \vec{d}) &\leq \vec{b} \\
+			A \vec{x} + A (\lambda \vec{d}) & \leq b
+		\end{align*}
+		mas como $A \vec{x} \leq \vec{b}$, então é preciso que
+		\begin{equation*}
+			A\vec{d} \leq 0
+		\end{equation*}
+		Ademais, se $\vec{x} + \lambda \vec{d} \geq 0$, então
+		\begin{align}
+			\vec{d} \geq \frac{1}{\lambda} -\vec{x}
+		\end{align}
+		como $\lambda \geq 0$ pode ser arbitrariamente grande, então
+		$\lim_{\lambda \to \infty} -\vec{x} = 0$, e com isso
+		\[d \geq 0\].
+		
+		Por outro lado, se $\vec{d} > 0$ e $A \vec{d} \leq 0$, então para $\lambda \geq 0$ temos que
+		\[A (\lambda \vec{d}) \leq 0\]
+		e se $A \vec{x} \leq b$, então
+		\begin{align*}
+			A \vec{x} + A (\lambda \vec{d}) &\leq \vec{b} \\
+			A (\vec{x} + \lambda \vec{d}) &\leq \vec{b}
+		\end{align*}
+		e como $\vec{x} \in X$ é arbitrário, então $d$ é uma direção de $X$.
+	\end{proof} 
+\end{prop:direção}
 
 \begin{def:direção extrema}
 	Seja $X$ um conjunto convexo e $\vec{d}$ uma direção desse conjunto. O vetor $\vec{d}$ é chamado de direção extrema se ele não pode ser dado como combinação linear positiva de outras direções desse conjunto.
@@ -248,7 +293,7 @@ Portanto, se $C$ é um cone e $D = \{\vec{d}_1, \vec{d}_2, \ldots, \vec{d}_n\}$ 
 	C = \{\vec{x}\ |\ \vec{x} = \displaystyle\sum_{j = 1}^{n}
 			\lambda_j \vec{d}_j, \lambda_j \geq 0\}
 \end{equation*}
-
+Porém iremos formalizar isso num resultado futuro.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=2]
