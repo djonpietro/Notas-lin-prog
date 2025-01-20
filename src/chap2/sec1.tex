@@ -83,31 +83,24 @@ Das definições percebemos que poliedros convexos podem ser dados como um siste
 
 \subsection{Cone Convexo}
 
-Algebricamente, um cone é definido como
-
-\begin{def:cone}
-	Um conjunto $C$ é um cone se para todo $\mathbf{x} \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade que \(\lambda \mathbf{x_1} \in C\)
-\end{def:cone}
-Da definição segue que a origem sempre é um membro do cone, caso em que $\lambda = 0$
-
-Uma classe especial dos cones são os convexos, que são definidos como
+Algebricamente, um cone é definido como um conjunto $C$ em que para todo $\mathbf{x} \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade que \(\lambda \mathbf{x} \in C\). Dessa definição segue que a origem sempre é um membro do cone, caso em que $\lambda = 0$. Uma classe especial dos cones são os convexos, que são definidos como
 
 \begin{def:cone convexo}
-	Um cone $C$ é convexo se para quaisquer $\mathbf{x_1, x_2} \in C$ temos que $\mathbf{x_1} + \mathbf{x2} \in C$
+	Um cone $C$ é convexo se para quaisquer $\mathbf{x_1, x_2} \in C$ temos que $\mathbf{x_1} + \mathbf{x_2} \in C$
 \end{def:cone convexo}
 
-Das duas definições anteriores é fácil ver que, se a soma de quaisquer elementos de um cone está nele, então um combinação linear convexa também estará.
+Do que foi dito até então, é fácil ver que, se a soma de quaisquer elementos de um cone está nele, então uma combinação linear convexa também estará.
 
-Uma classe ainda mais especial dos cones, são os cones poliédricos convexo
+Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
 
 \begin{def:cpc}
-	Se $A$ é um matriz em $\mathbb{R}^{m\times n}$, então um cone poliédrico convexo $C$ é aquele definido por
+	Se $A$ é um matriz $m \times n$, então um cone poliédrico convexo $C$ é aquele definido por
 	\begin{equation*}
-		C = \{x\ |\ Ax \leq 0\}
+		C = \{\vec{x}\ |\ A \vec{x} \leq 0\}
 	\end{equation*}  
 \end{def:cpc}
 
-Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo subespaço dado por \[\mathbf{a^\intercal x} \leq 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
+Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo semiespaço dado por \[\mathbf{a^\intercal x} \leq 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
 
 % Linear Programming and Network Flows
 % Mathematical programmin: an Introduction to optimization Melvyn Jeter
