@@ -3,7 +3,6 @@
 *.aux
 *.glo
 *.log
-*.pdf
 *.gz
 notes/
 
