@@ -94,12 +94,12 @@ Visto isso, passaremos a nos referir a conjuntos convexos definidos como $X = \{
 	Um cone $C$ é convexo se para quaisquer $\mathbf{x_1, x_2} \in C$ temos que $\mathbf{x_1} + \mathbf{x_2} \in C$
 \end{def:cone convexo}
 
-Do que foi dito até então, é fácil ver que, se um conjunto é fechado por multiplicação por escalares positivos e sobre soma, então ele é um conjunto convexo.
+Do que foi dito até então, é fácil ver que, se um conjunto é fechado por multiplicação por escalares positivos e sobre a adição, então ele é um conjunto convexo.
 
 Devido a essas definições, combinações lineares entre pontos tais que os escales são estritamente positivos são chamadas de combinações cônicas. Dito isso, iremos enunciar uma definição que será mais importante no futuro.
 
 \begin{def:cone hull}
-	Seja $P$ um conjunto de pontos em um espaço vetorial $\mathbb{V}$. Chama-se envoltória cônica o conjunto $\cone{P}$ dado como o menor cone que contém os pontos de $P$.
+	Seja $P$ um conjunto de pontos em um espaço vetorial $\mathbb{V}$. Chama-se envoltória cônica o conjunto $\cone{P}$ o conjunto de todas as combinações cônicas dos elementos de $P$
 \end{def:cone hull}
 
 Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
@@ -111,7 +111,7 @@ Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
 	\end{equation*}  
 \end{def:cpc}
 
-Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo semiespaço dado por \[\mathbf{a^\intercal x} \leq 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
+Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo hiperplano dado por \[\mathbf{\transp{a} x} = 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
 
 % Linear Programming and Network Flows
 % Mathematical programmin: an Introduction to optimization Melvyn Jeter
