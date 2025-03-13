@@ -16,6 +16,11 @@
 
 \newtheorem{thm:caratheodory}{Teorema}[section]
 
+
+% -------------------------------------- COROLÁRIO ----------------------------------------------
+
+\newtheorem{cor:caratheodory}{Corolário}[section]
+
 \section{Envoltória Convexa}
 
 \subsection{Envoltória e Independência Convexa}
@@ -31,17 +36,16 @@ Em outras referências, pode-se encontrar uma definição equivalente de que a e
 destacada por ela ser mais algebricamente fecunda.
 
 \begin{def:independencia convexa}
-	Seja $P \subset \mathbb{R}^n$ é um conjunto de pontos. $P$ é convexo
-	independente se nenhum de seus pontos pode ser dado como combinação
-	convexa de outros dois.
+	Seja $P \subset \mathbb{R}^n$ é um conjunto de pontos. $P$ é convexo-independente 
+	se nenhum de seus pontos pode ser dado como combinação convexa de outros dois.
 \end{def:independencia convexa}
 
 A definição acima especializa o conceito de independência linear para conjuntos convexos,
-que nos será uma definição útil. Dessa forma, um conjunto convexo dependente será aquele 
+que nos será uma definição útil. Dessa forma, um conjunto convexo-dependente será aquele 
 no qual há pelo menos um ponto que pode ser dado como combinação convexa de outros dois.
 Outra especialização que faremos será do conceito de geradores: se um conjunto convexo
 $X$ é a envoltória convexa de um conjunto $P$, então $P$ é um conjunto gerador de $X$.
-Ademais, se $P$ é convexo independente, então os pontos de $P$ são os pontos extremos
+Ademais, se $P$ é convexo-independente, então os pontos de $P$ são os pontos extremos
 de $X$, o que especializa o conceito de base da álgebra linear para os pontos extremos.
 
 Na Teoria de PL, nosso interesse irá se concentrar nos conjuntos convexo que são
@@ -76,7 +80,7 @@ são exemplos de conjuntos convexos que não são finitamente gerados.
 
 \begin{prop:redundancia}
 	Seja $P = \{p_1, \ldots, p_m\}$ um conjunto convexo dependente e
-	$P' = \{p_1, \ldots, p_k\}$ um subconjunto convexo independente
+	$P' = \{p_1, \ldots, p_k\}$ um subconjunto convexo-independente
 	de $P$ com $k < m$. Então é correto dizer que
 	\begin{equation*}
 		\conv{P'} = \conv{P} 
@@ -101,7 +105,7 @@ que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição
 
 \begin{def:simplex}
 	Chama-se simplex a envoltória convexa de um conjunto de $n + 1$ pontos
-	em $\mathbb{R}^n$ convexo independente.
+	em $\mathbb{R}^n$ convexo-independente.
 \end{def:simplex}
 
 \begin{figure}[h]
@@ -210,11 +214,22 @@ Enunciemos o lema
 		$\lambda_{j^*} - \alpha \mu_{j^*}$, e podemos expressar $x$ como
 		\[x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)p_i + 
 				\displaystyle\sum_{i=j^* + 1}^{k} (\lambda_i - \alpha \mu_i)p_i\]
-		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $P$
+		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $conv{P}$
 		
 		Como podemos repetir esse processo enquanto $k > n + 1$, ou seja, enquanto o lema \ref{lemma:afim}
-		pode ser aplicado, então $x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $P$.
+		pode ser aplicado, então $x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $\conv{P}$.
 	\end{proof}
 \end{thm:caratheodory}
 
+Para capturar o significado geométrico do Teorema de Carathéodory, poderíamos
+enunciá-lo como ``um ponto qualquer num fecho convexo sempre estará no interior
+de um simplex gerado por pontos desse fecho''. Ademais, se $P \subset \mathbb{R}^n$ é um conjunto
+convexo-independente, então para qualquer $x \in \conv{P}$, $x$ pode ser dado
+como combinação convexa de até $n + 1$ pontos de $P$, ou seja, de até $n + 1$ pontos extremos. 
+Formalizemos essa conclusão como corolário do Teorema de Carathéodory.
+
+\begin{cor:caratheodory}
+	Seja $P \subset \mathbb{R}^n$ um conjunto convexo-independente. Se $x \in \conv{P}$
+	então $x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$	
+\end{cor:caratheodory}
 
