@@ -1,8 +1,8 @@
 % --------------------------------------------- DEFINIÇÃO ------------------------------------------
+\newtheorem{def:combinação afim}{Definição}
 \newtheorem{def:convex hull}{Definição}[section]
 \newtheorem{def:independencia convexa}[def:convex hull]{Definição}
 \newtheorem{def:simplex}[def:convex hull]{Definição}
-
 % ---------------------------------------- PROPOSIÇÃO -----------------------------------------------
 
 \newtheorem{prop:redundancia}[def:convex hull]{Proposição}[section]
@@ -94,12 +94,11 @@ ambos os conjuntos. Além disso, se $P$ for um conjunto convexo
 independente, então seus elementos são os pontos extremos de \(\conv{P}\),
 como fora observado mais previamente.
 
-\subsection{Simplex e o Teorema de Carathéodory}
-
+Uma classe especial de envoltórias convexas são os \textbf{simples}
 A ideia geométrica por detrás do conceito de simplex é do ``mais simples 
 conjunto convexo em um espaço euclideano de dimensão finita''. Por exemplo:
 o menor número de pontos necessários para delimitar uma região no plano é
-2, e a região delimitada por eles é um triângulo. Já em dimensão 3, para
+3, e a região delimitada por eles é um triângulo. Já em dimensão 3, para
 delimitar uma região no espaço são necessários ao menos quatro pontos,
 que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição.
 
@@ -140,9 +139,74 @@ que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição
 	\caption{Comparação entre simplex de dimensões diferentes.}
 \end{figure}
 
-Antes de prosseguirmos, iremos demonstra um lema importante para um
-resultado fundamental da geometria convexa: o Teorema de Carathéodory.
-Enunciemos o lema
+Os simplex nos permitem a mais facilmente descrever
+a natureza geométrica por deterás de conjuntos convexos
+finitamente gerados.
+
+\subsection{Espaços Afim}
+
+Antes de ir mais afundo na natureza geométrica dos conjuntos
+poliédricos, iremos retornar um pouco a alguns conceitos
+algébricos. Relembrando, uma das noções primárias da Álgebra Linear é a de
+independência linear, donde dizemos que um conjunto de vetores
+é linearmente independente se nenhum vetor poder ser dado
+como combinação linear dos demais. Uma classe de combinações
+lineares que nos é últil são as chamadas combinações afim
+
+\begin{def:combinação afim}
+Sejam $v_1, \ldots, v_k$ vetores do $\mathbb{R}$. $u$ é uma 
+combinação afim dos vetores citados  se existem $\lambda_1, \ldots,
+\lambda_k$ tal que
+\begin{equation*}
+	u = \sum_{i =1}^{k}\lambda_i v_i \quad \quad \sum_{i=1}^{k} \lambda_i = 1 
+\end{equation*}
+\end{def:combinação afim}
+Portanto, combinações afim estão em um nível intermediário de
+restrições sobre os pesos entre as combinações lineares
+tradicionais e as combinações convexas.
+
+As combinações lineares afim formam um conjunto fechado
+chamado de \bf{subsespaço afim}, que são análogos aos 
+hiperplanos lineares a menos da restrição de conterem a
+origem do $\mathbb{R}^n$. 
+
+% imagem de compração de um hiperplano linear
+% e um afim
+
+Os hiperplanos  afim, de forma análoga ao lineares, podem ser 
+definidos a partir de um sistema linear na forma $Ax = b$
+ou através de um conjunto de no mínimo $n$ geradores.
+Um conjunto de vetores em que pelo menos um dos membros
+é combinação afim dos demais é chamado de afimmente dependente.
+Geometricamente, isso significa que pelo menos um dos vetores estará
+no espaço afim gerado pelos demais.
+
+É sabido que qualquer conjunto com mais de $n$ vetores em
+$\mathbb{R}^n$ é linearmente dependente, mas qual será o número mínimo
+de vetores em um conjunto para afirmamos com certeza que eles são
+afimmente dependentes?
+
+A envoltória convexa de dois pontos é um segmento de reta, e,
+por sua vez, o subsespaço afim gerado por esses mesmos pontos é a 
+a própria reta que eles definem, ou seja, obtemos o subespaço
+afim gerado ao extender infinitamente o segmento de reta em
+ambos os sentido. Já três pontos não colineares
+definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
+esses três pontos é justamnte o plano que contém esse triângulo; é como se
+tivessemos expandido infinitamente a área do triângulo assim como fizemos
+com o comprimento do segmento de reta anteriormente. Por conseguinte,
+para obte o \textit{span} afim a partir de uma envoltória convexa, basta
+extendemos infinitamente a envoltória nas direções possíveis.
+
+Isso nos permite agora responder a questão feita mais para trás:
+expandir infinitamente um simplex de dimensão $n$ que é gerado 
+por $n+1$ vetores do  $\mathbb{R}^n$,
+, é suficiente para obtermos todo o $\mathbb{R}^n$
+e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
+combinação afim dos pontos extremos do simplex que fora expandido.
+Portanto, a conclusão que chegamos é que qualquer conjunto com mais 
+de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
+é provado formalmente de forma mais algébrica no lema a seguir
 
 \begin{lemma:afim}
 	\label{lemma:afim}
@@ -152,6 +216,7 @@ Enunciemos o lema
 	\begin{equation*}
 		\displaystyle\sum_{i=1}^k \mu_i p_i = 0 \quad\quad \displaystyle\sum_{i=1}^k \mu_i = 0
 	\end{equation*}
+	e $P$ é um conjunto afimmente dependente.
 	
 	\begin{proof}
 		Da álgebra linear, sabemos que, se $\#P = k > n$, então $P$ é um conjunto
@@ -167,6 +232,14 @@ Enunciemos o lema
 		\[\displaystyle\sum_{i=1}^k \mu_i = 0\]
 	\end{proof}
 \end{lemma:afim}
+
+
+
+\subsection{Simplex e o Teorema de Carathéodory}
+
+Antes de prosseguirmos, iremos demonstra um lema importante para um
+resultado fundamental da geometria convexa: o Teorema de Carathéodory.
+Enunciemos o lema
 
 \begin{thm:caratheodory}[Carathéodory]
 	Seja $P \subset \mathbb{R}^n$ um conjunto finito de pontos. Se $x \in \conv{P}$, então
