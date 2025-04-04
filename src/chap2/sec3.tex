@@ -1,47 +1,55 @@
 % --------------------------------------------- DEFINIÇÃO ------------------------------------------
-\newtheorem{def:combinação afim}{Definição}
 \newtheorem{def:convex hull}{Definição}[section]
-\newtheorem{def:independencia convexa}[def:convex hull]{Definição}
-\newtheorem{def:simplex}[def:convex hull]{Definição}
-% ---------------------------------------- PROPOSIÇÃO -----------------------------------------------
+\newtheorem{def:independencia convexa}[def:conjunto convexo]{Definição}
+\newtheorem{def:simplex}[def:conjunto convexo]{Definição}
+\newtheorem{def:combinação afim}[def:conjunto convexo]{Definição}
+% -------------------------------------- PROPOSIÇÃO --------------------------
 
-\newtheorem{prop:redundancia}[def:convex hull]{Proposição}[section]
+\newtheorem{prop:redundancia}[prop:combinação convexa]{Proposição}
+\newtheorem{prop:pontos extremos na fronteira}[prop:combinação convexa]{Proposição}
+\newtheorem{prop:conjuntos convexos fechados}[prop:combinação convexa]{Proposição}
+\newtheorem{prop:conjuntos convexos limitados}[prop:combinação convexa]{Proposição}
 
-
-% --------------------------------------- LEMA ---------------------------------------
+% ------------------------------ LEMA --------------------------
 
 \newtheorem{lemma:afim}{Lema}[section]
 
-%------------------------------------- TEOREMA ---------------------------------------------------
+%------------------------------ TEOREMA ---------------------------
 
 \newtheorem{thm:caratheodory}{Teorema}[section]
+\newtheorem{thm:conjuntos convexos compactos}{Teorema}[section]
 
-
-% -------------------------------------- COROLÁRIO ----------------------------------------------
+% ---------------------------- COROLÁRIO -----------------------
 
 \newtheorem{cor:caratheodory}{Corolário}[section]
 
-\section{Envoltória Convexa}
+\section{Geometria dos Poliedros Convexos}
 
-\subsection{Envoltória e Independência Convexa}
+Nesta seção iremos obsevar os poliedros convexos a partir de sua
+natureza geométrica ao mesmo tempo que mostramos sua equivalência com
+os conceitos algébricos vistos nas seções anteriores.
+
+\subsection{Envoltória Convexa}
 
 \begin{def:convex hull}
 	\label{def:convex hull}
-	Seja $P$ um conjunto de pontos em $\mathbb{R}^n$. Chamamos de envoltória convexa $P$, ou fecho convexo, o conjunto 
+	Seja $P$ um conjunto de pontos em $\mathbb{R}^n$. Chamamos de envoltória
+	convexa $P$, ou fecho convexo, o conjunto
 	$\conv{P}$ dado por todas as combinações convexas dos pontos de $P$
 \end{def:convex hull}
 
-Em outras referências, pode-se encontrar uma definição equivalente de que a envoltória convexa, popularmente conhecida como \textit{covex hull},
-é o menor conjunto convexo que contém todos os pontos de $P$. Neste texto, usaremos a definição
-destacada por ela ser mais algebricamente fecunda.
+Em outras referências, pode-se encontrar uma definição equivalente de que a
+envoltória convexa, também popularmente conhecida como \textit{covex hull},
+é o menor conjunto convexo que contém todos os pontos de $P$. Neste texto,
+usaremos a definição destacada por ela ser mais algebricamente fecunda.
 
 \begin{def:independencia convexa}
-	Seja $P \subset \mathbb{R}^n$ é um conjunto de pontos. $P$ é convexo-independente 
+	Seja $P \subset \mathbb{R}^n$ é um conjunto de pontos. $P$ é convexo-independente
 	se nenhum de seus pontos pode ser dado como combinação convexa de outros dois.
 \end{def:independencia convexa}
 
 A definição acima especializa o conceito de independência linear para conjuntos convexos,
-que nos será uma definição útil. Dessa forma, um conjunto convexo-dependente será aquele 
+que nos será uma definição útil. Dessa forma, um conjunto convexo-dependente será aquele
 no qual há pelo menos um ponto que pode ser dado como combinação convexa de outros dois.
 Outra especialização que faremos será do conceito de geradores: se um conjunto convexo
 $X$ é a envoltória convexa de um conjunto $P$, então $P$ é um conjunto gerador de $X$.
@@ -76,15 +84,15 @@ são exemplos de conjuntos convexos que não são finitamente gerados.
 	\label{fig:circulo}
 \end{subfigure}
 \caption{Comparação entre um polígono convexo e um círculo.}
-\end{figure} 
+\end{figure}
 
 \begin{prop:redundancia}
 	Seja $P = \{p_1, \ldots, p_m\}$ um conjunto convexo dependente e
 	$P' = \{p_1, \ldots, p_k\}$ um subconjunto convexo-independente
 	de $P$ com $k < m$. Então é correto dizer que
 	\begin{equation*}
-		\conv{P'} = \conv{P} 
-	\end{equation*} 
+		\conv{P'} = \conv{P}
+	\end{equation*}
 \end{prop:redundancia}
 
 Dado um conjunto de geradores, é fácil observar que, ao obtermos um
@@ -94,16 +102,16 @@ ambos os conjuntos. Além disso, se $P$ for um conjunto convexo
 independente, então seus elementos são os pontos extremos de \(\conv{P}\),
 como fora observado mais previamente.
 
-Uma classe especial de envoltórias convexas são os \textbf{simples}
-A ideia geométrica por detrás do conceito de simplex é do ``mais simples 
-conjunto convexo em um espaço euclideano de dimensão finita''. Por exemplo:
+Uma classe especial de envoltórias convexas são os \textbf{simplex}
+A ideia geométrica por detrás do conceito de simplex é do ``mais simples
+conjunto convexo num espaço euclideano de dimensão finita''. Por exemplo:
 o menor número de pontos necessários para delimitar uma região no plano é
 3, e a região delimitada por eles é um triângulo. Já em dimensão 3, para
 delimitar uma região no espaço são necessários ao menos quatro pontos,
 que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição.
 
 \begin{def:simplex}
-	Chama-se simplex a envoltória convexa de um conjunto de $n + 1$ pontos
+	Chama-se simplex a envoltória convexa de um conjunto de $n+1$ pontos
 	em $\mathbb{R}^n$ convexo-independente.
 \end{def:simplex}
 
@@ -139,41 +147,41 @@ que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição
 	\caption{Comparação entre simplex de dimensões diferentes.}
 \end{figure}
 
-Os simplex nos permitem a mais facilmente descrever
-a natureza geométrica por deterás de conjuntos convexos
-finitamente gerados.
-
 \subsection{Espaços Afim}
 
 Antes de ir mais afundo na natureza geométrica dos conjuntos
-poliédricos, iremos retornar um pouco a alguns conceitos
+poliédricos, iremos recuar um pouco e observar alguns conceitos
 algébricos. Relembrando, uma das noções primárias da Álgebra Linear é a de
-independência linear, donde dizemos que um conjunto de vetores
+independência linear, em que dizemos que um conjunto de vetores
 é linearmente independente se nenhum vetor poder ser dado
 como combinação linear dos demais. Uma classe de combinações
 lineares que nos é últil são as chamadas combinações afim
 
 \begin{def:combinação afim}
-Sejam $v_1, \ldots, v_k$ vetores do $\mathbb{R}$. $u$ é uma 
+Sejam $v_1, \ldots, v_k$ vetores do $\mathbb{R}$. $u$ é uma
 combinação afim dos vetores citados  se existem $\lambda_1, \ldots,
 \lambda_k$ tal que
 \begin{equation*}
-	u = \sum_{i =1}^{k}\lambda_i v_i \quad \quad \sum_{i=1}^{k} \lambda_i = 1 
+	u = \sum_{i =1}^{k}\lambda_i v_i \quad \quad \sum_{i=1}^{k} \lambda_i = 1
 \end{equation*}
 \end{def:combinação afim}
-Portanto, combinações afim estão em um nível intermediário de
-restrições sobre os pesos entre as combinações lineares
-tradicionais e as combinações convexas.
+Combinações afim são uma especialização das combinações
+lineares, visto a restrição de que a soma dos escalares
+que acompanham os vetores deve ser igual a 1. Observemos
+também que as combinaçãoes convexas, por sua vez, são uma
+especialização das combinações afim, em que adiciona-se a
+restrição de que os pesos devem ser positivos.
 
-As combinações lineares afim formam um conjunto fechado
-chamado de \textbf{subsespaço afim}, que são análogos aos 
-hiperplanos lineares a menos da restrição de conterem a
-origem do $\mathbb{R}^n$. 
+As combinações lineares afim de um conjunto de vetores
+formam um conjunto fechado chamado de \textbf{subsespaço afim},
+que são análogos aos hiperplanos lineares a menos
+da restrição de conterem a
+origem do $\mathbb{R}^n$.
 
 % imagem de compração de um hiperplano linear
 % e um afim
 
-Os hiperplanos  afim, de forma análoga ao lineares, podem ser 
+Os hiperplanos  afins, de forma análoga ao lineares, podem ser
 definidos a partir de um sistema linear na forma $Ax = b$
 ou através de um conjunto de no mínimo $n$ geradores.
 Um conjunto de vetores em que pelo menos um dos membros
@@ -187,26 +195,26 @@ de vetores em um conjunto para afirmamos com certeza que eles são
 afimmente dependentes?
 
 A envoltória convexa de dois pontos é um segmento de reta, e,
-por sua vez, o subsespaço afim gerado por esses mesmos pontos é a 
+por sua vez, o subsespaço afim gerado por esses mesmos pontos é a
 a própria reta que eles definem, ou seja, obtemos o subespaço
 afim gerado ao extender infinitamente o segmento de reta em
-ambos os sentido. Já três pontos não colineares
+ambos os seus sentido. Já três pontos não colineares
 definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
 esses três pontos é justamnte o plano que contém esse triângulo; é como se
 tivessemos expandido infinitamente a área do triângulo assim como fizemos
 com o comprimento do segmento de reta anteriormente. Por conseguinte,
-para obte o \textit{span} afim a partir de uma envoltória convexa, basta
+para obter o \textit{span} afim a partir de uma envoltória convexa, basta
 extendemos infinitamente a envoltória nas direções possíveis.
 
-Isso nos permite agora responder a questão feita mais para trás:
-expandir infinitamente um simplex de dimensão $n$ que é gerado 
+Isso nos permite agora responder a questão feita mais atrás:
+expandir infinitamente um simplex de dimensão $n$ que é gerado
 por $n+1$ vetores do  $\mathbb{R}^n$,
 , é suficiente para obtermos todo o $\mathbb{R}^n$
 e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
 combinação afim dos pontos extremos do simplex que fora expandido.
-Portanto, a conclusão que chegamos é que qualquer conjunto com mais 
+Portanto, a conclusão que chegamos é que qualquer conjunto com mais
 de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
-é provado formalmente de forma mais algébrica no lema a seguir
+é provado formalmente com uma abordagem mais algébrica no lema a seguir.
 
 \begin{lemma:afim}
 	\label{lemma:afim}
@@ -217,36 +225,55 @@ de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
 		\displaystyle\sum_{i=1}^k \mu_i p_i = 0 \quad\quad \displaystyle\sum_{i=1}^k \mu_i = 0
 	\end{equation*}
 	e $P$ é um conjunto afimmente dependente.
-	
+
 	\begin{proof}
 		Da álgebra linear, sabemos que, se $\#P = k > n$, então $P$ é um conjunto
 		linearmente dependente, o que implica dizer que há $\mu_1, \ldots, \mu_n
 		\in \mathbb{R}$ não todos nulos tal que
 		\[\displaystyle\sum_{i=1}^k \mu_i p_i = 0\]
-		
+
 		Além disso, observemos que o conjunto $\{p_2 - p_1, \ldots, p_k - p_1\}$
-		também é linearmente dependente, portanto 
+		também é linearmente dependente, portanto
 		\[\displaystyle\sum_{i=2}^k \mu_i (p_i - p_1) = 0\]
 		e fazendo \(\mu_1 = -\displaystyle\sum_{i=2}^k \mu_i\)
 		obtemos que
 		\[\displaystyle\sum_{i=1}^k \mu_i = 0\]
+
+		Resta mostrar que o conjunto $P$ é afimmente dependente. Para isso, suponha
+		que $P$ esteja ordenado de forma que para todo $i \in I = \{1, \ldots, n\}$
+		é verdade que $\mu_k \geq \mu_i$. Obeservamos então que
+	  \begin{gather*}
+	    \mu_1 p_1 + \ldots + \mu_{k - 1} p_{k-1} + \mu_k p_k = 0 \\
+      \mu_1 p_1 + \ldots + \mu_{k - 1} p_{k-1} = - \mu_k p_k \\
+	  \end{gather*}
+	  Dividindo a equação acima toda por $-\mu_k$ otbemos
+	  \begin{gather*}
+	    \sum_{i=1}^{k-1} -\frac{\mu_i}{\mu_k} p_i = p_k
+	  \end{gather*}
+	  Mas também
+	  \begin{gather*}
+      \sum_{i=1}^{k-1} \mu_i = 0 \\
+	    \sum_{i=1}^{k-1} -\frac{\mu_i}{\mu_k} = 1
+	  \end{gather*}
+	  Portanto $p_k$ pode ser dado como combinação afim dos demais pontos de
+	  $P$, e o conjunto dos pontos é afimmente dependente.
 	\end{proof}
 \end{lemma:afim}
 
+\subsection{Teorema de Carathéodory}
 
-
-\subsection{Simplex e o Teorema de Carathéodory}
-
-Antes de prosseguirmos, iremos demonstra um lema importante para um
-resultado fundamental da geometria convexa: o Teorema de Carathéodory.
-Enunciemos o lema
+O Teorema de Carathéodory é um dos resultados mais fundamentais da geometria
+convexa, pois ele nos permite dizer que um ponto qualquer em um conjunto
+convexo pode ser gerado por um número finito de outros pontos nesse conjunto,
+mas não somente isso como também o limitante do tamanho desse conjunto de
+geradores.
 
 \begin{thm:caratheodory}[Carathéodory]
 	Seja $P \subset \mathbb{R}^n$ um conjunto finito de pontos. Se $x \in \conv{P}$, então
 	$x \in \conv{P'}$ para algum $P' \subset P$ com cardinalidade igual a $n + 1$.
-	
+
 	\begin{proof}
-		Com efeito, se $x \in \conv{P}$, e $\#P = k$, então existem $\lambda_1, \ldots, \lambda_k 
+		Com efeito, se $x \in \conv{P}$, e $\#P = k$, então existem $\lambda_1, \ldots, \lambda_k
 		\in \mathbb{R}$ com $\lambda_i \in [0, 1]$ tal que
 		\begin{equation}
 		\label{eq_thm_caratheory}
@@ -266,29 +293,29 @@ Enunciemos o lema
 		\end{gather*}
 		donde temos que
 		\[\displaystyle\sum_{i=1}^k (\lambda_i - \alpha \mu_i) = 1\]
-		
+
 		Agora iremos tentar escrever $x$ como uma combinação convexa de até $n + 1$ pontos.
 		Para atingir esse objetivo, escolhemos $\alpha$ tal que
 		\[\alpha  = \min\left\{\frac{\lambda_i}{\mu_i}\  |\  i \in \{1,\ldots, k\} \text{ e } \mu_i > 0\right\}\]
 		Logo, $\alpha > 0$, e para $i \in \{1, \ldots, k\}$, temos dois casos.
-		
+
 		I - $\mu_i \geq 0$
-		
+
 		Temos que
 		\[\lambda_i - \alpha \mu_i = \mu_i \left(\frac{\lambda_i}{\mu_i} - \alpha\right)\]
 		e pela nossa escolha de $\alpha$, então \(\lambda_i - \alpha \mu_i \geq 0\)
-		
+
 		II - $\mu_i < 0$
-		
+
 		Uma vez que $\alpha > 0$, então $\alpha \mu_i > 0$ e, portanto,
 		\(\lambda_i - \alpha \mu_i \geq 0\)
-		
+
 		digamos que $j*$ seja tal que $\alpha = \frac{\lambda_{j^*}}{\mu_{j^*}}$. Observe que
 		$\lambda_{j^*} - \alpha \mu_{j^*}$, e podemos expressar $x$ como
-		\[x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)p_i + 
+		\[x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)p_i +
 				\displaystyle\sum_{i=j^* + 1}^{k} (\lambda_i - \alpha \mu_i)p_i\]
 		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $conv{P}$
-		
+
 		Como podemos repetir esse processo enquanto $k > n + 1$, ou seja, enquanto o lema \ref{lemma:afim}
 		pode ser aplicado, então $x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $\conv{P}$.
 	\end{proof}
@@ -298,13 +325,120 @@ Para capturar o significado geométrico do Teorema de Carathéodory, poderíamos
 enunciá-lo como ``um ponto qualquer num fecho convexo sempre estará no interior
 de um simplex gerado por pontos desse fecho''. Ademais, se $P \subset \mathbb{R}^n$ é um conjunto
 convexo-independente, então para qualquer $x \in \conv{P}$, $x$ pode ser dado
-como combinação convexa de até $n + 1$ pontos de $P$, ou seja, de até $n + 1$ pontos extremos. 
+como combinação convexa de até $n+1$ pontos de $P$, ou seja, de até $n+1$ pontos extremos.
 Formalizemos essa conclusão como corolário do Teorema de Carathéodory.
 
 \begin{cor:caratheodory}
 	Seja $P \subset \mathbb{R}^n$ um conjunto convexo-independente. Se $x \in \conv{P}$
-	então $x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$	
+	então $x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$
 \end{cor:caratheodory}
 
 Em outras palavras, o corolário afirma que um ponto qualquer num fecho convexo
 pode ser dado como combinação convexa de até $n+1$ pontos extremos.
+
+\subsection{Topologia de Evoltórias Convexas}
+
+Nesta seção iremos analisar algumas propriedades topológicas básicas de
+interesse sobre a envoltória convexa de um conjunto de pontos. Mas não se
+preocupe, apesar de usarmos conceitos de topologia, iremos apresentá-los
+e usá-los de forma bem elementar a fim de não desviar muito dos nossos
+objetios e complicar em demasiado nossas construções, já que está fora do
+escopo desse texto as noções mais aprofundadas desse tema.
+
+\begin{prop:pontos extremos na fronteira}
+Seja $P$ um conjunto convexo. Se $\bar{\vec{x}}$ é um ponto extremo de $P$,
+então $\bar{\vec{x}}$ é um ponto na fronteira de $P$.
+
+  \begin{proof}
+    Para provarmos esse resultado, basta mostrarmos que para qualquer bola
+    aberta $B$ centrada em $\bar{\vec{x}}$, $B$ intercepta pontos tanto de
+    $P$ quanto de $\mathbb{R}^n / P$. Suponha por contradição que haja uma
+    bola aberta centrada em $\bar{\vec{x}}$ tal que $B \subsetneq P$. Isso
+    implica que $\bar{\vec{x}}$ está no interior de um segmento de reta
+    inteiramente contido em $P$, e não é, pois, ponto extremo.
+  \end{proof}
+\end{prop:pontos extremos na fronteira}
+
+\begin{prop:conjuntos convexos fechados}
+Se $C$ é a envoltória convexa de $P$, então $C$ é fechado.
+
+  \begin{proof}
+   Seja $\vec{x}$ um ponto na fronteira $F$ de $C$. É trivial o fato de que se
+   $\vec{x}$ é um ponto extremo de $C$, então $\vec{x} \in P$. Se
+   $\vec{x} \in F$ não for um ponto extremo, então uma vez que $\vec{x} \in F$,
+   temos que existe uma vizinhança $V$ de $\vec{x}$ que contém um ponto $\vec{y}$
+   tal que $\vec{y} \in C$.
+
+   Digamos que $\vec{d} = \vec{x} - \vec{y}$, e todo ponto dado como \[
+     \vec{y} + (1 - \epsilon) \vec{d}
+   \]com $\epsilon \in (0, 1]$ faz parte de um raio contido em $C$. Repare que
+   esse ponto é $x$ quando $\epsilon = 0$. Digamos também que \[
+     \vec{y} = \sum_{i=1}^{k} \lambda_i \vec{p_i}, \quad \vec{p_i}  \in P
+   \]Das equações dadas até então, temos que
+   \begin{align*}
+     \vec{y} + (1 - \epsilon) (\vec{x} - \vec{y}) &= (1 + \epsilon) \vec{x}
+     + \epsilon y \\
+                                                  &= (1 - \epsilon) \vec{x} + \epsilon \vec{y}
+   \end{align*}
+   Reparemos que como estamos considerando os pontos do raio que estão no
+   interior de $C$, então esses pontos
+   admitem uma representação como uma combinação linear convexa dos pontos de
+   $P$, ou seja
+   \[
+     \forall \epsilon \in (0, 1] , \exists \mu_1, \dots, \mu_k \in \mathbb{R},
+     (1-\epsilon)\vec{x} + \epsilon \vec{y} = \sum_{i=1}^{k} \mu_i p_i
+   \]
+   Isolando $\vec{x}$ na equação acima, e adotando a representação de $\vec{y}$
+   como combinação convexa, obtemos que
+
+   \begin{equation}
+     \label{eq:conjunto convexos fechados}
+     \vec{x} = \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} \vec{p_i}
+   \end{equation}
+   Percebamos que
+   \[
+    \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} =
+    \frac{1}{1-\epsilon}\left(
+      \sum_{i=1}^{k} \mu_i -   \epsilon \sum_{i=1}^{k} \lambda_i\right)
+   \]
+   Uma vez que
+   \[
+    \sum_{i=1}^{k} \mu_i = 1 \quad \sum_{i=1}^{k} \lambda_i = 1
+   \]
+   obtém-se que
+   \[
+   \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} =
+   \frac{1}{1-\epsilon} \cdot (1 - \epsilon) = 1
+   \]
+   o que vale para todo $\epsilon \in [0, 1]$.
+
+   Se fazemos $\epsilon$ pequeno o suficiente, então a equação
+   \ref{eq:conjunto convexos fechados} expressa $\vec{x}$ como combinação
+   convexa de pontos de $P$
+   \[
+     \lim_{\epsilon \to 0} \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} \vec{p}_i
+     = \sum_{i=1}^{k} \mu_i \vec{p}_i
+   \]
+   Portanto, se $\vec{x}$ está na fronteira de $C = \conv{P}$, então
+   $\vec{x} \in C$.
+ \end{proof}
+\end{prop:conjuntos convexos fechados}
+
+\begin{prop:conjuntos convexos limitados}
+  Se $C = \conv{P}$ é a envoltória convexa de um conjunto finito $P$ de pontos,
+  então $C$ é limitado.
+
+  \begin{proof}
+   Com efeito, uma vez que $P$ é finito, então deve have uma bola aberta que
+   contém todos os seus pontos e, por conseguinte, a envoltória convexa desse
+   conjunto, portanto $C = \conv{P}$ é limitado.
+  \end{proof}
+\end{prop:conjuntos convexos limitados}
+
+Para fins de síntese, reunamos as proposiçõe anteriores no teorema a seguir
+
+\begin{thm:conjuntos convexos compactos}
+  Se $C = \conv{P}$ é a envoltória convexa de um conjunto finito de pontos,
+  então $C$ é compacto.\footnote{Chama-se de compactos os conjuntos que são
+  simultâneamente fechados e limitados.}
+\end{thm:conjuntos convexos compactos}
