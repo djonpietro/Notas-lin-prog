@@ -1,0 +1,146 @@
+%-------------------------- DEFINIÇÕES --------------------------
+\newtheorem{def:envoltoria conica}[def:conjunto convexo]{Definição}
+\newtheorem{def:independencia conica}[def:conjunto convexo]{Definição}
+
+%-------------------------- PROPOSIÇÕES ----------------------------
+\newtheorem{prop:redundancia conica}[prop:combinação convexa]{Proposição}
+
+%------------------------------ TEOREMAS ----------------------------
+\newtheorem{thm:caratheodory cones}[thm:caratheodory]{Teorema}
+
+%---------------------------- COROLÁRIO -----------------------------
+\newtheorem{cor:caratheodory cones}[cor:caratheodory]{Corolário}
+
+\section{Envoltória Cônica}
+
+Na seção anterior, estudamos sobre a envoltória convexa de um conjunto de
+pontos. Nesta, estudaremos o cone gerado a partir de um conjunto de direções
+em $\mathbb{R}^n$, chamado de envoltória cônica ou fecho cônico.
+
+\subsection{Envoltória e Independência Cônica}
+
+Do mesmo modo da seção anterior, começemos as definições especializadas
+de \textit{span} e independência linear para o caso dos cones.
+
+\begin{def:envoltoria conica}
+  Seja $D$ um conjunto de direções em $\mathbb{R}^n$. A envoltória cônica de
+  $D$, denotado por $\cone{D}$, é o conjunto de todas as combinações cônicas
+  dos elementos de $D$.
+\end{def:envoltoria conica}
+
+\begin{def:independencia conica}
+ Um conjunto $D$ é cônico-independente se nenhum de seus elementos poder ser
+ dado como combinação cônica dos demais
+\end{def:independencia conica}
+
+A seguir, um fato semelhante ao levantado também na seção anterior sobre
+redundâncias no conjunto de geradores de um cone convexo.
+\begin{prop:redundancia conica}
+  Se $D = \{d_1, \dots, d_m\}$ é um conjunto de direções, e
+  $D' = \{d_1, \dots, d_k\}$ é um subconjunto conico-independente
+  de $D$ com $k < m$, então
+  \[
+    \cone{D'} = \cone{D}
+  \]
+\end{prop:redundancia conica}
+
+\subsection{Teorema de Carathéodory para Cones}
+
+Nesta parte, iremos demonstrar uma versão do Teorema de Carathéodory para os
+cones convexos
+
+\begin{thm:caratheodory cones}
+  Seja $D = \{d_1, \dots, d_k\}$ um conjunto de direções em $\mathbb{R}^n$. Se $\vec{d} \in D$, então
+  $\vec{d}$ pode ser dado como combinação cônica de até $n$ direções
+  de $D$
+
+  \begin{proof}
+   Vamos provar por indução em $k$.
+
+   Base: Para $k=1$ é trivial.
+
+   Hipótese de Indução: Suponha que o teorema vale para todo $k$. Disso decorre
+   dois casos
+
+   I - Se $k \leq n$, não há nada a ser demosntrado
+
+   II - Se $k > n$, então $D$ é linearmente dependente, o que implica
+   \[
+     \exists \mu_1, \dots, \mu_{k+1} \in \mathbb{R}^n, \left(\sum_{i=1}^{k+1}\mu_i \vec{d}_i = 0\right)
+   \]
+   Seja $\theta \in (0, 1)$ tal que
+   \[
+     \theta \sum_{i=1}^{k+1} \mu_i \vec{d}_i = 0
+   \]
+   ao passo que
+   \[
+     \vec{x} = \sum_{i=1}^{k+1}\lambda_i\vec{d}_i
+   \]
+   o que implica
+   \[
+     \vec{x} = \sum_{i=1}^{k+1}(\lambda_i + \theta \mu_i)\vec{d}_i
+   \]
+   Agora tentaremos escolher $\theta$ de forma que para pelo menos um
+   $i_{*} \in I = \{1, \dots, k+1\}$ tenhamos
+   \[
+     \lambda_{i*} + \theta \mu_{i*} = 0
+   \]
+   e $\forall i \in I$ seja satisfeito que
+   \[
+     \lambda_i  + \theta \mu_i \geq 0
+   \]Disso seguem mais três casos
+
+   1 - se $\exists i \in I, (\mu_i < 0$ \text{e} $\lambda_i < |\mu_i|)$,
+   então seja $J \subset I$ o conjunto dos índices em que esse caso ocorre.
+   Dessa forma, devemos escolher um $\bar{\theta}$ pequeno o suciente
+   de modo a satisfazer
+   \begin{equation*}
+     \forall j \in J, (\lambda_j + \bar{\theta} \mu_j \geq 0)
+   \end{equation*}
+   e nossa estratégia para que isso ocorra é simples: diminuir o valor de
+   $\bar{\theta}$ de forma a tornar a condição verdadeira para todo $j \in J$
+   um a um. Em outras palavras, devemos escolher
+   \[
+     \bar{\theta} = \min{\frac{-\lambda_j}{\mu_j}, j \in J}
+   \]
+   de forma que, se $j_{*} \in J$ for tal que $\bar{\theta} = \frac{-\lambda_{j*}}{\mu_{j*}}$
+   então
+   \[
+     \lambda_{j*} + \bar{\theta} \mu_{j*} = 0
+   \]
+   2 - se $\forall i \in I, (\mu_i < 0$ e $\lambda_i \geq |\mu_i|)$,
+   então podemos escolher um $i^{*} \in I$ e definir $\epsilon>0$ tal que
+   \[
+     \epsilon > -\frac{\lambda_{i*}}{\mu_{i*}}
+   \]
+   de forma que
+   \[
+     |\epsilon \mu_{i*}| > \lambda_{i*}
+   \]
+   e então multiplicamos $\sum_{i=1}^{k+1} \mu_i \vec{d}_i$ por $\epsilon$,
+   tendo, por fim, pelo menos um $\mu_{i*}' = \epsilon \mu_{i*}$ ao qual se aplica o
+   caso 1.
+
+   3 - se $\forall i \in I, (\mu_i \geq 0)$, então basta multiplica todos os
+   $\mu_i$ por -1, de forma que todos os índices satisfarão os casos 1 ou 2.
+
+   Visto que conseguimos reduzir todos as alternativas ao caso 1, então
+   conseguimos escrever $\vec{x}$ como combinação cônica de $k$ direções, caso
+   ao qual se aplica a hipótese de indução, e, por conseguinte,
+   toda direção pode ser dada como combinação cônica de até
+   outras $n$.
+  \end{proof}
+\end{thm:caratheodory cones}
+
+\begin{cor:caratheodory cones}
+  Seja $D$ um conjunto de direções em $\mathbb{R}^n$. Se $\vec{x} \in \cone{D}$, então
+  $\vec{x}$ pode ser dado como combinação cônica de até no máximo $n$ direções
+  extremas de $\cone{D}$.
+\end{cor:caratheodory cones}
+
+O corolário anterior é ainda mais interessante no caso em que o cone convexo
+é finitamente gerado. Se $D$ é finito, então qualquer direção de
+$\cone{D}$ pode ser gerada por até $n$ direções extremas de $\cone{D}$,
+que é equivalente a dizer por até $n$ direções de $D$. Se $D$ for cônico-
+independente, então ele é o conjunto das direções extremas de $\cone{D}$.
+

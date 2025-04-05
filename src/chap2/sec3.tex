@@ -1,27 +1,24 @@
-% --------------------------------------------- DEFINIÇÃO ------------------------------------------
-\newtheorem{def:convex hull}{Definição}[section]
+% -------------------------- DEFINIÇÃO --------------------
+\newtheorem{def:convex hull}[def:conjunto convexo]{Definição}
 \newtheorem{def:independencia convexa}[def:conjunto convexo]{Definição}
 \newtheorem{def:simplex}[def:conjunto convexo]{Definição}
 \newtheorem{def:combinação afim}[def:conjunto convexo]{Definição}
-% -------------------------------------- PROPOSIÇÃO --------------------------
 
+% ------------------------- PROPOSIÇÃO --------------------
 \newtheorem{prop:redundancia}[prop:combinação convexa]{Proposição}
 \newtheorem{prop:pontos extremos na fronteira}[prop:combinação convexa]{Proposição}
 \newtheorem{prop:conjuntos convexos fechados}[prop:combinação convexa]{Proposição}
 \newtheorem{prop:conjuntos convexos limitados}[prop:combinação convexa]{Proposição}
 
 % ------------------------------ LEMA --------------------------
-
-\newtheorem{lemma:afim}{Lema}[section]
+\newtheorem{lemma:afim}{Lema}[chapter]
 
 %------------------------------ TEOREMA ---------------------------
-
-\newtheorem{thm:caratheodory}{Teorema}[section]
-\newtheorem{thm:conjuntos convexos compactos}{Teorema}[section]
+\newtheorem{thm:caratheodory}{Teorema}[chapter]
+\newtheorem{thm:conjuntos convexos compactos}[thm:caratheodory]{Teorema}
 
 % ---------------------------- COROLÁRIO -----------------------
-
-\newtheorem{cor:caratheodory}{Corolário}[section]
+\newtheorem{cor:caratheodory}{Corolário}[chapter]
 
 \section{Geometria dos Poliedros Convexos}
 
@@ -296,7 +293,7 @@ geradores.
 
 		Agora iremos tentar escrever $x$ como uma combinação convexa de até $n + 1$ pontos.
 		Para atingir esse objetivo, escolhemos $\alpha$ tal que
-		\[\alpha  = \min\left\{\frac{\lambda_i}{\mu_i}\  |\  i \in \{1,\ldots, k\} \text{ e } \mu_i > 0\right\}\]
+	\[\alpha  = \min{\frac{\lambda_i}{\mu_i}\  |\  i \in \{1,\ldots, k\} \text{ e } \mu_i > 0}\]
 		Logo, $\alpha > 0$, e para $i \in \{1, \ldots, k\}$, temos dois casos.
 
 		I - $\mu_i \geq 0$
