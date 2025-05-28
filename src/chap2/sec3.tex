@@ -410,12 +410,15 @@ Se $C$ é a envoltória convexa de $P$, então $C$ é fechado.
    o que vale para todo $\epsilon \in [0, 1]$.
 
    Se fazemos $\epsilon$ pequeno o suficiente, então a equação
-   \ref{eq:conjunto convexos fechados} expressa $\vec{x}$ como combinação
-   convexa de pontos de $P$
+   \ref{eq:conjunto convexos fechados} tende a expressar $\vec{x}$ como uma
+   combinação convexa de pontos de $P$
    \[
      \lim_{\epsilon \to 0} \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} \vec{p}_i
      = \sum_{i=1}^{k} \mu_i \vec{p}_i
    \]
+   e se $\epsilon = 0$, entaõ $\vec{x}$ estará sendo expresso como uma
+   combinação convexa de fato.
+
    Portanto, se $\vec{x}$ está na fronteira de $C = \conv{P}$, então
    $\vec{x} \in C$.
  \end{proof}

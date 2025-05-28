@@ -34,37 +34,36 @@ De forma mais geral, uma combinação linear convexa é aquela em que todos os e
 Além disso, chamamos de combinação estritamente convexa aquelas em que os escales são estritamente maiores que zero ou menores que 1.
 
 
-
 \subsection{Semiespaços e Hiperplanos}
-Semiespaços e hiperplanos generalizam o conceito geométrico do plano que é dividido por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um espaço de dimensão $n-1$. Um hiperplano divide o $\mathbb{R}^n$ em dois semiespaços. 
+Semiespaços e hiperplanos generalizam o conceito geométrico do plano que é dividido por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um espaço de dimensão $n-1$. Um hiperplano divide o $\mathbb{R}^n$ em dois semiespaços.
 
 Algebricamente, um hiperplano $H$ é o conjunto dos vetores $x \in \mathbb{R}^n$ que solucionam uma equação linear na forma $\transp{a} x = k$, onde $k \in \mathbb{R}$ é uma constante e $a \in \mathbb{R}^n$ é um vetor não nulo, geralmente conhecido como vetor normal ou gradiente.
 
 \begin{equation*}
 	H = \{x\ |\ a^\intercal x = k\}
-\end{equation*} 
+\end{equation*}
 
 Por sua vez, semiespaços são definidos algebricamente como inequações lineares. Se $H$ é um hiperplano no $\mathbb{R}^n$ definido pela equação $a^\intercal x = k$, então esse hiperplano divide o $\mathbb{R}^n$ em hiperespaços $H^+$ e $H^-$ que podem ser dados por
 \begin{align*}
 	H^+ = \{x \ |\ a^\intercal x  \geq k\} \quad
-	H^- = \{x \ |\ a^\intercal x  \leq k\} 
+	H^- = \{x \ |\ a^\intercal x  \leq k\}
 \end{align*}
 ou por
 \begin{align*}
 	H^+ = \{x \ |\ a^\intercal x  > k\} \quad
-	H^- = \{x \ |\ a^\intercal x  < k\} 
+	H^- = \{x \ |\ a^\intercal x  < k\}
 \end{align*}
 
 Os primeiros são \textbf{semiespaços fechados}, isto é, eles incluem sua fronteira, que consiste do hiperplano $H$. Por sua vez, os segundos são \textbf{semiespaços abertos}, pois não incluem sua fronteira. Tanto hiperplanos quanto semiespaços são conjuntos convexos. A demonstração disso fica como exercício para o leitor.
 
-Caso se lembres da forma como expressamos as restrições de um PPL, perceberás que o conjunto viável é na verdade a interseção de vários semiespaços fechados. Portanto, se $R$ é a região factível do PPL cujo conjunto de restrições é dado por $Ax \leq b$, por exemplo, então 
+Caso se lembres da forma como expressamos as restrições de um PPL, perceberás que o conjunto viável é na verdade a interseção de vários semiespaços fechados. Portanto, se $R$ é a região factível do PPL cujo conjunto de restrições é dado por $Ax \leq b$, por exemplo, então
 \[R = \{x \ | \ Ax \leq b\}\]
 e como a interseção de conjuntos convexos é também convexo, então as restrições de um problema de programação linear formam um conjunto convexo.
 
 \subsection{Poliedros e Politopos}
 Normalmente, aprendemos no ensino básico que poliedros são figuras tridimensionais formadas por faces poligonais. Por sua vez, polígonos seriam figuras bidimensionais limitadas, ou seja possuem uma área finita, formadas por segmentos de retas que se encontram em pontos chamados de vértices.
 
-Politopos surgem como uma espécie generalização dos conceitos clássicos de polígonos e poliedros \textbf{convexos} para o caso n-dimensional. Dessa forma, poliedros convexos, por exemplo, seriam politopos tridimensionais, enquanto que os polígonos convexos são politopos bidimensionais. 
+Politopos surgem como uma espécie generalização dos conceitos clássicos de polígonos e poliedros \textbf{convexos} para o caso n-dimensional. Dessa forma, poliedros convexos, por exemplo, seriam politopos tridimensionais, enquanto que os polígonos convexos são politopos bidimensionais.
 
 Apesar da noção clássica de poliedros se limitar ao caso tridimensional, a literatura matemática estende este conceito para n dimensões. Contudo, a definição formal de um poliedro de n-dimensões não é um consenso, e não é difícil encontrar definições diferentes, e por vezes não equivalentes, do que se trata esse objeto matemático.
 
@@ -80,11 +79,11 @@ Por sua vez, politopos são dados como
 	Um politopo é um poliedro convexo limitado
 \end{def:politopo}
 
-Para aqueles que não lembrarem, o conceito de limitado na matemática não é equivalente ao de finito. Formalmente, um conjunto limitado é aquele que pode ser contido dentro de uma bola de raio finito. 
+Para aqueles que não lembrarem, o conceito de limitado na matemática não é equivalente ao de finito. Formalmente, um conjunto limitado é aquele que pode ser contido dentro de uma bola de raio finito.
 
 Das definições percebemos que poliedros convexos podem ser dados como um sistema de inequações ou equações lineares. Por conseguinte, o espaço das soluções viáveis $R$ de um problema de PL é um poliedro convexo. Contudo, nem sempre esse espaço será um politopo, pois nem sempre temos um conjunto limitado de soluções factíveis.
 
-Visto isso, passaremos a nos referir a conjuntos convexos definidos como $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec{p}\}$, onde $A$ é uma matriz $m \times n$, como \textbf{conjunto poliédrico} ou \textbf{poliedro}. 
+Visto isso, passaremos a nos referir a conjuntos convexos definidos como $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec{p}\}$, onde $A$ é uma matriz $m \times n$, como \textbf{conjunto poliédrico} ou \textbf{poliedro}.
 
 \subsection{Cone Convexo}
 
@@ -108,11 +107,11 @@ Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
 	Se $A$ é um matriz $m \times n$, então um cone poliédrico convexo $C$ é aquele definido por
 	\begin{equation*}
 		C = \{\vec{x}\ |\ A \vec{x} \leq 0\}
-	\end{equation*}  
+	\end{equation*}
 \end{def:cpc}
 
 Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo hiperplano dado por \[\mathbf{\transp{a} x} = 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
 
 % Linear Programming and Network Flows
 % Mathematical programmin: an Introduction to optimization Melvyn Jeter
-% Sciencedirect veberte 
+% Sciencedirect veberte

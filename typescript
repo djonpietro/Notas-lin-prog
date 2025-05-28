@@ -1,0 +1,448 @@
+Script started on 2025-04-10 22:49:29-03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="190" LINES="41"]
+[0m[49m[39m[27m[24m[K
+
+[2A7[0m[49m[39m[38;5;240m╭─[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;255m  [0m[38;5;255m[48;5;236m[48;5;236m[38;5;255m [0m[38;5;255m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;31m   [1m[38;5;31m[48;5;236m[38;5;39m~[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m/Projects/[1m[38;5;31m[48;5;236m[38;5;39mNotas-lin-prog[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m[0m[38;5;31m[48;5;236m[48;5;236m[38;5;31m [0m[38;5;31m[48;5;236m[49m[38;5;236m[0m[38;5;236m[49m[39m[38;5;240m────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m✔[0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m[0m[38;5;70m[48;5;236m[48;5;236m[38;5;66m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;66m 10:49:29 PM[0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m  [0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m [49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;66m[0m[38;5;66m[48;5;236m[49m[39m
+[0m[49m[39m[38;5;240m╰─[0m[38;5;240m[49m[39m[0m[49m[39m [0m[49m[39m[?2004h[?25l8[0m[49m[39m[27m[24m[J]2;john@john-gear:~/Projects/Notas-lin-prog]1;..otas-lin-prog]7;file://john-gear/home/john/Projects/Notas-lin-prog\[0m[38;5;31m[49m[39m[27m[24m[1m[7m%[27m[1m[0m                                                                                                                                                                                             [0m[49m[39m[27m[24m[K[0m[27m[24m[J[0m[49m[39m
+[A[38;5;240m╭─[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;255m  [0m[38;5;255m[48;5;236m[48;5;236m[38;5;255m [0m[38;5;255m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;31m   [1m[38;5;31m[48;5;236m[38;5;39m~[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m/Projects/[1m[38;5;31m[48;5;236m[38;5;39mNotas-lin-prog[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m[0m[38;5;31m[48;5;236m[48;5;236m[38;5;31m [0m[38;5;31m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[48;5;236m[38;5;76m [0m[38;5;76m[48;5;236m[48;5;236m[38;5;178m [38;5;76m main [38;5;178m!4 [38;5;39m?1[0m[38;5;39m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[49m[38;5;236m[0m[38;5;236m[49m[39m[38;5;240m──────────────────────────────────────────────────────────────────────────────────────────────────────────────[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m✔[0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m[0m[38;5;70m[48;5;236m[48;5;236m[38;5;66m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;66m 10:49:29 PM[0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m  [0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m [49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;66m[0m[38;5;66m[48;5;236m[49m[39m
+[0m[49m[39m[38;5;240m╰─[0m[38;5;240m[49m[39m[0m[49m[39m [0m[49m[39m[K[?1h=[?25h[?2004hp[1m[31mp[0m[39m[1m[31mp[0m[39m[90mwd[39m[0m[39m [39m [39m c[1m[31mc[0m[39m[1m[31mc[0m[39m[90mlear[39m[1m[31mc[1m[31ml[0m[39m[1m[31mc[1m[31ml[1m[31me[0m[39m[1m[31me[1m[31ma[0m[39m[1m[31ma[1m[31mt[0m[39m[?1l>[?2004l
+]2;cleat]1;cleatzsh: command not found: cleat
+[1m[7m%[27m[1m[0m                                                                                                                                                                                              ]2;john@john-gear:~/Projects/Notas-lin-prog]1;..otas-lin-prog]7;file://john-gear/home/john/Projects/Notas-lin-prog\[0m[49m[39m[K
+[0m[27m[24m[J[0m[49m[39m
+[A[38;5;240m╭─[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;255m  [0m[38;5;255m[48;5;236m[48;5;236m[38;5;255m [0m[38;5;255m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;31m   [1m[38;5;31m[48;5;236m[38;5;39m~[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m/Projects/[1m[38;5;31m[48;5;236m[38;5;39mNotas-lin-prog[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m[0m[38;5;31m[48;5;236m[48;5;236m[38;5;31m [0m[38;5;31m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[48;5;236m[38;5;76m [0m[38;5;76m[48;5;236m[48;5;236m[38;5;178m [38;5;76m main [38;5;178m!4 [38;5;39m?1[0m[38;5;39m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[49m[38;5;236m[0m[38;5;236m[49m[39m[38;5;240m──────────────────────────────────────────────────────────────────────────────────────────────────────────[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;160m 127[0m[38;5;160m[48;5;236m[48;5;236m[38;5;160m ✘[0m[38;5;160m[48;5;236m[48;5;236m[38;5;160m [0m[38;5;160m[48;5;236m[48;5;236m[38;5;160m[0m[38;5;160m[48;5;236m[48;5;236m[38;5;66m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;66m 10:49:36 PM[0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m  [0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m [49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;66m[0m[38;5;66m[48;5;236m[49m[39m
+[0m[49m[39m[38;5;240m╰─[0m[38;5;240m[49m[39m[0m[49m[39m [0m[49m[39m[K[?1h=[?2004hg[32mg[39m[32mg[39m[90mit diff[39m[32mg[32mc[39m[39m [39m [39m [39m [39m [39m [90mc sample_code.c -o sample[39m[25D[32mg[32mc[32mc[39m[32mc[32m [39m[32mc[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[90m sample_code.c -o sample[39m[24D[32mg[32mc[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90mc sample_code.c -o sample[39m[25D[32mg[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26D[32mg[39m[90mit diff[39m[39m [39m [39m [39m [39m [39m [39m [39m [8Dm[1m[31mm[0m[39m[1m[31mm[0m[39m[90man curl[39m[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mn[0m[39m[0m[32mm[0m[32ma[0m[32mn[39m[32mn[32m [39m[32mn[39m[39m [39mg[39m [39m [39m [90mrep[39m[39mc[39m [39m c[?1l>[?2004l
+]2;man gcc]1;man[?1049h[22;0;0t[?1h=[4mGCC[24m(1)                                                                                     GNU                                                                                     [4mGCC[24m(1)[m
+[m
+[1mNAME[0m[m
+       gcc - GNU project C and C++ compiler[m
+[m
+[1mSYNOPSIS[0m[m
+       gcc [[1m-c[22m|[1m-S[22m|[1m-E[22m] [[1m-std=[4m[22mstandard[24m][m
+           [[1m-g[22m] [[1m-pg[22m] [[1m-O[4m[22mlevel[24m][m
+           [[1m-W[4m[22mwarn[24m...] [[1m-Wpedantic[22m][m
+           [[1m-I[4m[22mdir[24m...] [[1m-L[4m[22mdir[24m...][m
+           [[1m-D[4m[22mmacro[24m[=[4mdefn[24m]...] [[1m-U[4m[22mmacro[24m][m
+           [[1m-f[4m[22moption[24m...] [[1m-m[4m[22mmachine-option[24m...][m
+           [[1m-o [4m[22moutfile[24m] [@[4mfile[24m] [4minfile[24m...[m
+[m
+       Only the most useful options are listed here; see below for the remainder.  [1mg++ [22maccepts mostly the same options as [1mgcc[22m.[m
+[m
+[1mDESCRIPTION[0m[m
+       When you invoke GCC, it normally does preprocessing, compilation, assembly and linking.  The "overall options" allow you to stop this process at an intermediate stage.  For[m
+       example, the [1m-c [22moption says not to run the linker.  Then the output consists of object files output by the assembler.[m
+[m
+       Other options are passed on to one or more stages of processing.  Some options control the preprocessor and others the compiler itself.  Yet other options control the assembler[m
+       and linker; most of these are not documented here, since you rarely need to use any of them.[m
+[m
+       Most of the command-line options that you can use with GCC are useful for C programs; when an option is only useful with another language (usually C++), the explanation says so[m
+       explicitly.  If the description for a particular option does not mention a source language, you can use that option with all supported languages.[m
+[m
+       The usual way to run GCC is to run the executable called [1mgcc[22m, or [4mmachine[24m[1m-gcc [22mwhen cross-compiling, or [4mmachine[24m[1m-gcc-[4m[22mversion[24m to run a specific version of GCC.  When you compile C++[m
+       programs, you should invoke GCC as [1mg++ [22minstead.[m
+[m
+       The [1mgcc [22mprogram accepts options and file names as operands.  Many options have multi-letter names; therefore multiple single-letter options may [4mnot[24m be grouped: [1m-dv [22mis very[m
+       different from [1m-d -v[22m.[m
+[m
+       You can mix options and other arguments.  For the most part, the order you use doesn't matter.  Order does matter when you use several options of the same kind; for example, if[m
+       you specify [1m-L [22mmore than once, the directories are searched in the order specified.  Also, the placement of the [1m-l [22moption is significant.[m
+[m
+       Many options have long names starting with [1m-f [22mor with [1m-W[22m---for example, [1m-fmove-loop-invariants[22m, [1m-Wformat [22mand so on.  Most of these have both positive and negative forms; the[m
+       negative form of [1m-ffoo [22mis [1m-fno-foo[22m.  This manual documents only one of these two forms, whichever one is not the default.[m
+[m
+       Some options take one or more arguments typically separated either by a space or by the equals sign ([1m=[22m) from the option name.  Unless documented otherwise, an argument can be[m
+       either numeric or a string.  Numeric arguments must typically be small unsigned decimal or hexadecimal integers.  Hexadecimal arguments must begin with the [1m0x [22mprefix.  Arguments[m
+[7m Manual page gcc(1) line 1 (press h for help or q to quit)[27m[K[K...skipping...
+[m
+                   [1mSUMMARY[0m [1mOF[0m [1mLESS[0m [1mCOMMANDS[0m[m
+[m
+      Commands marked with * may be preceded by a number, [4mN[24m.[m
+      Notes in parentheses indicate the behavior if [4mN[24m is given.[m
+      A key preceded by a caret indicates the Ctrl key; thus ^K is ctrl-K.[m
+[m
+  h  H                 Display this help.[m
+  q  :q  Q  :Q  ZZ     Exit.[m
+ ---------------------------------------------------------------------------[m
+[m
+                           [1mMOVING[0m[m
+[m
+  e  ^E  j  ^N  CR  *  Forward  one line   (or [4mN[24m lines).[m
+  y  ^Y  k  ^K  ^P  *  Backward one line   (or [4mN[24m lines).[m
+  f  ^F  ^V  SPACE  *  Forward  one window (or [4mN[24m lines).[m
+  b  ^B  ESC-v      *  Backward one window (or [4mN[24m lines).[m
+  z                 *  Forward  one window (and set window to [4mN[24m).[m
+  w                 *  Backward one window (and set window to [4mN[24m).[m
+  ESC-SPACE         *  Forward  one window, but don't stop at end-of-file.[m
+  d  ^D             *  Forward  one half-window (and set half-window to [4mN[24m).[m
+  u  ^U             *  Backward one half-window (and set half-window to [4mN[24m).[m
+  ESC-)  RightArrow *  Right one half screen width (or [4mN[24m positions).[m
+  ESC-(  LeftArrow  *  Left  one half screen width (or [4mN[24m positions).[m
+  ESC-}  ^RightArrow   Right to last column displayed.[m
+  ESC-{  ^LeftArrow    Left  to first column.[m
+  F                    Forward forever; like "tail -f".[m
+  ESC-F                Like F but stop when search pattern is found.[m
+  r  ^R  ^L            Repaint screen.[m
+  R                    Repaint screen, discarding buffered input.[m
+        ---------------------------------------------------[m
+        Default "window" is the screen height.[m
+        Default "half-window" is half of the screen height.[m
+ ---------------------------------------------------------------------------[m
+[m
+                          [1mSEARCHING[0m[m
+[m
+  /[4mpattern[24m          *  Search forward for ([4mN[24m-th) matching line.[m
+  ?[4mpattern[24m          *  Search backward for ([4mN[24m-th) matching line.[m
+  n                 *  Repeat previous search (for [4mN[24m-th occurrence).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K  N                 *  Repeat previous search in reverse direction.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-n             *  Repeat previous search, spanning files.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-N             *  Repeat previous search, reverse dir. & spanning files.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-u                Undo (toggle) search highlighting.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-U                Clear search highlighting.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  &[4mpattern[24m          *  Display only matching lines.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ---------------------------------------------------[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        A search pattern may begin with one or more of:[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^N or !  Search for NON-matching lines.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^E or *  Search multiple files (pass thru END OF FILE).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^F or @  Start search at FIRST file (for /) or last file (for ?).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^K       Highlight matches, but don't move (KEEP position).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^R       Don't use REGULAR EXPRESSIONS.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ^W       WRAP search if no match found.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K ---------------------------------------------------------------------------[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  y  ^Y  k  ^K  ^P  *  Backward one line   (or [4mN[24m lines).[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K ---------------------------------------------------------------------------[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K                           [1mJUMPING[0m[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  g  <  ESC-<       *  Go to first line in file (or line [4mN[24m).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  G  >  ESC->       *  Go to last line in file (or line [4mN[24m).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  p  %              *  Go to beginning of file (or [4mN[24m percent into file).[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  t                 *  Go to the ([4mN[24m-th) next tag.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  T                 *  Go to the ([4mN[24m-th) previous tag.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  {  (  [           *  Find close bracket } ) ].[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  }  )  ]           *  Find open bracket { ( [.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-^F [4m<c1>[24m [4m<c2>[24m  *  Find close bracket [4m<c2>[24m.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  ESC-^B [4m<c1>[24m [4m<c2>[24m  *  Find open bracket [4m<c1>[24m.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        ---------------------------------------------------[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        Each "find close bracket" command goes forward to the close bracket [m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K          matching the ([4mN[24m-th) open bracket in the top line.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        Each "find open bracket" command goes backward to the open bracket [m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K          matching the ([4mN[24m-th) close bracket in the bottom line.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  m[4m<letter>[24m            Mark the current top line with <letter>.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  M[4m<letter>[24m            Mark the current bottom line with <letter>.[m
+  '[4m<letter>[24m            Go to a previously marked position.[m
+  ''                   Go to the previous position.[m
+  ^X^X                 Same as '.[m
+  ESC-M[4m<letter>[24m        Clear a mark.[m
+        ---------------------------------------------------[m
+        A mark is any upper-case or lower-case letter.[m
+        Certain marks are predefined:[m
+             ^  means  beginning of the file[m
+             $  means  end of the file[m
+ ---------------------------------------------------------------------------[m
+[m
+                        [1mCHANGING[0m [1mFILES[0m[m
+[m
+  :e [[4mfile[24m]            Examine a new file.[m
+  ^X^V                 Same as :e.[m
+  :n                *  Examine the ([4mN[24m-th) next file from the command line.[m
+  :p                *  Examine the ([4mN[24m-th) previous file from the command line.[m
+  :x                *  Examine the first (or [4mN[24m-th) file from the command line.[m
+  :d                   Delete the current file from the command line list.[m
+  =  ^G  :f            Print current file name.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K ---------------------------------------------------------------------------[m
+[m
+                    [1mMISCELLANEOUS[0m [1mCOMMANDS[0m[m
+[m
+  -[4m<flag>[24m              Toggle a command line option [see OPTIONS below].[m
+  --[4m<name>[24m             Toggle a command line option, by name.[m
+  _[4m<flag>[24m              Display the setting of a command line option.[m
+  __[4m<name>[24m             Display the setting of an option, by name.[m
+  +[4mcmd[24m                 Execute the less cmd each time a new file is examined.[m
+[m
+  ![4mcommand[24m             Execute the shell command with $SHELL.[m
+  |[1mX[0m[4mcommand[24m            Pipe file between current pos & mark [1mX[0m to shell command.[m
+  s [4mfile[24m               Save input to a file.[m
+  v                    Edit the current file with $VISUAL or $EDITOR.[m
+  V                    Print version number of "less".[m
+ ---------------------------------------------------------------------------[m
+[m
+                           [1mOPTIONS[0m[m
+[m
+        Most options may be changed either on the command line,[m
+        or from within less by using the - or -- command.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K        Options may be given in one of two forms: either a single[m
+        character preceded by a -, or a name preceded by --.[m
+[m
+  -?  ........  --help[m
+                  Display help (from command line).[m
+  -a  ........  --search-skip-screen[m
+                  Search skips current screen.[m
+  -A  ........  --SEARCH-SKIP-SCREEN[m
+                  Search starts just after target line.[m
+  -b [[4mN[24m]  ....  --buffers=[[4mN[24m][m
+                  Number of buffers.[m
+  -B  ........  --auto-buffers[m
+                  Don't automatically allocate buffers for pipes.[m
+  -c  ........  --clear-screen[m
+                  Repaint by clearing rather than scrolling.[m
+  -d  ........  --dumb[m
+                  Dumb terminal.[m
+  -D [1mx[0m[4mcolor[24m  .  --color=[1mx[0m[4mcolor[24m[m
+                  Set screen colors.[m
+  -e  -E  ....  --quit-at-eof  --QUIT-AT-EOF[m
+                  Quit at end of file.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  -f  ........  --force[m
+                  Force open non-regular files.[m
+  -F  ........  --quit-if-one-screen[m
+                  Quit if entire file fits on first screen.[m
+  -g  ........  --hilite-search[m
+                  Highlight only last match for searches.[m
+  -G  ........  --HILITE-SEARCH[m
+                  Don't highlight any matches for searches.[m
+  -h [[4mN[24m]  ....  --max-back-scroll=[[4mN[24m][m
+                  Backward scroll limit.[m
+  -i  ........  --ignore-case[m
+                  Ignore case in searches that do not contain uppercase.[m
+  -I  ........  --IGNORE-CASE[m
+                  Ignore case in all searches.[m
+  -j [[4mN[24m]  ....  --jump-target=[[4mN[24m][m
+                  Screen position of target lines.[m
+  -J  ........  --status-column[m
+                  Display a status column at left edge of screen.[m
+  -k [[4mfile[24m]  .  --lesskey-file=[[4mfile[24m][m
+                  Use a lesskey file.[m
+  -K  ........  --quit-on-intr[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K                  Exit less in response to ctrl-C.[m
+  -L  ........  --no-lessopen[m
+                  Ignore the LESSOPEN environment variable.[m
+  -m  -M  ....  --long-prompt  --LONG-PROMPT[m
+                  Set prompt style.[m
+  -n  -N  ....  --line-numbers  --LINE-NUMBERS[m
+                  Don't use line numbers.[m
+  -o [[4mfile[24m]  .  --log-file=[[4mfile[24m][m
+                  Copy to log file (standard input only).[m
+  -O [[4mfile[24m]  .  --LOG-FILE=[[4mfile[24m][m
+                  Copy to log file (unconditionally overwrite).[m
+  -p [[4mpattern[24m]  --pattern=[[4mpattern[24m][m
+                  Start at pattern (from command line).[m
+  -P [[4mprompt[24m]   --prompt=[[4mprompt[24m][m
+                  Define new prompt.[m
+  -q  -Q  ....  --quiet  --QUIET  --silent --SILENT[m
+                  Quiet the terminal bell.[m
+  -r  -R  ....  --raw-control-chars  --RAW-CONTROL-CHARS[m
+                  Output "raw" control characters.[m
+  -s  ........  --squeeze-blank-lines[m
+                  Squeeze multiple blank lines.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K  -S  ........  --chop-long-lines[m
+                  Chop (truncate) long lines rather than wrapping.[m
+  -t [[4mtag[24m]  ..  --tag=[[4mtag[24m][m
+                  Find a tag.[m
+  -T [[4mtagsfile[24m] --tag-file=[[4mtagsfile[24m][m
+                  Use an alternate tags file.[m
+  -u  -U  ....  --underline-special  --UNDERLINE-SPECIAL[m
+                  Change handling of backspaces.[m
+  -V  ........  --version[m
+                  Display the version number of "less".[m
+  -w  ........  --hilite-unread[m
+                  Highlight first new line after forward-screen.[m
+  -W  ........  --HILITE-UNREAD[m
+                  Highlight first new line after any forward movement.[m
+  -x [[4mN[24m[,...]]  --tabs=[[4mN[24m[,...]][m
+                  Set tab stops.[m
+  -X  ........  --no-init[m
+                  Don't use termcap init/deinit strings.[m
+  -y [[4mN[24m]  ....  --max-forw-scroll=[[4mN[24m][m
+                  Forward scroll limit.[m
+  -z [[4mN[24m]  ....  --window=[[4mN[24m][m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K                  Set size of window.[m
+  -" [[4mc[24m[[4mc[24m]]  .  --quotes=[[4mc[24m[[4mc[24m]][m
+                  Set shell quote characters.[m
+  -~  ........  --tilde[m
+                  Don't display tildes after end of file.[m
+  -# [[4mN[24m]  ....  --shift=[[4mN[24m][m
+                  Set horizontal scroll amount (0 = one half screen width).[m
+                --file-size[m
+                  Automatically determine the size of the input file.[m
+                --follow-name[m
+                  The F command changes files if the input file is renamed.[m
+                --incsearch[m
+                  Search file as each pattern character is typed in.[m
+                --line-num-width=N[m
+                  Set the width of the -N line number field to N characters.[m
+                --mouse[m
+                  Enable mouse input.[m
+                --no-keypad[m
+                  Don't send termcap keypad init/deinit strings.[m
+                --no-histdups[m
+                  Remove duplicates from command history.[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K                --rscroll=C[m
+                  Set the character used to mark truncated lines.[m
+                --save-marks[m
+                  Retain marks across invocations of less.[m
+                --status-col-width=N[m
+                  Set the width of the -J status column to N characters.[m
+                --use-backslash[m
+                  Subsequent options use backslash as escape char.[m
+                --use-color[m
+                  Enables colored text.[m
+                --wheel-lines=N[m
+                  Each click of the mouse wheel moves N lines.[m
+[m
+[m
+ ---------------------------------------------------------------------------[m
+[m
+                          [1mLINE[0m [1mEDITING[0m[m
+[m
+        These keys can be used to edit text being entered [m
+        on the "command line" at the bottom of the screen.[m
+[m
+[7mHELP -- Press RETURN for more, or q when done[27m[K[K RightArrow ..................... ESC-l ... Move cursor right one character.[m
+ LeftArrow ...................... ESC-h ... Move cursor left one character.[m
+ ctrl-RightArrow  ESC-RightArrow  ESC-w ... Move cursor right one word.[m
+ ctrl-LeftArrow   ESC-LeftArrow   ESC-b ... Move cursor left one word.[m
+ HOME ........................... ESC-0 ... Move cursor to start of line.[m
+ END ............................ ESC-$ ... Move cursor to end of line.[m
+ BACKSPACE ................................ Delete char to left of cursor.[m
+ DELETE ......................... ESC-x ... Delete char under cursor.[m
+ ctrl-BACKSPACE   ESC-BACKSPACE ........... Delete word to left of cursor.[m
+ ctrl-DELETE .... ESC-DELETE .... ESC-X ... Delete word under cursor.[m
+ ctrl-U ......... ESC (MS-DOS only) ....... Delete entire line.[m
+ UpArrow ........................ ESC-k ... Retrieve previous command line.[m
+ DownArrow ...................... ESC-j ... Retrieve next command line.[m
+ TAB ...................................... Complete filename & cycle.[m
+ SHIFT-TAB ...................... ESC-TAB   Complete filename & reverse cycle.[m
+ ctrl-L ................................... Complete filename, list all.[m
+[7mHELP -- END -- Press g to see it again, or q when done[27m[K[K[K[7mHELP -- END -- Press g to see it again, or q when done[27m[K[K[K[7mHELP -- END -- Press g to see it again, or q when done[27m[K[K[HM                --no-keypad[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Enable mouse input.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                --mouse[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set the width of the -N line number field to N characters.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                --line-num-width=N[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Search file as each pattern character is typed in.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                --incsearch[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  The F command changes files if the input file is renamed.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                --follow-name[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Automatically determine the size of the input file.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                --file-size[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set horizontal scroll amount (0 = one half screen width).[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -# [[4mN[24m]  ....  --shift=[[4mN[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Don't display tildes after end of file.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -~  ........  --tilde[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set shell quote characters.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -" [[4mc[24m[[4mc[24m]]  .  --quotes=[[4mc[24m[[4mc[24m]][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set size of window.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -z [[4mN[24m]  ....  --window=[[4mN[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Forward scroll limit.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -y [[4mN[24m]  ....  --max-forw-scroll=[[4mN[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Don't use termcap init/deinit strings.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -X  ........  --no-init[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set tab stops.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -x [[4mN[24m[,...]]  --tabs=[[4mN[24m[,...]][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Highlight first new line after any forward movement.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -W  ........  --HILITE-UNREAD[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Highlight first new line after forward-screen.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -w  ........  --hilite-unread[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Display the version number of "less".[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -V  ........  --version[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Change handling of backspaces.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -u  -U  ....  --underline-special  --UNDERLINE-SPECIAL[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Use an alternate tags file.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -T [[4mtagsfile[24m] --tag-file=[[4mtagsfile[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Find a tag.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -t [[4mtag[24m]  ..  --tag=[[4mtag[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Chop (truncate) long lines rather than wrapping.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -S  ........  --chop-long-lines[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Squeeze multiple blank lines.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -s  ........  --squeeze-blank-lines[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Output "raw" control characters.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -r  -R  ....  --raw-control-chars  --RAW-CONTROL-CHARS[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Quiet the terminal bell.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -q  -Q  ....  --quiet  --QUIET  --silent --SILENT[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Define new prompt.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -P [[4mprompt[24m]   --prompt=[[4mprompt[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Start at pattern (from command line).[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -p [[4mpattern[24m]  --pattern=[[4mpattern[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Copy to log file (unconditionally overwrite).[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -O [[4mfile[24m]  .  --LOG-FILE=[[4mfile[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Copy to log file (standard input only).[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -o [[4mfile[24m]  .  --log-file=[[4mfile[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Don't use line numbers.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -n  -N  ....  --line-numbers  --LINE-NUMBERS[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set prompt style.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -m  -M  ....  --long-prompt  --LONG-PROMPT[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Ignore the LESSOPEN environment variable.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -L  ........  --no-lessopen[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Exit less in response to ctrl-C.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -K  ........  --quit-on-intr[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Use a lesskey file.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -k [[4mfile[24m]  .  --lesskey-file=[[4mfile[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Display a status column at left edge of screen.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -J  ........  --status-column[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Screen position of target lines.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -j [[4mN[24m]  ....  --jump-target=[[4mN[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Ignore case in all searches.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -I  ........  --IGNORE-CASE[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Ignore case in searches that do not contain uppercase.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -i  ........  --ignore-case[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Backward scroll limit.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -h [[4mN[24m]  ....  --max-back-scroll=[[4mN[24m][m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Don't highlight any matches for searches.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -G  ........  --HILITE-SEARCH[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Highlight only last match for searches.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -g  ........  --hilite-search[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Quit if entire file fits on first screen.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -F  ........  --quit-if-one-screen[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Force open non-regular files.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -f  ........  --force[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Quit at end of file.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -e  -E  ....  --quit-at-eof  --QUIT-AT-EOF[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Set screen colors.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -D [1mx[0m[4mcolor[24m  .  --color=[1mx[0m[4mcolor[24m[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM                  Dumb terminal.[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K[HM  -d  ........  --dumb[m
+[41;1H[K[7mHELP -- Press RETURN for more, or q when done[27m[K[K  -P [[4mprompt[24m]   --prompt=[[4mprompt[24m][m
+[7mHELP -- Press RETURN for more, or q when done[27m[K...skipping...
+[4mGCC[24m(1)                                                                                     GNU                                                                                     [4mGCC[24m(1)[m
+[m
+[1mNAME[0m[m
+       gcc - GNU project C and C++ compiler[m
+[m
+[1mSYNOPSIS[0m[m
+       gcc [[1m-c[22m|[1m-S[22m|[1m-E[22m] [[1m-std=[4m[22mstandard[24m][m
+           [[1m-g[22m] [[1m-pg[22m] [[1m-O[4m[22mlevel[24m][m
+           [[1m-W[4m[22mwarn[24m...] [[1m-Wpedantic[22m][m
+           [[1m-I[4m[22mdir[24m...] [[1m-L[4m[22mdir[24m...][m
+           [[1m-D[4m[22mmacro[24m[=[4mdefn[24m]...] [[1m-U[4m[22mmacro[24m][m
+           [[1m-f[4m[22moption[24m...] [[1m-m[4m[22mmachine-option[24m...][m
+           [[1m-o [4m[22moutfile[24m] [@[4mfile[24m] [4minfile[24m...[m
+[m
+       Only the most useful options are listed here; see below for the remainder.  [1mg++ [22maccepts mostly the same options as [1mgcc[22m.[m
+[m
+[1mDESCRIPTION[0m[m
+       When you invoke GCC, it normally does preprocessing, compilation, assembly and linking.  The "overall options" allow you to stop this process at an intermediate stage.  For[m
+       example, the [1m-c [22moption says not to run the linker.  Then the output consists of object files output by the assembler.[m
+[m
+       Other options are passed on to one or more stages of processing.  Some options control the preprocessor and others the compiler itself.  Yet other options control the assembler[m
+       and linker; most of these are not documented here, since you rarely need to use any of them.[m
+[m
+       Most of the command-line options that you can use with GCC are useful for C programs; when an option is only useful with another language (usually C++), the explanation says so[m
+       explicitly.  If the description for a particular option does not mention a source language, you can use that option with all supported languages.[m
+[m
+       The usual way to run GCC is to run the executable called [1mgcc[22m, or [4mmachine[24m[1m-gcc [22mwhen cross-compiling, or [4mmachine[24m[1m-gcc-[4m[22mversion[24m to run a specific version of GCC.  When you compile C++[m
+       programs, you should invoke GCC as [1mg++ [22minstead.[m
+[m
+       The [1mgcc [22mprogram accepts options and file names as operands.  Many options have multi-letter names; therefore multiple single-letter options may [4mnot[24m be grouped: [1m-dv [22mis very[m
+       different from [1m-d -v[22m.[m
+[m
+       You can mix options and other arguments.  For the most part, the order you use doesn't matter.  Order does matter when you use several options of the same kind; for example, if[m
+       you specify [1m-L [22mmore than once, the directories are searched in the order specified.  Also, the placement of the [1m-l [22moption is significant.[m
+[m
+       Many options have long names starting with [1m-f [22mor with [1m-W[22m---for example, [1m-fmove-loop-invariants[22m, [1m-Wformat [22mand so on.  Most of these have both positive and negative forms; the[m
+       negative form of [1m-ffoo [22mis [1m-fno-foo[22m.  This manual documents only one of these two forms, whichever one is not the default.[m
+[m
+       Some options take one or more arguments typically separated either by a space or by the equals sign ([1m=[22m) from the option name.  Unless documented otherwise, an argument can be[m
+       either numeric or a string.  Numeric arguments must typically be small unsigned decimal or hexadecimal integers.  Hexadecimal arguments must begin with the [1m0x [22mprefix.  Arguments[m
+[7m Manual page gcc(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t[1m[7m%[27m[1m[0m                                                                                                                                                                                              ]2;john@john-gear:~/Projects/Notas-lin-prog]1;..otas-lin-prog]7;file://john-gear/home/john/Projects/Notas-lin-prog\[0m[49m[39m[K
+[0m[27m[24m[J[0m[49m[39m
+[A[38;5;240m╭─[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;255m  [0m[38;5;255m[48;5;236m[48;5;236m[38;5;255m [0m[38;5;255m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;31m   [1m[38;5;31m[48;5;236m[38;5;39m~[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m/Projects/[1m[38;5;31m[48;5;236m[38;5;39mNotas-lin-prog[0m[38;5;39m[48;5;236m[48;5;236m[38;5;31m[0m[38;5;31m[48;5;236m[48;5;236m[38;5;31m [0m[38;5;31m[48;5;236m[48;5;236m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[48;5;236m[38;5;76m [0m[38;5;76m[48;5;236m[48;5;236m[38;5;178m [38;5;76m main [38;5;178m!4 [38;5;39m?1[0m[38;5;39m[48;5;236m[48;5;236m[38;5;178m [0m[38;5;178m[48;5;236m[49m[38;5;236m[0m[38;5;236m[49m[39m[38;5;240m─────────────────────────────────────────────────────────────────────────────────────────────────────[0m[38;5;240m[49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m✔[0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m [0m[38;5;70m[48;5;236m[48;5;236m[38;5;70m[0m[38;5;70m[48;5;236m[48;5;236m[38;5;248m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;248m 18s[0m[38;5;248m[48;5;236m[48;5;236m[38;5;248m  [0m[38;5;248m[48;5;236m[48;5;236m[38;5;248m [0m[38;5;248m[48;5;236m[48;5;236m[38;5;248m[0m[38;5;248m[48;5;236m[48;5;236m[38;5;66m[38;5;244m[0m[38;5;244m[48;5;236m[48;5;236m[38;5;66m 10:50:03 PM[0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m  [0m[38;5;66m[48;5;236m[48;5;236m[38;5;66m [49m[38;5;236m[0m[38;5;236m[48;5;236m[38;5;66m[0m[38;5;66m[48;5;236m[49m[39m
+[0m[49m[39m[38;5;240m╰─[0m[38;5;240m[49m[39m[0m[49m[39m [0m[49m[39m[K[?1h=[?2004he[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[1m[31me[1m[31mx[0m[39m[0m[32me[0m[32mx[39m[32me[32mx[32mi[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[1m[31mi[1m[31mt[0m[39m[0m[32me[0m[32mx[0m[32mi[0m[32mt[39m[?1l>[?2004l
+]2;exit]1;exit
+Script done on 2025-04-10 22:54:54-03:00 [COMMAND_EXIT_CODE="0"]
