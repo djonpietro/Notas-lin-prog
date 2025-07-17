@@ -14,91 +14,143 @@
 
 \newtheorem{def:cpc}[def:conjunto convexo]{Definição}
 
-
-
 \section{Espaços Convexos}
 
 \subsection{Conjuntos Convexos}
 
-Um dos conceitos mais fundamentais para a Teoria de PL é a de \textbf{convexidade}. Na Geometria, convexidade é definida como a propriedade de uma figura em que, para quaisquer pontos no seu interior, o segmento de reta entre esses pontos está inteiramente contido na figura. Mas podemos definir convexidade algebricamente da seguinte forma:
+Um dos conceitos mais fundamentais para a Teoria de PL é a de \textbf{convexidade}.
+Na Geometria, convexidade é definida como a propriedade de uma figura em que,
+para quaisquer pontos no seu interior, o segmento de reta entre esses pontos
+está inteiramente contido na figura. Mas podemos definir convexidade algebricamente
+da seguinte forma:
 
 \begin{def:conjunto convexo}
 	\label{def:conjunto convexo}
-	Um conjunto $\mathbb{V}$ no $\mathbb{R}^n$ é chamado convexo se para quaisquer vetores $x_1, x_2 \in \mathbb{V}$ é verdade que \[\lambda x_1 + (1 - \lambda)x_2 \in \mathbb{V}\] para todo $\lambda \in [0, 1]$
+	Um conjunto $X$ no $\mathbb{R}^n$ é chamado convexo se para quaisquer
+	vetores $\vec x_1, \vec x_2 \in \mathbb{V}$ é verdade que
+	\[\lambda \vec x_1 + (1 - \lambda)\vec x_2 \in \mathbb{V}\]
+	para todo $\lambda \in [0, 1]$
 \end{def:conjunto convexo}
 
-Aqueles com algum conhecimento de geometria analítica devem se lembrar que uma combinação linear de vetores na forma $\lambda x_1 + (1 - \lambda)x_2$ com $\lambda \in [0, 1]$ define o segmento de reta que une as extremidades desses vetores. Esse tipo de combinação é chamada de convexa.
+Aqueles com algum conhecimento de geometria analítica devem se lembrar que uma
+combinação linear de vetores na forma $\lambda \vec x_1 + (1 - \lambda)\vec x_2$
+com $\lambda \in [0, 1]$ define o segmento de reta que une as extremidades desses
+vetores. Esse tipo de combinação é chamada de convexa.
 
-De forma mais geral, uma combinação linear convexa é aquela em que todos os escales são positivos e sua soma é igual a 1. Então supondo um conjunto de geradores formado por $x_1, \ldots, x_n$ e escalares $\lambda_1, \ldots, \lambda_n$, então a combinação linear
-\[x = \sum_{i=1}^{n} \lambda_i x_i\] é convexa se \[\sum_{i=1}^{n} \lambda_i = 1,\ 0 \leq \lambda_i \leq 1\]
-Além disso, chamamos de combinação estritamente convexa aquelas em que os escales são estritamente maiores que zero ou menores que 1.
+De forma mais geral, uma combinação linear convexa é aquela em que todos os
+scales são positivos e sua soma é igual a 1. Então supondo um conjunto de pontos
+formado por $\vec x_1, \ldots, \vec x_n$ e escalares $\lambda_1, \ldots, \lambda_n$,
+então a combinação linear
+\[\vec x = \sum_{i=1}^{n} \lambda_i \vec x_i\] é convexa se, e somente se,
+\[\sum_{i=1}^{n} \lambda_i = 1,\ 0 \leq \lambda_i \leq 1\]
+Além disso, chamamos de combinação estritamente convexa aquelas em que os escales
+são estritamente maiores que zero e menores que 1.
 
+\subsection{Meio-espaços e Hiperplanos}
+Meio-espaços e hiperplanos generalizam o conceito geométrico do plano que é dividido
+por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um
+espaço de dimensão $n-1$. Um hiperplano divide o $\mathbb{R}^n$ em dois meio-espaços.
 
-\subsection{Semiespaços e Hiperplanos}
-Semiespaços e hiperplanos generalizam o conceito geométrico do plano que é dividido por um reta, gerando-se dois semiplanos. Um hiperplano no $\mathbb{R}^n$ é um espaço de dimensão $n-1$. Um hiperplano divide o $\mathbb{R}^n$ em dois semiespaços.
-
-Algebricamente, um hiperplano $H$ é o conjunto dos vetores $x \in \mathbb{R}^n$ que solucionam uma equação linear na forma $\transp{a} x = k$, onde $k \in \mathbb{R}$ é uma constante e $a \in \mathbb{R}^n$ é um vetor não nulo, geralmente conhecido como vetor normal ou gradiente.
+Algebricamente, um hiperplano $H$ é o conjunto dos vetores $\vec x \in \mathbb{R}^n$
+que solucionam uma equação na forma $\transp{\vec a} \vec x = k$, onde
+$k \in \mathbb{R}$ é uma constante e $\vec a \in \mathbb{R}^n$ é um vetor não nulo,
+geralmente conhecido como vetor normal ou gradiente.
 
 \begin{equation*}
-	H = \{x\ |\ a^\intercal x = k\}
+	H = \{\vec x\ |\ \vec a^\intercal \vec x = k\}
 \end{equation*}
 
-Por sua vez, semiespaços são definidos algebricamente como inequações lineares. Se $H$ é um hiperplano no $\mathbb{R}^n$ definido pela equação $a^\intercal x = k$, então esse hiperplano divide o $\mathbb{R}^n$ em hiperespaços $H^+$ e $H^-$ que podem ser dados por
+Por sua vez, meio-espaços são definidos algebricamente como inequações lineares.
+Se $H$ é um hiperplano no $\mathbb{R}^n$ definido pela equação $\vec a^\intercal x = k$,
+então esse hiperplano divide o $\mathbb{R}^n$ em meio-espaços $H^+$ e $H^-$ que
+podem ser dados por
 \begin{align*}
-	H^+ = \{x \ |\ a^\intercal x  \geq k\} \quad
+	H^+ = \{\vec x \ |\ \vec a^\intercal \vec x  \geq k\} \quad
 	H^- = \{x \ |\ a^\intercal x  \leq k\}
 \end{align*}
 ou por
 \begin{align*}
-	H^+ = \{x \ |\ a^\intercal x  > k\} \quad
-	H^- = \{x \ |\ a^\intercal x  < k\}
+	H^+ = \{\vec x \ |\ \vec a^\intercal \vec x  > k\} \quad
+	H^- = \{\vec x \ |\ \vec a^\intercal \vec x  < k\}
 \end{align*}
 
-Os primeiros são \textbf{semiespaços fechados}, isto é, eles incluem sua fronteira, que consiste do hiperplano $H$. Por sua vez, os segundos são \textbf{semiespaços abertos}, pois não incluem sua fronteira. Tanto hiperplanos quanto semiespaços são conjuntos convexos. A demonstração disso fica como exercício para o leitor.
+Os primeiros são \textbf{meio-espaços fechados}, isto é, eles incluem sua fronteira,
+que consiste do hiperplano $H$. Por sua vez, os segundos são \textbf{meio-espaços abertos},
+pois não incluem sua fronteira. Tanto hiperplanos quanto meio-espaços são conjuntos convexos.
+A demonstração disso fica como exercício para o leitor.
 
-Caso se lembres da forma como expressamos as restrições de um PPL, perceberás que o conjunto viável é na verdade a interseção de vários semiespaços fechados. Portanto, se $R$ é a região factível do PPL cujo conjunto de restrições é dado por $Ax \leq b$, por exemplo, então
-\[R = \{x \ | \ Ax \leq b\}\]
-e como a interseção de conjuntos convexos é também convexo, então as restrições de um problema de programação linear formam um conjunto convexo.
+Caso se lembres da forma como expressamos as restrições de um PPL, perceberás
+que o conjunto viável é na verdade a interseção de vários meio-espaços fechados.
+Portanto, se $R$ é a região factível do PPL cujo conjunto de restrições é dado
+por $A\vec x \leq \vec b$, por exemplo, então
+\[X = \{\vec x \ | \ A\vec x \leq \vec b\}\]
+e como a interseção de conjuntos convexos é também convexo, então as restrições
+de um problema de programação linear formam um conjunto convexo.
 
 \subsection{Poliedros e Politopos}
-Normalmente, aprendemos no ensino básico que poliedros são figuras tridimensionais formadas por faces poligonais. Por sua vez, polígonos seriam figuras bidimensionais limitadas, ou seja possuem uma área finita, formadas por segmentos de retas que se encontram em pontos chamados de vértices.
+Normalmente, denominamos como poliedros figuras tridimensionais
+formadas por faces poligonais. Por sua vez, polígonos seriam figuras bidimensionais
+limitadas, ou seja possuem uma área finita, formadas por segmentos de retas que se
+encontram em pontos chamados de vértices.
 
-Politopos surgem como uma espécie generalização dos conceitos clássicos de polígonos e poliedros \textbf{convexos} para o caso n-dimensional. Dessa forma, poliedros convexos, por exemplo, seriam politopos tridimensionais, enquanto que os polígonos convexos são politopos bidimensionais.
+Politopos surgem como uma espécie generalização dos conceitos clássicos de polígonos
+e poliedros \textbf{convexos} para o caso n-dimensional. Dessa forma, poliedros
+convexos, por exemplo, seriam politopos tridimensionais, enquanto que os polígonos
+convexos são politopos bidimensionais.
 
-Apesar da noção clássica de poliedros se limitar ao caso tridimensional, a literatura matemática estende este conceito para n dimensões. Contudo, a definição formal de um poliedro de n-dimensões não é um consenso, e não é difícil encontrar definições diferentes, e por vezes não equivalentes, do que se trata esse objeto matemático.
+Apesar da noção clássica de poliedros se limitar ao caso tridimensional, a
+literatura matemática estende este conceito para n dimensões. Contudo, a definição
+formal de um poliedro de n-dimensões não é um consenso, e não é difícil encontrar
+definições diferentes, e por vezes não equivalentes, do que se trata esse objeto
+matemático.
 
-Dito isso, e pelo fato da Teoria de PL se concentrar mais especificamente na classe dos poliedros \textbf{convexos}, que são melhores definidos, não iremos tratar das outras classes. Dessa forma, segue uma definição conveniente para ao Teoria de PL do que é um poliedro convexo.
+Dito isso, e pelo fato da Teoria de PL se concentrar mais especificamente na classe
+dos poliedros \textbf{convexos}, que são melhores definidos, não iremos tratar das
+outras classes. Dessa forma, segue uma definição conveniente para ao Teoria de PL
+dos conceitos de poliedro e politopo.
 
 \begin{def:poliedro convexo}
-	Um poliedro convexo é a interseção de um número finito de semiespaços.
+	Um poliedro convexo é a interseção de um número finito de meio-espaços.
+	Um politopo é um poliedro convexo limitado.
 \end{def:poliedro convexo}
 
-Por sua vez, politopos são dados como
+Para aqueles não familiarizados com o conceito de limitado, esse na matemática não é equivalente
+ao de finito. De modo geral, um conjunto limitado é aquele que pode ser contido
+dentro de uma região finita no mesmo espaço que o contém.
 
-\begin{def:politopo}
-	Um politopo é um poliedro convexo limitado
-\end{def:politopo}
+Das definições percebemos que poliedros convexos podem ser dados como um sistema
+e inequações ou equações lineares. Por conseguinte, o espaço das soluções viáveis
+de um problema de PL é um poliedro convexo. Contudo, nem sempre esse espaço
+será um politopo, pois nem sempre temos um conjunto limitado de soluções factíveis.
 
-Para aqueles que não lembrarem, o conceito de limitado na matemática não é equivalente ao de finito. Formalmente, um conjunto limitado é aquele que pode ser contido dentro de uma bola de raio finito.
-
-Das definições percebemos que poliedros convexos podem ser dados como um sistema de inequações ou equações lineares. Por conseguinte, o espaço das soluções viáveis $R$ de um problema de PL é um poliedro convexo. Contudo, nem sempre esse espaço será um politopo, pois nem sempre temos um conjunto limitado de soluções factíveis.
-
-Visto isso, passaremos a nos referir a conjuntos convexos definidos como $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec{p}\}$, onde $A$ é uma matriz $m \times n$, como \textbf{conjunto poliédrico} ou \textbf{poliedro}.
+Visto isso, passaremos a nos referir a conjuntos convexos definidos como
+$X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec{p}\}$, onde $A$ é uma
+matriz $m \times n$, como \textbf{conjunto poliédrico} ou \textbf{poliedro}.
 
 \subsection{Cone Convexo}
 
-\textbf{Cones lineares}, chamados geralmente apenas de cones, são um subconjunto de um espaço vetorial $\mathbb{V}$ fechado sobre multiplicação por escalar positivo. Algebricamente, um cone é definido como um conjunto $C$ em que para todo $\mathbf{x} \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade que \(\lambda \mathbf{x} \in C\). Dessa definição segue que a origem sempre é um membro do cone, caso em que $\lambda = 0$. Uma classe especial dos cones são os convexos, que são definidos como
+\textbf{Cones lineares}, chamados geralmente apenas de cones, são um subconjunto
+de um espaço vetorial $\mathbb{V}$ fechado sobre multiplicação por escalar
+positivo. Algebricamente, um cone é definido como um conjunto $C$ em que para
+todo $\mathbf x \in C$ e todo $\lambda \in \mathbb{R}$ não negativo é verdade
+que \(\lambda \mathbf{x} \in C\). Dessa definição segue que a origem sempre é um
+membro do cone, caso em que $\lambda = 0$. Uma classe especial dos cones são os
+convexos, que são definidos como
 
 \begin{def:cone convexo}
 	Um cone $C$ é convexo se para quaisquer $\mathbf{x_1, x_2} \in C$ temos que $\mathbf{x_1} + \mathbf{x_2} \in C$
 \end{def:cone convexo}
 
-Do que foi dito até então, é fácil ver que, se um conjunto é fechado por multiplicação por escalares positivos e sobre a adição, então ele é um conjunto convexo.
+Do que foi dito até então, é fácil ver que, se um conjunto é fechado por multiplicação
+por escalares positivos e sobre a adição, então ele é um conjunto convexo.
 
-Devido a essas definições, combinações lineares entre pontos tais que os escales são estritamente positivos são chamadas de combinações cônicas. Dito isso, iremos enunciar uma definição que será mais importante no futuro.
+Devido a essas definições, combinações lineares entre pontos tais que os escales
+são estritamente positivos são chamadas de combinações cônicas. Dito isso, iremos
+enunciar uma definição que será mais importante no futuro.
 
 \begin{def:cone hull}
-	Seja $P$ um conjunto de pontos em um espaço vetorial $\mathbb{V}$. Chama-se envoltória cônica o conjunto $\cone{P}$ o conjunto de todas as combinações cônicas dos elementos de $P$
+  Seja $P$ um conjunto de pontos em $\mathbb{R}^n$. Chama-se envoltória cônica o
+  conjunto $\cone{P}$ o conjunto de todas as combinações cônicas dos elementos de $P$
 \end{def:cone hull}
 
 Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
@@ -110,7 +162,10 @@ Uma classe ainda mais especial dos cones, são os cones poliédricos convexos
 	\end{equation*}
 \end{def:cpc}
 
-Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o vetor normal ao íésimo hiperplano dado por \[\mathbf{\transp{a} x} = 0\]Os cones poliédricos convexos desempenham um importante papel na Teoria dos Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
+Uma propriedade interessante dessa classe de cones é que a iésima linha da matriz $A$ é o
+vetor normal ao íésimo hiperplano dado por \[\mathbf{\transp{a} x} = 0\]
+Os cones poliédricos convexos desempenham um importante papel na Teoria dos
+Problemas Duais de PL, que abordaremos nos capítulos mais adiante.
 
 % Linear Programming and Network Flows
 % Mathematical programmin: an Introduction to optimization Melvyn Jeter

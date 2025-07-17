@@ -1,6 +1,8 @@
 %==================== Definições =======================
 \newtheorem{def:ponto extremo}[def:conjunto convexo]{Definição}
 
+\newtheorem{def:hiperplano definidor}[def:conjunto convexo]{Definição}
+
 \newtheorem{def:raio}[def:conjunto convexo]{Definição}
 
 \newtheorem{def:direção}[def:conjunto convexo]{Definição}
@@ -10,6 +12,10 @@
 \newtheorem{def:ponto degenerado}[def:conjunto convexo]{Definição}
 
 \newtheorem{def:face}[def:conjunto convexo]{Definição}
+
+\newtheorem{def:r face}[def:conjunto convexo]{Definição}
+
+\newtheorem{def:dimensao face}[def:conjunto convexo]{Definição}
 
 
 %================== Proposições ================
@@ -34,17 +40,17 @@ especialização do conceito de ``independência linear'' para combinações
 lineares convexas.
 
 \begin{def:ponto extremo}
-	Um vetor $x$ num conjunto convexo $\mathbb{V}$ é chamado ponto extremo de
-	$\mathbb{V}$ se ele não pode ser expresso como combinação linear
-	convexa de nenhum outro subconjunto de $\mathbb{V}$.
+	Um vetor $x$ num conjunto convexo $X$ é chamado ponto extremo de
+	$X$ se ele não pode ser expresso como combinação linear
+	convexa de nenhum outro subconjunto de $X$.
 \end{def:ponto extremo}
 
-De grosso modo, podemos dizer que os pontos extremos de um conjunto convexo
-é um conjunto linearmente independente se considerarmos apenas suas combinações
-convexas. Além disso, é possível ver também que os pontos extremos formam
-uma ``base'' para conjuntos convexos, ou seja, qualquer ponto de um conjunto
-convexo pode ser dado como combinação convexa dos pontos extremos, mas não se
-preocupe com isso agora, pois iremos explorar essa ideia mais adiante.
+% De grosso modo, podemos dizer que os pontos extremos de um conjunto convexo
+% é um conjunto linearmente independente se considerarmos apenas suas combinações
+% convexas. Além disso, é possível ver também que os pontos extremos formam
+% uma ``base'' para conjuntos convexos, ou seja, qualquer ponto de um conjunto
+% convexo pode ser dado como combinação convexa dos pontos extremos, mas não se
+% preocupe com isso agora, pois iremos explorar essa ideia mais adiante.
 
 Agora, iremos explorar mais o significado geométrico de um ponto extremo.
 Mas para isso, iremos demonstrar um resultado que irá nos auxiliar nesta tarefa.
@@ -87,12 +93,12 @@ pontos extremos, mas apesar de simples, ela é fundamental para construirmos
 a geometria daquele conceito. Vamos enunciar mais uma proposição para
 seguirmos com o nosso objetivo. Em resumo, ela diz que, se um ponto em um
 hiperplano é combinação convexa de outros dois que compartilham o mesmo
-semiespaço, então esses dois últimos também estão no hiperplano em questão.
+meio-espaço, então esses dois últimos também estão no hiperplano em questão.
 
 \begin{prop:hiperplano e ponto extremo}
 	\label{prop:hiperplano e ponto extremo}
 	Sejam os pontos $\vec{x}'$ e $\vec{x}''$ pertencentes a um mesmo
-	semiespaço $H^-$. Se uma combinação estritamente convexa desses pontos
+	meio-espaço $H^-$. Se uma combinação estritamente convexa desses pontos
 	está no hiperplano $H$, então ambos os pontos pertencem a esse hiperplano.
 
 	\begin{proof}
@@ -123,18 +129,30 @@ semiespaço, então esses dois últimos também estão no hiperplano em questão
 \end{prop:hiperplano e ponto extremo}
 
 Com esse último resultado em mãos, agora iremos caracterizar os pontos extremos
-a partir das noções já vistas de semiespaços e hiperplanos. Para viés de
-síntese, sendo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$,
-com $A$ sendo $m \times n$, iremos chamar os $n + m$ hiperplanos associados aos
-semiespaços definidores de $X$ (as $n$ restrições agrupadas em $A$ mais
-a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de $X$.
+a partir das noções já vistas de meio-espaços e hiperplanos. Para viés de
+síntese, admita a seguinte definição
 
+\begin{def:hiperplano definidor}
+  Seja $X$ um conjunto convexo definidor pelos vetores $\mathbf x$ que
+  satisfazem $A \vec x \leq \vec b, \vec x \geq \vec p$. Se
+  $\transp a_i$ é uma linha da matriz $A$, então o hiperplano
+  dado por $\transp a \vec x = b_i$ é chamado de hiperplano
+  definidor de $X$.
+\end{def:hiperplano definidor}
+
+Em sequência, provaremos o teorema a seguir que caracteriza pontos
+extremos de um conjunto poliédrico.
+
+% sendo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$,
+% com $A$ sendo $m \times n$, iremos chamar os $n + m$ hiperplanos associados aos
+% meio-espaços definidores de $X$ (as $n$ restrições agrupadas em $A$ mais
+% a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de $X$.
 \begin{thm:ponto extremo}
 	\label{thm:ponto extremo}
 	Um vetor $\bar{\vec{x}}$ é ponto extremo de um conjunto poliédrico
 	$X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq \vec{p}\}$, com
-	$A \in \mathbb{R}^{m \times n}$, se $\bar{\vec{x}}$ pertence a pelo menos $n$
-	hiperplanos linearmente independentes que definem $X$.
+	$A \in \mathbb{R}^{m \times n}$, se, e somente se, $\bar{\vec{x}}$ pertence
+	a pelo menos $n$ hiperplanos linearmente independentes definidores $X$.
 
 	\begin{proof}
 		Suponha por contradição que $\bar{\vec{x}}$ pertence a pelo menos $n$
@@ -145,11 +163,27 @@ a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de 
 		$\bar{\vec{x}}'$ quanto $\bar{\vec{x}}''$ devem pertencer a esses $n$
 		hiperplanos definidores.
 
-		Entretanto, o sistema linear dado pelas equações desses hiperplanos é uma sistema quadrado $n \times n$ cujas linhas são linearmente independentes, o que implica que ele tem solução única. Portanto \[\vec{x}' = \vec{x}''\]logo $\bar{\vec{x}}$ não pode ser uma combinação estritamente convexa daqueles vetores, contrariando a afirmação de que ele poderia.
+		Entretanto, o sistema linear dado pelas equações desses hiperplanos é uma
+		sistema quadrado $n \times n$ cujas linhas são linearmente independentes,
+		o que implica que ele tem solução única. Portanto
+		\[\vec{x}' = \vec{x}''\]logo $\bar{\vec{x}}$ não pode ser uma combinação
+		estritamente convexa daqueles vetores, contrariando a afirmação de que
+		ele poderia.
 
-		Por outro lado, suponhamos agora a contrapositiva de que $\bar{\vec{x}}$ pertença a $r < n$ hiperplanos linearmente independentes, e que o sistema linear dado por eles é \[B\vec{x} = \vec{c}\]onde $B$ é uma matriz $r \times n$. O que faremos agora será construir vetores $\vec{x}'$ e $\vec{x}''$ dos quais $\bar{\vec{x}}$ é uma combinação estritamente convexa, e não poderia, pois, ser um ponto extremo.
+		Por outro lado, suponhamos agora a contrapositiva de que $\bar{\vec{x}}$
+		pertença a $r < n$ hiperplanos linearmente independentes, e que o sistema
+		linear dado por eles é \[B\vec{x} = \vec{c}\]onde $B$ é uma matriz
+		$r \times n$. O que faremos agora será construir vetores $\vec{x}'$ e
+		$\vec{x}''$ dos quais $\bar{\vec{x}}$ é uma combinação estritamente
+		convexa, e não poderia, pois, ser um ponto extremo.
 
-		Por ser uma matriz retangular larga (mais colunas do que linhas), o posto de $B$ é no máximo $r$, logo ela não pode ter posto cheio, o que implica que existe um vetor $\vec{d} \neq 0$ tal que $B \vec{d} = 0$. Construímos o vetor $\vec{d}$ porque se temos um sistema com infinitas soluções e conhecemos pelos uma, podemos encontrar outras somando essa solução com uma vinda do sistema homogêneo, e usaremos essa ideia para construir $\vec{x}'$ e $\vec{x}''$.
+		Por ser uma matriz retangular larga (mais colunas do que linhas), o
+		posto de $B$ é no máximo $r$, logo ela não pode ter posto cheio, o que
+		implica que existe um vetor $\vec{d} \neq 0$ tal que $B \vec{d} = 0$.
+		Construímos o vetor $\vec{d}$ porque se temos um sistema com infinitas
+		soluções e conhecemos pelos uma, podemos encontrar outras somando essa
+		solução com uma vinda do sistema homogêneo, e usaremos essa ideia para
+		construir $\vec{x}'$ e $\vec{x}''$.
 
 		Digamos que
 		\begin{equation*}
@@ -157,9 +191,16 @@ a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de 
 			\quad
 			\vec{x}'' = \bar{\vec{x}} - \epsilon \vec{d}
 		\end{equation*}
-		Por conseguinte temos que tanto $\vec{x}'$ quanto $\vec{x}''$ satisfazem o sistema $B\vec{x} = \vec{c}$, pertencendo aos $r$ hiperplanos nos quais $\bar{\vec{x}}$ também está.
+		Por conseguinte temos que tanto $\vec{x}'$ quanto $\vec{x}''$ satisfazem o sistema
+		$B\vec{x} = \vec{c}$, pertencendo aos $r$ hiperplanos nos quais
+		$\bar{\vec{x}}$ também está.
 
-		Para que $\vec{x}'$ e $\vec{x}''$ satisfaçam as demais $n - r$ restrições, basta tomarmos um $\epsilon > 0$ suficientemente pequeno. Isso porque, se pensarmos geometricamente,  $\vec{x}'$ e $\vec{x}''$ estão ambos nas semirretas com vértice em $\bar{\vec{x}}$ e cujas direções são dadas por $\vec{d}$ e $-\vec{d}$ respectivamente. Desse modo, para que não avancemos para além da fronteira de $X$, basta que $\epsilon$ seja pequeno o suficiente para tal.
+		Para que $\vec{x}'$ e $\vec{x}''$ satisfaçam as demais $n - r$ restrições,
+		basta tomarmos um $\epsilon > 0$ suficientemente pequeno. Isso porque, se
+		pensarmos geometricamente,  $\vec{x}'$ e $\vec{x}''$ estão ambos nas semirretas
+		com vértice em $\bar{\vec{x}}$ e cujas direções são dadas por $\vec{d}$ e $-\vec{d}$
+		espectivamente. Desse modo, para que não avancemos para além da fronteira de $X$,
+		basta que $\epsilon$ seja pequeno o suficiente para tal.
 
 		Por fim, escolhendo $\lambda = 0.5$, temos que
 		\begin{gather*}
@@ -172,25 +213,42 @@ a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de 
 		\begin{equation*}
 			0.5 \cdot \vec{x}' + (1 - 0.5) \cdot \vec{x}'' = \bar{\vec{x}}
 		\end{equation*}
-		e encontramos $\vec{x}'$ e $\vec{x}''$ dos quais uma combinação estritamente convexa é $\bar{\vec{x}}$. Portanto se $\bar{\vec{x}}$ não pertence ao menos $n$ dos hiperplanos que definem $X$, então $\bar{\vec{x}}$ não pode ser um ponto extremo.
+		e encontramos $\vec{x}'$ e $\vec{x}''$ dos quais uma combinação estritamente
+		convexa é $\bar{\vec{x}}$. Portanto se $\bar{\vec{x}}$ não pertence ao
+		menos $n$ dos hiperplanos que definem $X$, então $\bar{\vec{x}}$ não
+		pode ser um ponto extremo.
 	\end{proof}
 \end{thm:ponto extremo}
 
-Você talvez deve estar se perguntando agora sobre os pontos extremos que pertencem a mais do que $n$ dos hiperplanos definidores. Para esses pontos usamos uma nomenclatura especial, que iremos formalizar na definição a seguir.
+Você talvez deve estar se perguntando agora sobre os pontos extremos que pertencem a
+mais do que $n$ dos hiperplanos definidores. Para esses pontos usamos uma nomenclatura
+especial, que iremos formalizar na definição a seguir.
 
 \begin{def:ponto degenerado}
-	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto poliédrico em que $A$ é $m \times n$. Se $\vec{x}$ é um ponto extremo de $X$ tal que $\vec{x}$ pertença a mais do que $n$ dos $n + m$ hiperplanos definidores de $X$, então $\vec{x}$ é chamado de \textbf{ponto extremo degenerado}. O número excedente de hiperplanos que possuem $\vec{x}$ é chamado de \textbf{ordem de degeneração}.
+	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto
+	poliédrico em que $A$ é $m \times n$. Se $\vec{x}$ é um ponto extremo de $X$
+	tal que $\vec{x}$ pertença a mais do que $n$ dos $n + m$ hiperplanos definidores
+	de $X$, então $\vec{x}$ é chamado de \textbf{ponto extremo degenerado}. O
+	número excedente de hiperplanos que possuem $\vec{x}$ é chamado de
+	\textbf{ordem de degeneração}.
 \end{def:ponto degenerado}
 
-Em resumo, podemos definir um ponto extremo com $n$ hiperplanos definidores linearmente independentes do nosso conjunto convexo $X$. Se existe mais de uma maneira de definir esse ponto extremos com $n$ hiperplanos, então esse ponto é um ponto degenerado.
+Em resumo, podemos definir um ponto extremo com $n$ hiperplanos definidores
+linearmente independentes do nosso conjunto convexo $X$. Se existe mais de uma
+maneira de definir esse ponto extremos com $n$ hiperplanos, então esse ponto é
+um ponto degenerado.
 
 %Pontos extremos são então soluções de um sistema dado por um subconjunto linearmente independente das restrições na forma padrão de um PPL. Sabemos da Álgebra Linear que em $\mathbb{R}^n$, a interseção de $n$ hiperplanos LI é um ponto, esse que também pode ser chamado de vértice. Pense bem, no plano, os hiperplanos são retas, e quando desenhamos um polígono, os vértices dele são as interseções entre duas retas. Da mesma forma, em poliedros em três dimensões, um vértice é o encontro de 3 faces, que são os hiperplanos de um espaço de dimensão 3. Portanto, o conceito algébrico de ponto extremos está diretamente atrelado ao conceito de vértice da geometria, e podemos dizer que os pontos extremos são então os vértices do poliedro dado pelo conjunto viável do PPL.
 
-Pontos extremos de um PPL são soluções de um sistema formado por um subconjunto linearmente independente de restrições na forma padrão. Da Álgebra Linear, sabemos que, em $\mathbb{R}^n$, a interseção de $n$ hiperplanos linearmente independentes é um ponto, o qual também pode ser chamado de \textbf{vértice}.
+Pontos extremos de um PPL são soluções de um sistema formado por um subconjunto linearmente
+independente de restrições na forma padrão. Da Álgebra Linear, sabemos que, em
+$\mathbb{R}^n$, a interseção de $n$ hiperplanos linearmente independentes é um ponto,
+o qual também pode ser chamado de \textbf{vértice}.
 
 Para visualizar isso, considere exemplos em dimensões menores:
 \begin{itemize}
-	\item No plano ($\mathbb{R}^2$): Os hiperplanos são retas, e ao desenharmos um polígono, seus vértices correspondem às interseções de pares de retas.
+	\item No plano ($\mathbb{R}^2$): Os hiperplanos são retas, e ao desenharmos um
+	  polígono, seus vértices correspondem às interseções de pares de retas.
 	% Figura no plano (R^2)
 	\begin{figure}[H]
 	\centering
@@ -253,14 +311,20 @@ Para visualizar isso, considere exemplos em dimensões menores:
 	\end{figure}
 \end{itemize}
 
-Portanto, o conceito algébrico de ponto extremo está diretamente relacionado ao conceito geométrico de vértice. Concluímos que os pontos extremos de um conjunto viável de um PPL são, geometricamente, os vértices do poliedro formado por esse conjunto.
+Portanto, o conceito algébrico de ponto extremo está diretamente relacionado ao
+conceito geométrico de vértice. Concluímos que os pontos extremos de um conjunto
+viável de um PPL são, geometricamente, os vértices do poliedro formado por esse
+conjunto.
 
-
-Pontos extremos desempenham um papel importante na Programação Linear, pois como veremos adiante, a solução ótima de um PPL sempre está em um ponto extremo do conjunto viável. Para o método simplex, a existência de pontos extremos degenerados requer precauções, pois esses podem afetar o desempenho do método, inclusive fazendo rodar indefinitivamente.
+Pontos extremos desempenham um papel importante na Programação Linear, pois como
+veremos adiante, a solução ótima de um PPL sempre está em um ponto extremo do
+conjunto viável. Para o método simplex, a existência de pontos extremos degenerados
+requer precauções, pois esses podem afetar o desempenho do método, inclusive
+fazendo rodar indefinitivamente.
 
 \subsection{Raios e Direções}
 
-Um raio também é uma classe de conjuntos convexos, que são definidos a seguir.
+Um raio também é uma classe de conjuntos convexos, sendo definido a seguir.
 
 \begin{def:raio}
 	Um raio $r$ é uma coleção de pontos dados na forma
@@ -270,24 +334,42 @@ Um raio também é uma classe de conjuntos convexos, que são definidos a seguir
 	onde $\mathbf{d}$ é um vetor em $\mathbb{R}^n$ não nulo e $\lambda$ é um real positivo
 \end{def:raio}
 
-Podemos também interpretar raios geometricamente como sendo uma semirreta com origem em $\mathbf{x}$, dito como o vértice do raio, e que se estende na direção do vetor $\mathbf{d}$, chamado de diretor ou direção do raio.
+Podemos também interpretar raios geometricamente como sendo uma semirreta com
+origem em $\mathbf{x}$, dito vértice do raio, e que se estende indefinitivamente
+na direção do vetor $\mathbf{d}$, chamado de diretor ou direção do raio.
 
 \begin{def:direção}
-	Seja $X$ um conjunto convexo contido no $\mathbb{R}^n$. O vetor não nulo $\vec{d} \in \mathbb{R}^n$ é uma direção de $X$ se para qualquer ponto $\vec{x_0} \in X$ e qualquer $\lambda \geq 0$ é verdade que $\vec{x_0} + \lambda \vec{d} \in X$
+	Seja $X$ um conjunto convexo contido no $\mathbb{R}^n$. O vetor não nulo
+	$\vec{d} \in \mathbb{R}^n$ é uma direção de $X$ se para qualquer ponto
+	$\vec{x_0} \in X$ e qualquer $\lambda \geq 0$ é verdade que
+	$\vec{x_0} + \lambda \vec{d} \in X$
 \end{def:direção}
 
-A Definição expande a noção de direção para qualquer conjunto convexo além dos raios. Podemos dizer, então, que um conjunto $X$ possui uma direção se ele contém um raio. Observe também que um conjunto convexo $X$ possui uma direção se, e somente se, ele não é limitado. A demonstração disso fica como exercício para o leitor\footnote{Tente argumentar o porquê de $X$ possuir uma direção implicar em ele não poder ter uma bola o contendo. Para a recíproca, argumente o porquê de um conjunto ser contido por uma bola não poder ter uma direção na qual ele se estende indefinitivamente.}.
+A definição expande a noção de direção para qualquer conjunto convexo além dos
+raios. Podemos dizer, então, que um conjunto $X$ possui uma direção se ele contém
+um raio. Observe também que um conjunto convexo $X$ possui uma direção se, e
+somente se, ele não é limitado. A demonstração disso fica como exercício para o
+leitor\footnote{Tente argumentar o porquê de $X$ possuir uma direção implicar em
+ele não poder ter uma bola o contendo. Para a recíproca, argumente o porquê de
+um conjunto ser contido por uma bola não poder ter uma direção na qual ele se
+estende indefinitivamente.}.
 
-Agora iremos nos aprofundar um pouco mais nas características algébricas de uma direção para um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$. Se temos que para todo $\vec{x} \in X$, $\vec{x} + \lambda \vec{d} \in X$, então é verdade que
+Agora iremos nos aprofundar um pouco mais nas características algébricas de uma
+direção para um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq p\}$.
+Se temos que para todo $\vec{x} \in X$, $\vec{x} + \lambda \vec{d} \in X$,
+então é verdade que
 \begin{gather*}
 	A (\vec{x} + \lambda \vec{d}) \leq \vec{b} \\
-	\vec{x} + \lambda \vec{d} \geq 0
+	\vec{x} + \lambda \vec{d} \geq p
 \end{gather*}
 
-Porém, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve satisfazer algumas condições algébricas a mais, que serão formalizadas no seguinte enunciado.
+No entanto, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve
+satisfazer algumas condições algébricas a mais, que serão formalizadas no
+eguinte enunciado.
 
 \begin{prop:direção}
-	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq 0\}$ um conjunto poliédrico. O vetor $\vec{d}$ é uma diereção de $X$ se, e somente se,
+	Seja $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq p\}$ um conjunto poliédrico.
+	O vetor $\vec{d}$ é uma diereção de $X$ se, e somente se,
 	\begin{equation*}
 		\vec{d} > 0, \quad A\vec{d} \leq 0
 	\end{equation*}
@@ -296,20 +378,19 @@ Porém, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve satisfa
 		Com efeito, se $\vec{d}$ é uma direção de $X$, então
 		\begin{align*}
 			A (\vec{x} + \lambda \vec{d}) &\leq \vec{b} \\
-			A \vec{x} + A (\lambda \vec{d}) & \leq b
+			A \vec{x} + A (\lambda \vec{d}) & \leq \vec b
 		\end{align*}
-		mas como $A \vec{x} \leq \vec{b}$, então é preciso que
+		mas como $A \vec{x} \leq \vec{b}$ e $\lambda > 0$, então é preciso que
 		\begin{equation*}
 			A\vec{d} \leq 0
 		\end{equation*}
-		Ademais, se $\vec{x} + \lambda \vec{d} \geq 0$, então
+		Ademais, se $\vec{x} + \lambda \vec{d} \geq p$, então
 		\begin{align}
-			\vec{d} \geq \frac{1}{\lambda} -\vec{x}
+			\vec{d} \geq \frac{1}{\lambda} (\vec p - \vec{x})
 		\end{align}
 		como $\lambda \geq 0$ pode ser arbitrariamente grande, então
-		$\lim_{\lambda \to \infty} -\vec{x} = 0$, e com isso
-		\[d \geq 0\].
-
+		$\lim_{\lambda \to \infty} \frac{1}{\lambda}(\vec p -\vec{x}) = 0$, e com isso
+		\[d > 0\].
 		Por outro lado, se $\vec{d} > 0$ e $A \vec{d} \leq 0$, então para $\lambda \geq 0$ temos que
 		\[A (\lambda \vec{d}) \leq 0\]
 		e se $A \vec{x} \leq b$, então
@@ -322,24 +403,29 @@ Porém, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve satisfa
 \end{prop:direção}
 
 \begin{def:direção extrema}
-	Seja $X$ um conjunto convexo e $\vec{d}$ uma direção desse conjunto. O vetor $\vec{d}$ é chamado de direção extrema se ele não pode ser dado como combinação linear positiva de outras direções desse conjunto.
+	Seja $X$ um conjunto convexo e $\vec{d}$ uma direção desse conjunto. O vetor
+	$\vec{d}$ é chamado de direção extrema se ele não pode ser dado como combinação
+	linear positiva de outras direções desse conjunto.
 \end{def:direção extrema}
 
-A ideia de direções extremas é análoga a de pontos extremos. O vetor $\vec{d}$ é direção extrema se não existe outras duas direções $\vec{d}_1$ e $\vec{d}_2$ tal que
+A ideia de direções extremas é análoga a de pontos extremos. O vetor $\vec{d}$ é
+direção extrema se não existe outras duas direções $\vec{d}_1$ e $\vec{d}_2$
+tal que
 \begin{gather*}
 	\lambda_1\vec{d}_1 + \lambda_2\vec{d}_2 = \vec{d} \\
 	\lambda_1, \lambda_2 \geq 0
 \end{gather*}
-Os raios cuja a direção é dada por uma direção extrema são chamados de raios extremos.
+Os raios cuja a direção é dada por uma direção extrema são chamados de raios
+extremos.
 
-Os conceitos de raios e direções podem ser usados para definir os cones convexos. Seja $C \subset \mathbb{R}^n$ um cone definido como \[C = \{\vec{x}\ |\ \lambda\vec{x}, \lambda \geq 0\}\]Podemos perceber que o subconjunto de $C$ dado pelos múltiplos escalares positivos de $\vec{x} \in C$ formam um raio com vértice na origem do $\mathbb{R}^n$ com direção dada por $\vec{x}$. Dessa forma, um cone pode ser definido a partir de suas direções, mas nem todas são necessárias para tal, já que podemos usar somente as suas direções extremas, que formam um conjunto minimal gerador das demais.
+% Os conceitos de raios e direções podem ser usados para definir os cones convexos. Seja $C \subset \mathbb{R}^n$ um cone definido como \[C = \{\vec{x}\ |\ \lambda\vec{x}, \lambda \geq 0\}\]Podemos perceber que o subconjunto de $C$ dado pelos múltiplos escalares positivos de $\vec{x} \in C$ formam um raio com vértice na origem do $\mathbb{R}^n$ com direção dada por $\vec{x}$. Dessa forma, um cone pode ser definido a partir de suas direções, mas nem todas são necessárias para tal, já que podemos usar somente as suas direções extremas, que formam um conjunto minimal gerador das demais.
 
-Portanto, se $C$ é um cone e $D = \{\vec{d}_1, \vec{d}_2, \ldots, \vec{d}_n\}$ o conjunto das suas direções extremas, então o cone pode ser dado como
-\begin{equation*}
-	C = \{\vec{x}\ |\ \vec{x} = \displaystyle\sum_{j = 1}^{n}
-			\lambda_j \vec{d}_j, \lambda_j \geq 0\}
-\end{equation*}
-Porém iremos formalizar isso num resultado futuro.
+% Portanto, se $C$ é um cone e $D = \{\vec{d}_1, \vec{d}_2, \ldots, \vec{d}_n\}$ o conjunto das suas direções extremas, então o cone pode ser dado como
+% \begin{equation*}
+% 	C = \{\vec{x}\ |\ \vec{x} = \displaystyle\sum_{j = 1}^{n}
+% 			\lambda_j \vec{d}_j, \lambda_j \geq 0\}
+% \end{equation*}
+% Porém iremos formalizar isso num resultado futuro.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=2]
@@ -373,20 +459,70 @@ Porém iremos formalizar isso num resultado futuro.
 
 \subsection{Faces e Arestas}
 
-Nesta seção apenas abordaremos algumas definições algébricas para conceitos historicamente geométricos. A primeira delas será a \textbf{face}.
+Nesta seção apenas abordaremos algumas definições algébricas para conceitos
+historicamente geométricos. A primeira delas será a \textbf{face}.
 
 \begin{def:face}
-	Seja $X$ um conjunto convexo e $F = \{\vec{x} \in X\ |\ B\vec{x} = \vec{c}\}$ em que $B\vec{x} = \vec{c}$ é o sistema linear cujas equações é um subconjunto não vazio dos hiperplanos definidores de $X$. O conjunto $F$ é então chamado de face de $X$.
+	Seja $X$ um conjunto convexo e $F = \{\vec{x} \in X\ |\ B\vec{x} = \vec{c}\}$
+	em que $B\vec{x} = \vec{c}$ é o sistema linear cujas equações é um subconjunto
+	não vazio das equações dos hiperplanos definidores de $X$. O conjunto $F$ é
+	então chamado de face de $X$.
 \end{def:face}
 
-Em outras palavras uma face é um subconjunto de $X$ cujos elementos são solução de um sistema linear dado por 1 ou mais hiperplanos de $X$. Em dimensão três, quando pensamos em faces de um poliedro, pensamos naquelas que tem dimensão dois, mas a nossa definição permite que outros elementos de dimensão menores, como as arestas e os vértices desse poliedro também sejam chamados de ``faces''.
+Em outras palavras uma face é um subconjunto de $X$ cujos elementos são solução
+de um sistema linear dado por 1 ou mais hiperplanos definidores de $X$. Em dimensão três,
+quando pensamos em faces de um poliedro, pensamos naquelas que tem dimensão dois,
+mas a nossa definição permite que outros elementos de dimensão menores, como as
+arestas e os vértices desse poliedro também sejam chamados de ``faces''.
 
-Na verdade, em dimensão $n$ podemos ter faces de qualquer dimensão entre 1 e $n$. As faces de dimensão $n - 1$, como as faces propriamente ditas de um poliedro em dimensão 3, ou as arestas de um polígono bidimensional, são chamadas de \textbf{facetas}. Facetas também podem ser entendidas como a parte viável (que está em $X$) de um hiperplano definidor.  As faces com dimensão entre $n - 1$ e $0$ são chamadas de faces próprias de $X$, enquanto aquela de dimensão $n$, que é o próprio $X$ é chamada de face imprópria\footnote{Se nossa definição considerasse o conjunto vazio também como face de um conjunto convexo, então ele também seria uma face imprópria}.
+Na verdade, em dimensão $n$ podemos ter faces de qualquer dimensão entre 1 e $n$.
+As faces de dimensão $n - 1$, como as faces propriamente ditas de um poliedro em
+dimensão 3, ou as arestas de um polígono bidimensional, são chamadas
+de \textbf{facetas}. Facetas também podem ser entendidas como a parte viável
+(que está em $X$) de um hiperplano definidor.  As faces com dimensão entre
+$n - 1$ e $0$ são chamadas de faces próprias de $X$, enquanto aquela de dimensão
+$n$, que é o próprio $X$ é chamada de fa
+ce imprópria\footnote{Se nossa definição considerasse o conjunto vazio também como
+face de um conjunto convexo, então ele também seria uma face imprópria}.
 
-Vamos agora dizer que $r(F)$ da face $F$ de um conjunto convexo $X$ é o número mínimo de hiperplanos necessários para definir $F$ como o conjunto solução de um sistema linear. Esse número, para pontos extremos, que são faces de dimensão 0, é $n$, como vimos no teorema \ref{thm:ponto extremo}. Para uma aresta, que é um segmento de reta, e possui, pois, dimensão 1, esse número é $n - 1$. Podemos concluir que no geral a dimensão $\dim(F)$ de uma face $F$ e o número $r(F)$ estão relacionadas por
-\begin{equation*}
-	r(F)= n - \dim(F)
-\end{equation*}
+\begin{def:r face}
+  Seja $X$ um conjunto poliédrico e $F$ uma face desse conjunto
+  Denotemos por $r(F)$ o número
+  mínimo de hiperplanos definidores de $X$ linearmente
+  independentes necessários para deifnir $F$.
+\end{def:r face}
 
-Ainda sobre arestas, sabemos da geometria clássica que elas sempre conectam dois vértices, par esse chamado de adjacentes. Como vimos, pontos extremos equivalem aos vértices de um poliedro convexo $n$ dimensional, e, analogamente, os pontos extremos que são conectados por uma aresta (o que nem sempre ocorre, visto que os poliedros podem ser ilimitados) são também chamados de \textbf{adjacentes}. O método simplex, ao caminhar pelos vértices da região viável em busca da solução ótima do Programa Linear, sempre o faz caminhando pelas arestas da região viável, indo de um vértice para outro que seja adjacente.
+Se a face $F$ do poliedro $X$ é definida pelo sistema $B \vec x = \vec y$,
+então temos que $r(F)$ deve ser igual ao posto de $B$, já que esse é
+o número de hiperplanos LI que estão sendo usados para definir $F$.
+
+\begin{def:dimensao face}
+  Seja $X$ um poliedro convexo em $\mathbb{R}^n$ definido por
+  $m$ hiperplanos linearmente independentes, e $F$ uma face
+  de $X$. A dimensão de $F$ é dada por:
+  \begin{equation*}
+  	\dim(F) = n - r(f)
+  \end{equation*}
+\end{def:dimensao face}
+
+Como já observamos, $r(F)$ corresponde ao posto do sistema
+que define $F$, de modo que a dimensão da face, pelo Teorema Núcleo-Posto
+da Álgebra Linear, corresponde ao núcleo desse sistema. Por exemplo,
+
+\begin{itemize}
+	\item São necessários ao menos $n$ hiperplanos definidores para
+	  definir um ponto extremo, e, portanto, pontos extremos são
+	  faces de dimensão zero, uma vez que o sistema que os define
+	  tem posto cheio.
+
+	\item São necessários dois pontos extremos para definir uma aresta,
+	  que é uma face de dimensão 1, pois são necessários $n-1$ hiperplanos
+	  definidores LI para definir a reta que contém a aresta, e o sistema
+	  terá portanto núcleo com dimensão 1, como esperado.
+\end{itemize}
+
+O racioncínio pode ser generalizado para qualquer face de dimensão até a
+dimensão do prório poliedro convexo, que corresponde ao número máximo,
+limitado pela dimensão do espaço vetorial, de hiperplanos definidores
+linearmente independentes.
 

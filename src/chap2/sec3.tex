@@ -12,6 +12,7 @@
 
 % ------------------------------ LEMA --------------------------
 \newtheorem{lemma:afim}{Lema}[chapter]
+\newtheorem{lemma:dentro ou fora}{Lema}[chapter]
 
 %------------------------------ TEOREMA ---------------------------
 \newtheorem{thm:caratheodory}{Teorema}[chapter]
@@ -26,6 +27,133 @@ Nesta seção iremos obsevar os poliedros convexos a partir de sua
 natureza geométrica ao mesmo tempo que mostramos sua equivalência com
 os conceitos algébricos vistos nas seções anteriores.
 
+\subsection{Espaços Afim}
+
+Antes de ir mais afundo na natureza geométrica dos conjuntos
+poliédricos, iremos recuar um pouco e observar alguns conceitos
+algébricos. Relembrando, uma das noções primárias da Álgebra Linear é a de
+independência linear, em que dizemos que um conjunto de vetores
+é linearmente independente se nenhum vetor poder ser dado
+como combinação linear dos demais. Uma classe de combinações
+lineares que nos é últil são as chamadas combinações afim
+
+\begin{def:combinação afim}
+Sejam $\vec v_1, \ldots, \vec v_k$ vetores do $\mathbb{R}$. $u$ é uma
+combinação afim dos vetores citados  se existem $\lambda_1, \ldots,
+\lambda_k$ tal que
+\begin{equation*}
+	\vec u = \sum_{i =1}^{k}\lambda_i \vec v_i \quad \quad \sum_{i=1}^{k} \lambda_i = 1
+\end{equation*}
+\end{def:combinação afim}
+Combinações afim são uma especialização das combinações
+lineares, visto a restrição de que a soma dos escalares
+que acompanham os vetores deve ser igual a 1. Observemos
+também que as combinaçãoes convexas, por sua vez, são uma
+especialização das combinações afim, em que adiciona-se a
+restrição de que os pesos devem ser positivos.
+
+As combinações lineares afim de um conjunto de vetores
+formam um conjunto fechado chamado de \textbf{subsespaço afim},
+que são análogos aos hiperplanos lineares a menos
+da restrição de conterem a
+origem do $\mathbb{R}^n$.
+
+% imagem de compração de um hiperplano linear
+% e um afim
+
+Os hiperplanos  afins, de forma análoga ao lineares, podem ser
+definidos a partir de um sistema linear na forma $A\vec x = b$
+ou através de um conjunto de no mínimo $n$ geradores.
+Um conjunto de vetores em que pelo menos um dos membros
+é combinação afim dos demais é chamado de afimmente dependente.
+Geometricamente, isso significa que pelo menos um dos vetores estará
+no espaço afim gerado pelos demais.
+
+É sabido que qualquer conjunto com mais de $n$ vetores em
+$\mathbb{R}^n$ é linearmente dependente, mas qual será o número mínimo
+de vetores em um conjunto para afirmamos com certeza que eles são
+afimmente dependentes?
+
+A envoltória convexa de dois pontos é um segmento de reta, e,
+por sua vez, o subsespaço afim gerado por esses mesmos pontos é a
+a própria reta que eles definem, ou seja, obtemos o subespaço
+afim gerado ao extender infinitamente o segmento de reta em
+ambos os seus sentido. Já três pontos não colineares
+definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
+esses três pontos é justamnte o plano que contém esse triângulo; é como se
+tivessemos expandido infinitamente a área do triângulo assim como fizemos
+com o comprimento do segmento de reta anteriormente. Por conseguinte,
+para obter o \textit{span} afim a partir de uma envoltória convexa, basta
+extendemos infinitamente a envoltória nas direções possíveis.
+
+Isso nos permite agora responder a questão feita mais atrás:
+expandir infinitamente um simplex de dimensão $n$ que é gerado
+por $n+1$ vetores do  $\mathbb{R}^n$,
+, é suficiente para obtermos todo o $\mathbb{R}^n$
+e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
+combinação afim dos pontos extremos do simplex que fora expandido.
+Portanto, a conclusão que chegamos é que qualquer conjunto com mais
+de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
+é provado formalmente com uma abordagem mais algébrica no lema a seguir.
+
+\begin{lemma:afim}
+	\label{lemma:afim}
+	Se $P = \{\vec p_1, \ldots, \vec p_k\} \subset \mathbb{R}^n$ é um conjunto
+	finito de pontos com $k > n + 1$, então existem $\mu_1, \ldots, \mu_n
+	\in \mathbb{R}$ não todos nulos tal que
+	\begin{equation*}
+		\displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0 \quad\quad \displaystyle\sum_{i=1}^k \mu_i = 0
+	\end{equation*}
+	e $P$ é um conjunto afimmente dependente.
+
+	\begin{proof}
+		Da Álgebra Linear, sabemos que se $\#P = k > n$, então $P$ é um conjunto
+		linearmente dependente, o que implica dizer que há $\mu_1, \ldots, \mu_n
+		\in \mathbb{R}$ não todos nulos tal que
+		\[\displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0\]
+
+		Além disso, observemos que o conjunto $\{\vec p_2 - \vec p_1, \ldots, \vec p_k - \vec p_1\}$
+		também é linearmente dependente, pois contém mais de $n$ vetores,
+		e também que
+		\begin{gather*}
+		  \sum_{i=2}^{k} \mu_i (\vec p_i - \vec p_1) \\
+		  \sum_{i=2}^{k} \mu_i \vec p_i - \vec p_1 \sum_{i=2}^{k} \mu_i \\
+		  - \mu_1 \vec p_1 - \vec p_1 \sum_{i=2}^{k} \mu_i \\
+		\end{gather*}
+		Dessa forma, se tivermos que
+		\[
+		  \mu_1 = - \sum_{i=2}^{k} \mu_i
+		\]
+		então é verdade que
+		\[
+		  \sum_{i=2}^{k} \mu_i (\vec p_i - \vec p_1) = 0
+		\]
+		e também
+		\[
+		  \sum_{i=1}^{k} \mu_i = 0
+		\]
+
+		Resta mostrar que o conjunto $P$ é afimmente dependente. Para isso, suponha
+		que $P$ esteja ordenado de forma que para todo $i \in I = \{1, \ldots, k\}$
+		é verdade que $\mu_1 \geq \mu_i$. Obeservamos então que
+	  \begin{gather*}
+	    \mu_1 \vec p_1 + \mu_2 \vec p_2 + \ldots + \mu_k \vec p_k = 0 \\
+        \mu_2 \vec p_2 + \ldots + \mu_k \vec p_k = - \mu_1 \vec p_1 \\
+	  \end{gather*}
+	  Dividindo a equação acima toda por $-\mu_1$ otbemos
+	  \begin{gather*}
+	    \sum_{i=2}^{k} -\frac{\mu_i}{\mu_1} \vec p_i = \vec p_1
+	  \end{gather*}
+	  Mas também
+	  \begin{gather*}
+        \sum_{i=2}^{k} \mu_i = -\mu_1 \\
+	    \sum_{i=2}^{k} -\frac{\mu_i}{\mu_1} = 1
+	  \end{gather*}
+	  Portanto $p_1$ pode ser dado como combinação afim dos demais pontos de
+	  $P$, e o conjunto dos pontos é afimmente dependente.
+	\end{proof}
+\end{lemma:afim}
+
 \subsection{Envoltória Convexa}
 
 \begin{def:convex hull}
@@ -36,9 +164,8 @@ os conceitos algébricos vistos nas seções anteriores.
 \end{def:convex hull}
 
 Em outras referências, pode-se encontrar uma definição equivalente de que a
-envoltória convexa, também popularmente conhecida como \textit{covex hull},
-é o menor conjunto convexo que contém todos os pontos de $P$. Neste texto,
-usaremos a definição destacada por ela ser mais algebricamente fecunda.
+envoltória convexa, é o menor conjunto convexo que contém todos os pontos de $P$.
+Neste texto, usaremos a definição destacada por ela ser mais algebricamente fecunda.
 
 \begin{def:independencia convexa}
 	Seja $P \subset \mathbb{R}^n$ é um conjunto de pontos. $P$ é convexo-independente
@@ -109,8 +236,12 @@ que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição
 
 \begin{def:simplex}
 	Chama-se simplex a envoltória convexa de um conjunto de $n+1$ pontos
-	em $\mathbb{R}^n$ convexo-independente.
+	em $\mathbb{R}^n$ afimmente independetes.
 \end{def:simplex}
+
+A razão por detrás da restrição de que os pontos devem ser afimmente independentes
+é porque eles não podem estar todos contidos num mesmo hiperplano afim, de modo
+que o conjunto convexo gerado por eles tenha dimensão igual ao do $\mathbb{R}^n$.
 
 \begin{figure}[h]
 	\centering
@@ -144,119 +275,6 @@ que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição
 	\caption{Comparação entre simplex de dimensões diferentes.}
 \end{figure}
 
-\subsection{Espaços Afim}
-
-Antes de ir mais afundo na natureza geométrica dos conjuntos
-poliédricos, iremos recuar um pouco e observar alguns conceitos
-algébricos. Relembrando, uma das noções primárias da Álgebra Linear é a de
-independência linear, em que dizemos que um conjunto de vetores
-é linearmente independente se nenhum vetor poder ser dado
-como combinação linear dos demais. Uma classe de combinações
-lineares que nos é últil são as chamadas combinações afim
-
-\begin{def:combinação afim}
-Sejam $v_1, \ldots, v_k$ vetores do $\mathbb{R}$. $u$ é uma
-combinação afim dos vetores citados  se existem $\lambda_1, \ldots,
-\lambda_k$ tal que
-\begin{equation*}
-	u = \sum_{i =1}^{k}\lambda_i v_i \quad \quad \sum_{i=1}^{k} \lambda_i = 1
-\end{equation*}
-\end{def:combinação afim}
-Combinações afim são uma especialização das combinações
-lineares, visto a restrição de que a soma dos escalares
-que acompanham os vetores deve ser igual a 1. Observemos
-também que as combinaçãoes convexas, por sua vez, são uma
-especialização das combinações afim, em que adiciona-se a
-restrição de que os pesos devem ser positivos.
-
-As combinações lineares afim de um conjunto de vetores
-formam um conjunto fechado chamado de \textbf{subsespaço afim},
-que são análogos aos hiperplanos lineares a menos
-da restrição de conterem a
-origem do $\mathbb{R}^n$.
-
-% imagem de compração de um hiperplano linear
-% e um afim
-
-Os hiperplanos  afins, de forma análoga ao lineares, podem ser
-definidos a partir de um sistema linear na forma $Ax = b$
-ou através de um conjunto de no mínimo $n$ geradores.
-Um conjunto de vetores em que pelo menos um dos membros
-é combinação afim dos demais é chamado de afimmente dependente.
-Geometricamente, isso significa que pelo menos um dos vetores estará
-no espaço afim gerado pelos demais.
-
-É sabido que qualquer conjunto com mais de $n$ vetores em
-$\mathbb{R}^n$ é linearmente dependente, mas qual será o número mínimo
-de vetores em um conjunto para afirmamos com certeza que eles são
-afimmente dependentes?
-
-A envoltória convexa de dois pontos é um segmento de reta, e,
-por sua vez, o subsespaço afim gerado por esses mesmos pontos é a
-a própria reta que eles definem, ou seja, obtemos o subespaço
-afim gerado ao extender infinitamente o segmento de reta em
-ambos os seus sentido. Já três pontos não colineares
-definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
-esses três pontos é justamnte o plano que contém esse triângulo; é como se
-tivessemos expandido infinitamente a área do triângulo assim como fizemos
-com o comprimento do segmento de reta anteriormente. Por conseguinte,
-para obter o \textit{span} afim a partir de uma envoltória convexa, basta
-extendemos infinitamente a envoltória nas direções possíveis.
-
-Isso nos permite agora responder a questão feita mais atrás:
-expandir infinitamente um simplex de dimensão $n$ que é gerado
-por $n+1$ vetores do  $\mathbb{R}^n$,
-, é suficiente para obtermos todo o $\mathbb{R}^n$
-e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
-combinação afim dos pontos extremos do simplex que fora expandido.
-Portanto, a conclusão que chegamos é que qualquer conjunto com mais
-de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
-é provado formalmente com uma abordagem mais algébrica no lema a seguir.
-
-\begin{lemma:afim}
-	\label{lemma:afim}
-	Se $P = \{p_1, \ldots, p_k\} \subset \mathbb{R}^n$ é um conjunto
-	finito de pontos com $k > n + 1$, então existem $\mu_1, \ldots, \mu_n
-	\in \mathbb{R}$ não todos nulos tal que
-	\begin{equation*}
-		\displaystyle\sum_{i=1}^k \mu_i p_i = 0 \quad\quad \displaystyle\sum_{i=1}^k \mu_i = 0
-	\end{equation*}
-	e $P$ é um conjunto afimmente dependente.
-
-	\begin{proof}
-		Da álgebra linear, sabemos que, se $\#P = k > n$, então $P$ é um conjunto
-		linearmente dependente, o que implica dizer que há $\mu_1, \ldots, \mu_n
-		\in \mathbb{R}$ não todos nulos tal que
-		\[\displaystyle\sum_{i=1}^k \mu_i p_i = 0\]
-
-		Além disso, observemos que o conjunto $\{p_2 - p_1, \ldots, p_k - p_1\}$
-		também é linearmente dependente, portanto
-		\[\displaystyle\sum_{i=2}^k \mu_i (p_i - p_1) = 0\]
-		e fazendo \(\mu_1 = -\displaystyle\sum_{i=2}^k \mu_i\)
-		obtemos que
-		\[\displaystyle\sum_{i=1}^k \mu_i = 0\]
-
-		Resta mostrar que o conjunto $P$ é afimmente dependente. Para isso, suponha
-		que $P$ esteja ordenado de forma que para todo $i \in I = \{1, \ldots, n\}$
-		é verdade que $\mu_k \geq \mu_i$. Obeservamos então que
-	  \begin{gather*}
-	    \mu_1 p_1 + \ldots + \mu_{k - 1} p_{k-1} + \mu_k p_k = 0 \\
-      \mu_1 p_1 + \ldots + \mu_{k - 1} p_{k-1} = - \mu_k p_k \\
-	  \end{gather*}
-	  Dividindo a equação acima toda por $-\mu_k$ otbemos
-	  \begin{gather*}
-	    \sum_{i=1}^{k-1} -\frac{\mu_i}{\mu_k} p_i = p_k
-	  \end{gather*}
-	  Mas também
-	  \begin{gather*}
-      \sum_{i=1}^{k-1} \mu_i = 0 \\
-	    \sum_{i=1}^{k-1} -\frac{\mu_i}{\mu_k} = 1
-	  \end{gather*}
-	  Portanto $p_k$ pode ser dado como combinação afim dos demais pontos de
-	  $P$, e o conjunto dos pontos é afimmente dependente.
-	\end{proof}
-\end{lemma:afim}
-
 \subsection{Teorema de Carathéodory}
 
 O Teorema de Carathéodory é um dos resultados mais fundamentais da geometria
@@ -266,34 +284,39 @@ mas não somente isso como também o limitante do tamanho desse conjunto de
 geradores.
 
 \begin{thm:caratheodory}[Carathéodory]
-	Seja $P \subset \mathbb{R}^n$ um conjunto finito de pontos. Se $x \in \conv{P}$, então
-	$x \in \conv{P'}$ para algum $P' \subset P$ com cardinalidade igual a $n + 1$.
+	Seja $P \subset \mathbb{R}^n$ um conjunto finito de pontos. Se $\vec x \in \conv{P}$, então
+	  $\vec x \in \conv{P'}$ para algum $P' \subset P$ com cardinalidade igual a $n + 1$.
 
 	\begin{proof}
-		Com efeito, se $x \in \conv{P}$, e $\#P = k$, então existem $\lambda_1, \ldots, \lambda_k
+		Com efeito, se $\vec x \in \conv{P}$, e $\#P = k$, então existem $\lambda_1, \ldots, \lambda_k
 		\in \mathbb{R}$ com $\lambda_i \in [0, 1]$ tal que
 		\begin{equation}
 		\label{eq_thm_caratheory}
 		\begin{gathered}
-			x = \displaystyle\sum_{i=1}^k \lambda_i p_i \\
+			x = \displaystyle\sum_{i=1}^k \lambda_i \vec p_i \\
 			\displaystyle\sum_{i=1}^k \mu_i = 1
 		\end{gathered}
 		\end{equation}
 		Se $k \leq n + 1$, então nada há a demonstrar, do contrário, o lema \ref{lemma:afim}
 		garante que existem $\mu_1, \ldots, \mu_n \in \mathbb{R}$ não todos nulos tal que
-		\[\displaystyle\sum_{i=1}^k \mu_i p_i = 0\]
-		e como \(\alpha \displaystyle\sum_{i=1}^k \mu_i p_i = 0\) para todo $\alpha \in \mathbb{R}$
+		\[
+		  \displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0 \quad\quad \sum_{i=1}^{k} \mu_i = 0
+		\]
+		e como \(\alpha \displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0\) para todo $\alpha \in \mathbb{R}$
 		então podemos rescrever a equação \ref{eq_thm_caratheory} como
 		\begin{gather*}
-			x = \displaystyle\sum_{i=1}^k \lambda_i p_i - \alpha \displaystyle\sum_{i=1}^k \mu_i p_i \\
-			x = \displaystyle\sum_{i=1}^k (\lambda_i - \alpha \mu_i) p_i
+			\vec x = \displaystyle\sum_{i=1}^k \lambda_i \vec p_i - \alpha \displaystyle\sum_{i=1}^k \mu_i \vec p_i \\
+			\vec x = \displaystyle\sum_{i=1}^k (\lambda_i - \alpha \mu_i) \vec p_i
 		\end{gather*}
 		donde temos que
 		\[\displaystyle\sum_{i=1}^k (\lambda_i - \alpha \mu_i) = 1\]
 
-		Agora iremos tentar escrever $x$ como uma combinação convexa de até $n + 1$ pontos.
+		Agora iremos tentar escrever $\vec x$ como uma combinação convexa de até $n + 1$ pontos.
 		Para atingir esse objetivo, escolhemos $\alpha$ tal que
-	\[\alpha  = \min{\frac{\lambda_i}{\mu_i}\  |\  i \in \{1,\ldots, k\} \text{ e } \mu_i > 0}\]
+	    \[
+	      \alpha = \min_{i \in \{1, \dots, k\}} \left\{\frac{\lambda_i}{\mu_i}\ |\ \mu_i > 0\right\}
+	    \]
+
 		Logo, $\alpha > 0$, e para $i \in \{1, \ldots, k\}$, temos dois casos.
 
 		I - $\mu_i \geq 0$
@@ -304,30 +327,28 @@ geradores.
 
 		II - $\mu_i < 0$
 
-		Uma vez que $\alpha > 0$, então $\alpha \mu_i > 0$ e, portanto,
+		Uma vez que $\alpha > 0$, então $\alpha \mu_i < 0$ e, portanto,
 		\(\lambda_i - \alpha \mu_i \geq 0\)
 
-		digamos que $j*$ seja tal que $\alpha = \frac{\lambda_{j^*}}{\mu_{j^*}}$. Observe que
-		$\lambda_{j^*} - \alpha \mu_{j^*}$, e podemos expressar $x$ como
-		\[x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)p_i +
-				\displaystyle\sum_{i=j^* + 1}^{k} (\lambda_i - \alpha \mu_i)p_i\]
-		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $conv{P}$
+		digamos que $j^*$ seja tal que $\alpha = \frac{\lambda_{j^*}}{\mu_{j^*}}$. Observe que
+		$\lambda_{j^*} - \alpha \mu_{j^*} = 0$, e podemos expressar $x$ como
+		\[\vec x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)\vec p_i +
+				\displaystyle\sum_{i=j^* + 1}^{k} (\lambda_i - \alpha \mu_i)\vec p_i\]
+		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $\conv{P}$
 
 		Como podemos repetir esse processo enquanto $k > n + 1$, ou seja, enquanto o lema \ref{lemma:afim}
-		pode ser aplicado, então $x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $\conv{P}$.
+		puder ser aplicado, então $\vec x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $\conv{P}$.
 	\end{proof}
 \end{thm:caratheodory}
 
-Para capturar o significado geométrico do Teorema de Carathéodory, poderíamos
-enunciá-lo como ``um ponto qualquer num fecho convexo sempre estará no interior
-de um simplex gerado por pontos desse fecho''. Ademais, se $P \subset \mathbb{R}^n$ é um conjunto
-convexo-independente, então para qualquer $x \in \conv{P}$, $x$ pode ser dado
+Se $P \subset \mathbb{R}^n$ é um conjunto
+convexo-independente, então para qualquer $\vec x \in \conv{P}$, $\vec x$ pode ser dado
 como combinação convexa de até $n+1$ pontos de $P$, ou seja, de até $n+1$ pontos extremos.
 Formalizemos essa conclusão como corolário do Teorema de Carathéodory.
 
 \begin{cor:caratheodory}
-	Seja $P \subset \mathbb{R}^n$ um conjunto convexo-independente. Se $x \in \conv{P}$
-	então $x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$
+	Seja $P \subset \mathbb{R}^n$ um conjunto convexo-independente. Se $\vec x \in \conv{P}$
+	então $\vec x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$
 \end{cor:caratheodory}
 
 Em outras palavras, o corolário afirma que um ponto qualquer num fecho convexo
@@ -356,72 +377,48 @@ então $\bar{\vec{x}}$ é um ponto na fronteira de $P$.
   \end{proof}
 \end{prop:pontos extremos na fronteira}
 
+Antes de partirmos para o próximo resultado, elucidemos um fato. Suponha que
+$X$ seja um conjunto convexo no $\mathbb{R}^n$ gerado por pontos de $P$.
+Para todo ponto $\vec x$ somente uma das afirmações pode ser verdadeira:
+
+\begin{enumerate}
+  \item $\vec x$ está em $X$.
+  \item Existe um hiperplano com equação $\transp a \vec y = b$ tal que
+  \[
+    \transp a \vec x > b \text{ e } \transp a \vec q < b
+  \]
+  para todo $\vec q \in X$
+\end{enumerate}
+
+A segunda afirmação é mais forte e ela é consequência do Teorema do
+Hiperplano Separador, um importante resultado em geometria convexa, mas
+o qual não provaremos aqui. Dessa forma, temos duas opções, dado um ponto
+e um conjunto convexo, então ou o ponto está no conjunto, ou existe um
+hiperplano separando os dois. Com isso em mente, iremos agora provar
+que conjuntos convexos finitamente gerados são fechados.
+
 \begin{prop:conjuntos convexos fechados}
 Se $C$ é a envoltória convexa de $P$, então $C$ é fechado.
-
   \begin{proof}
-   Seja $\vec{x}$ um ponto na fronteira $F$ de $C$. É trivial o fato de que se
-   $\vec{x}$ é um ponto extremo de $C$, então $\vec{x} \in P$. Se
-   $\vec{x} \in F$ não for um ponto extremo, então uma vez que $\vec{x} \in F$,
-   temos que existe uma vizinhança $V$ de $\vec{x}$ que contém um ponto $\vec{y}$
-   tal que $\vec{y} \in C$.
+    O que faremos na verdade será mostrar que se $\vec x$ não é um ponto de $X$,
+    então ele não poderia ser um ponto de fronteira.
 
-   Digamos que $\vec{d} = \vec{x} - \vec{y}$, e todo ponto dado como \[
-     \vec{y} + (1 - \epsilon) \vec{d}
-   \]com $\epsilon \in (0, 1]$ faz parte de um raio contido em $C$. Repare que
-   esse ponto é $x$ quando $\epsilon = 0$. Digamos também que \[
-     \vec{y} = \sum_{i=1}^{k} \lambda_i \vec{p_i}, \quad \vec{p_i}  \in P
-   \]Das equações dadas até então, temos que
-   \begin{align*}
-     \vec{y} + (1 - \epsilon) (\vec{x} - \vec{y}) &= (1 + \epsilon) \vec{x}
-     + \epsilon y \\
-                                                  &= (1 - \epsilon) \vec{x} + \epsilon \vec{y}
-   \end{align*}
-   Reparemos que como estamos considerando os pontos do raio que estão no
-   interior de $C$, então esses pontos
-   admitem uma representação como uma combinação linear convexa dos pontos de
-   $P$, ou seja
-   \[
-     \forall \epsilon \in (0, 1] , \exists \mu_1, \dots, \mu_k \in \mathbb{R},
-     (1-\epsilon)\vec{x} + \epsilon \vec{y} = \sum_{i=1}^{k} \mu_i p_i
-   \]
-   Isolando $\vec{x}$ na equação acima, e adotando a representação de $\vec{y}$
-   como combinação convexa, obtemos que
+    Se $\vec x \notin X$, então existe um hiperplano $H$ com
+    equação $\transp a \vec y = b$ que divide
+    o $\mathbb{R}^n$ em dois meio-espaços abertos que separam
+    $\vec x$ e $X$. Digamos que $\vec x \in H^+$ e que $X \subset H^-$.
+    Supnha que $\vec z$ seja um ponto no hiperplano $H$ tal que
+    $|| \vec z - \vec x ||$ seja a mínima distância entre $\vec x$
+    e o hiperplano $H$.
 
-   \begin{equation}
-     \label{eq:conjunto convexos fechados}
-     \vec{x} = \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} \vec{p_i}
-   \end{equation}
-   Percebamos que
-   \[
-    \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} =
-    \frac{1}{1-\epsilon}\left(
-      \sum_{i=1}^{k} \mu_i -   \epsilon \sum_{i=1}^{k} \lambda_i\right)
-   \]
-   Uma vez que
-   \[
-    \sum_{i=1}^{k} \mu_i = 1 \quad \sum_{i=1}^{k} \lambda_i = 1
-   \]
-   obtém-se que
-   \[
-   \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} =
-   \frac{1}{1-\epsilon} \cdot (1 - \epsilon) = 1
-   \]
-   o que vale para todo $\epsilon \in [0, 1]$.
-
-   Se fazemos $\epsilon$ pequeno o suficiente, então a equação
-   \ref{eq:conjunto convexos fechados} tende a expressar $\vec{x}$ como uma
-   combinação convexa de pontos de $P$
-   \[
-     \lim_{\epsilon \to 0} \sum_{i=1}^{k} \frac{(\mu_i  - \epsilon \lambda)}{1-\epsilon} \vec{p}_i
-     = \sum_{i=1}^{k} \mu_i \vec{p}_i
-   \]
-   e se $\epsilon = 0$, entaõ $\vec{x}$ estará sendo expresso como uma
-   combinação convexa de fato.
-
-   Portanto, se $\vec{x}$ está na fronteira de $C = \conv{P}$, então
-   $\vec{x} \in C$.
- \end{proof}
+    Se $\alpha = || \vec z - \vec x ||$,
+    então temos que para toda bola aberta centrada em $\vec x$
+    e com raio manor que $\alpha$ estará totalmente contida em
+    $H^+$. Como meios-espaços são conjuntos convexos, e $X \subset H^-$,
+    então existe uma bola aberta centrada em $\vec x$ que não
+    contém nenhum ponto de $X$, e $\vec x$ não poderia ser
+    um ponto de fronteira de $X$.
+  \end{proof}
 \end{prop:conjuntos convexos fechados}
 
 \begin{prop:conjuntos convexos limitados}
