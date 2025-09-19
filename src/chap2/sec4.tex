@@ -50,7 +50,7 @@ Nesta parte, iremos demonstrar uma versão do Teorema de Carathéodory para os
 cones convexos
 
 \begin{thm:caratheodory cones}
-  Seja $D = \{d_1, \dots, d_k\}$ um conjunto de direções em $\mathbb{R}^n$. Se $\vec{d} \in D$, então
+  Seja $D = \{\vec d_1, \dots, \vec d_k\}$ um conjunto de direções em $\mathbb{R}^n$. Se $\vec{d} \in D$, então
   $\vec{d}$ pode ser dado como combinação cônica de até $n$ direções
   de $D$
 
@@ -74,66 +74,38 @@ cones convexos
    \]
    ao passo que
    \[
-     \vec{x} = \sum_{i=1}^{k}\lambda_i\vec{d}_i
+     \vec{d} = \sum_{i=1}^{k}\lambda_i\vec{d}_i
    \]
    o que implica
    \[
-     \vec{x} = \sum_{i=1}^{k}(\lambda_i + \theta \mu_i)\vec{d}_i
+     \vec{d} = \sum_{i=1}^{k}(\lambda_i - \theta \mu_i)\vec{d}_i
    \]
-   Agora tentaremos escolher $\theta$ de forma que, para pelo menos um
-   $i^{*} \in I = \{1, \dots, k\}$ tenhamos,
-   \[
-     \lambda_{i^*} + \theta \mu_{i^*} = 0
-   \]
-   e $\forall i \in I$ seja satisfeito que
-   \[
-     \lambda_i  + \theta \mu_i \geq 0
-   \]
-   % Para isso, basta escolhermos $\theta$ tal que
-   % \[
-   %   \theta = \min_{i \in I} \left\{ \left| \frac{\lambda_i}{\mu_i} \right| \right\}
-   % \]
-   Disso seguem mais três casos
+   A estratégia aqui será a mesma daquela usada para provar o Teorema de
+   Carathéodory: escolha $\theta$ como o menor $\frac{\lambda_j}{\mu_j}$ tal que
+   $j \in J$ onde $J$ é o conjunto dos índices de 1 até $k$ para os quais
+   $\mu_k > 0$. Dessa forma, $\theta > 0$, e se seguem dois casos:
 
-   1 - se $\exists i \in I\ (\mu_i < 0$ \text{e} $\lambda_i < |\mu_i|)$,
-   então seja $J \subset I$ o conjunto dos índices em que esse caso ocorre.
-   Dessa forma, devemos escolher um $\bar{\theta}$ pequeno o suciente
-   de modo a satisfazer
-   \begin{equation*}
-     \forall j \in J, (\lambda_j + \bar{\theta} \mu_j \geq 0)
-   \end{equation*}
-   e nossa estratégia para que isso ocorra é simples: diminuir o valor de
-   $\bar{\theta}$ de forma a tornar a condição verdadeira para todo $j \in J$
-   um a um. Em outras palavras, devemos escolher
-   \[
-     \bar{\theta} = \min{\frac{-\lambda_j}{\mu_j}, j \in J}
-   \]
-   de forma que, se $j_{*} \in J$ for tal que $\bar{\theta} = \frac{-\lambda_{j*}}{\mu_{j*}}$
-   então
-   \[
-     \lambda_{j*} + \bar{\theta} \mu_{j*} = 0
-   \]
-   2 - se $\forall i \in I, (\mu_i < 0$ e $\lambda_i \geq |\mu_i|)$,
-   então podemos escolher um $i^{*} \in I$ e definir $\epsilon>0$ tal que
-   \[
-     \epsilon > -\frac{\lambda_{i*}}{\mu_{i*}}
-   \]
-   de forma que
-   \[
-     |\epsilon \mu_{i*}| > \lambda_{i*}
-   \]
-   e então multiplicamos $\sum_{i=1}^{k+1} \mu_i \vec{d}_i$ por $\epsilon$,
-   tendo, por fim, pelo menos um $\mu_{i*}' = \epsilon \mu_{i*}$ ao qual se aplica o
-   caso 1.
+   I - $\mu_i < 0$
 
-   3 - se $\forall i \in I, (\mu_i \geq 0)$, então basta multiplicar todos os
-   $\mu_i$ por -1, de forma que todos os índices satisfarão os casos 1 ou 2.
+   Então $-\theta \mu_i > 0 \Rightarrow \lambda_i - \theta \mu_i > 0$
 
-   Visto que conseguimos reduzir todos as alternativas ao caso 1, então
-   conseguimos escrever $\vec{x}$ como combinação cônica de $k$ direções, caso
-   ao qual se aplica a hipótese de indução, e, por conseguinte,
-   toda direção pode ser dada como combinação cônica de até
-   outras $n$.
+   II - $\mu_i > 0$
+
+  Então $-\theta \mu_i < 0$, mas uma vez que
+  \[
+    \lambda_i - \theta \mu_i = \mu_i \left(\frac{\lambda_i}{\mu_i} - \theta\right)
+  \]
+  e pela nossa escolha de $\theta$, teremos que $\lambda_i - \theta \mu_i > 0$.
+
+  Se $j^*$ for o índice tal que $\theta = \frac{\lambda_{j^*}}{\mu_{j^*}}$,
+  então para quando $i = j^*$ temos $\lambda_i - \theta \mu_i = 0$, e
+  \[
+    \vec x = \sum_{i=1}^{j^*-1} (\lambda_i - \theta \mu_i) \vec d_i + \sum_{i=j^*+1}^{k} (\lambda_i - \theta \mu_i) \vec d_i
+  \]
+  Logo $\vec d$ pode ser escrito como combinação cônica de $k-1$ direções e,
+  pela hipotese de indução, pode ser então escrito como combinação de até
+  $n$ direções. Portanto, pelo Princípio de Indução, o teorema vale para
+  qualquer conjunto de direções.
   \end{proof}
 \end{thm:caratheodory cones}
 

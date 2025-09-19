@@ -62,7 +62,7 @@ origem do $\mathbb{R}^n$.
 % e um afim
 
 Os hiperplanos  afins, de forma análoga ao lineares, podem ser
-definidos a partir de um sistema linear na forma $A\vec x = b$
+definidos a partir de um sistema linear na forma $A\vec x = \vec b$
 ou através de um conjunto de no mínimo $n$ geradores.
 Um conjunto de vetores em que pelo menos um dos membros
 é combinação afim dos demais é chamado de afimmente dependente.
@@ -71,7 +71,7 @@ no espaço afim gerado pelos demais.
 
 É sabido que qualquer conjunto com mais de $n$ vetores em
 $\mathbb{R}^n$ é linearmente dependente, mas qual será o número mínimo
-de vetores em um conjunto para afirmamos com certeza que eles são
+de vetores em um conjunto para afirmarmos com certeza que eles são
 afimmente dependentes?
 
 A envoltória convexa de dois pontos é um segmento de reta, e,
@@ -88,9 +88,8 @@ extendemos infinitamente a envoltória nas direções possíveis.
 
 Isso nos permite agora responder a questão feita mais atrás:
 expandir infinitamente um simplex de dimensão $n$ que é gerado
-por $n+1$ vetores do  $\mathbb{R}^n$,
-, é suficiente para obtermos todo o $\mathbb{R}^n$
-e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
+por $n+1$ vetores do  $\mathbb{R}^n$, é suficiente para obtermos todo o
+$\mathbb{R}^n$ e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
 combinação afim dos pontos extremos do simplex que fora expandido.
 Portanto, a conclusão que chegamos é que qualquer conjunto com mais
 de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
@@ -107,13 +106,14 @@ de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
 	e $P$ é um conjunto afimmente dependente.
 
 	\begin{proof}
-		Da Álgebra Linear, sabemos que se $\#P = k > n$, então $P$ é um conjunto
+		Da Álgebra Linear, sabemos que se $\#P > n$, então $P$ é um conjunto
 		linearmente dependente, o que implica dizer que há $\mu_1, \ldots, \mu_n
 		\in \mathbb{R}$ não todos nulos tal que
 		\[\displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0\]
 
 		Além disso, observemos que o conjunto $\{\vec p_2 - \vec p_1, \ldots, \vec p_k - \vec p_1\}$
 		também é linearmente dependente, pois contém mais de $n$ vetores,
+		já que $k > n + 1$ por hipótese,
 		e também que
 		\begin{gather*}
 		  \sum_{i=2}^{k} \mu_i (\vec p_i - \vec p_1) \\
@@ -149,7 +149,7 @@ de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
         \sum_{i=2}^{k} \mu_i = -\mu_1 \\
 	    \sum_{i=2}^{k} -\frac{\mu_i}{\mu_1} = 1
 	  \end{gather*}
-	  Portanto $p_1$ pode ser dado como combinação afim dos demais pontos de
+	  Portanto $\vec p_1$ pode ser dado como combinação afim dos demais pontos de
 	  $P$, e o conjunto dos pontos é afimmente dependente.
 	\end{proof}
 \end{lemma:afim}
@@ -159,7 +159,7 @@ de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
 \begin{def:convex hull}
 	\label{def:convex hull}
 	Seja $P$ um conjunto de pontos em $\mathbb{R}^n$. Chamamos de envoltória
-	convexa $P$, ou fecho convexo, o conjunto
+	convexa de $P$, ou fecho convexo, o conjunto
 	$\conv{P}$ dado por todas as combinações convexas dos pontos de $P$
 \end{def:convex hull}
 
@@ -293,7 +293,7 @@ geradores.
 		\begin{equation}
 		\label{eq_thm_caratheory}
 		\begin{gathered}
-			x = \displaystyle\sum_{i=1}^k \lambda_i \vec p_i \\
+			\vec x = \displaystyle\sum_{i=1}^k \lambda_i \vec p_i \\
 			\displaystyle\sum_{i=1}^k \mu_i = 1
 		\end{gathered}
 		\end{equation}
@@ -412,8 +412,8 @@ Se $C$ é a envoltória convexa de $P$, então $C$ é fechado.
     e o hiperplano $H$.
 
     Se $\alpha = || \vec z - \vec x ||$,
-    então temos que para toda bola aberta centrada em $\vec x$
-    e com raio manor que $\alpha$ estará totalmente contida em
+    então temos que toda bola aberta centrada em $\vec x$
+    e com raio menor que $\alpha$ estará totalmente contida em
     $H^+$. Como meios-espaços são conjuntos convexos, e $X \subset H^-$,
     então existe uma bola aberta centrada em $\vec x$ que não
     contém nenhum ponto de $X$, e $\vec x$ não poderia ser
