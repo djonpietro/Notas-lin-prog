@@ -31,26 +31,23 @@
 
 \newtheorem{thm:ponto extremo}{Teorema}[chapter]
 
-\section{Pontos Extremos, Direções e Faces}
+\section{Conjuntos Poliédricos}
+
+Essa seção se dedicará a descrever conceitos importantes relacionados aos
+conjutnos poliédricos, tais como os pontos extremos, raios, direções e faces.
 
 \subsection{Pontos Extremos}
 
-O conceito de ponto extremo de um conjunto convexo $\mathbb{V}$ é uma
+O conceito de ponto extremo de um conjunto convexo $X
+$ é uma
 especialização do conceito de ``independência linear'' para combinações
 lineares convexas.
 
 \begin{def:ponto extremo}
-	Um vetor $x$ num conjunto convexo $X$ é chamado ponto extremo de
+	Um vetor $\vec x$ num conjunto convexo $X$ é chamado ponto extremo de
 	$X$ se ele não pode ser expresso como combinação linear
 	convexa de nenhum outro subconjunto de $X$.
 \end{def:ponto extremo}
-
-% De grosso modo, podemos dizer que os pontos extremos de um conjunto convexo
-% é um conjunto linearmente independente se considerarmos apenas suas combinações
-% convexas. Além disso, é possível ver também que os pontos extremos formam
-% uma ``base'' para conjuntos convexos, ou seja, qualquer ponto de um conjunto
-% convexo pode ser dado como combinação convexa dos pontos extremos, mas não se
-% preocupe com isso agora, pois iremos explorar essa ideia mais adiante.
 
 Agora, iremos explorar mais o significado geométrico de um ponto extremo.
 Mas para isso, iremos demonstrar um resultado que irá nos auxiliar nesta tarefa.
@@ -143,10 +140,6 @@ síntese, admita a seguinte definição
 Em sequência, provaremos o teorema a seguir que caracteriza pontos
 extremos de um conjunto poliédrico.
 
-% sendo $X = \{\vec{x}\ |\ A\vec{x} = \vec{b},\ \vec{x} \geq 0\}$,
-% com $A$ sendo $m \times n$, iremos chamar os $n + m$ hiperplanos associados aos
-% meio-espaços definidores de $X$ (as $n$ restrições agrupadas em $A$ mais
-% a $m$ restrições de não negatividade) de \textbf{hiperplanos definidores} de $X$.
 \begin{thm:ponto extremo}
 	\label{thm:ponto extremo}
 	Um vetor $\bar{\vec{x}}$ é ponto extremo de um conjunto poliédrico
@@ -237,8 +230,6 @@ Em resumo, podemos definir um ponto extremo com $n$ hiperplanos definidores
 linearmente independentes do nosso conjunto convexo $X$. Se existe mais de uma
 maneira de definir esse ponto extremos com $n$ hiperplanos, então esse ponto é
 um ponto degenerado.
-
-%Pontos extremos são então soluções de um sistema dado por um subconjunto linearmente independente das restrições na forma padrão de um PPL. Sabemos da Álgebra Linear que em $\mathbb{R}^n$, a interseção de $n$ hiperplanos LI é um ponto, esse que também pode ser chamado de vértice. Pense bem, no plano, os hiperplanos são retas, e quando desenhamos um polígono, os vértices dele são as interseções entre duas retas. Da mesma forma, em poliedros em três dimensões, um vértice é o encontro de 3 faces, que são os hiperplanos de um espaço de dimensão 3. Portanto, o conceito algébrico de ponto extremos está diretamente atrelado ao conceito de vértice da geometria, e podemos dizer que os pontos extremos são então os vértices do poliedro dado pelo conjunto viável do PPL.
 
 Pontos extremos de um PPL são soluções de um sistema formado por um subconjunto linearmente
 independente de restrições na forma padrão. Da Álgebra Linear, sabemos que, em
@@ -355,12 +346,12 @@ um conjunto ser contido por uma bola não poder ter uma direção na qual ele se
 estende indefinitivamente.}.
 
 Agora iremos nos aprofundar um pouco mais nas características algébricas de uma
-direção para um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq p\}$.
+direção para um conjunto poliédrico $X = \{\vec{x}\ |\ A\vec{x} = \vec{b}, \vec{x} \geq \vec p\}$.
 Se temos que para todo $\vec{x} \in X$, $\vec{x} + \lambda \vec{d} \in X$,
 então é verdade que
 \begin{gather*}
 	A (\vec{x} + \lambda \vec{d}) \leq \vec{b} \\
-	\vec{x} + \lambda \vec{d} \geq p
+	\vec{x} + \lambda \vec{d} \geq \vec p
 \end{gather*}
 
 No entanto, para que $\vec{d}$ seja uma direção de $X$, temos que ele deve
@@ -384,21 +375,21 @@ eguinte enunciado.
 		\begin{equation*}
 			A\vec{d} \leq 0
 		\end{equation*}
-		Ademais, se $\vec{x} + \lambda \vec{d} \geq p$, então
+		Ademais, se $\vec{x} + \lambda \vec{d} \geq \vec p$, então
 		\begin{align}
 			\vec{d} \geq \frac{1}{\lambda} (\vec p - \vec{x})
 		\end{align}
 		como $\lambda \geq 0$ pode ser arbitrariamente grande, então
 		$\lim_{\lambda \to \infty} \frac{1}{\lambda}(\vec p -\vec{x}) = 0$, e com isso
-		\[d > 0\].
+		\[\vec d > 0\]
 		Por outro lado, se $\vec{d} > 0$ e $A \vec{d} \leq 0$, então para $\lambda \geq 0$ temos que
 		\[A (\lambda \vec{d}) \leq 0\]
-		e se $A \vec{x} \leq b$, então
+		e se $A \vec{x} \leq \vec b$, então
 		\begin{align*}
 			A \vec{x} + A (\lambda \vec{d}) &\leq \vec{b} \\
 			A (\vec{x} + \lambda \vec{d}) &\leq \vec{b}
 		\end{align*}
-		e como $\vec{x} \in X$ é arbitrário, então $d$ é uma direção de $X$.
+		e como $\vec{x} \in X$ é arbitrário, então $\vec d$ é uma direção de $X$.
 	\end{proof}
 \end{prop:direção}
 
@@ -418,14 +409,6 @@ tal que
 Os raios cuja a direção é dada por uma direção extrema são chamados de raios
 extremos.
 
-% Os conceitos de raios e direções podem ser usados para definir os cones convexos. Seja $C \subset \mathbb{R}^n$ um cone definido como \[C = \{\vec{x}\ |\ \lambda\vec{x}, \lambda \geq 0\}\]Podemos perceber que o subconjunto de $C$ dado pelos múltiplos escalares positivos de $\vec{x} \in C$ formam um raio com vértice na origem do $\mathbb{R}^n$ com direção dada por $\vec{x}$. Dessa forma, um cone pode ser definido a partir de suas direções, mas nem todas são necessárias para tal, já que podemos usar somente as suas direções extremas, que formam um conjunto minimal gerador das demais.
-
-% Portanto, se $C$ é um cone e $D = \{\vec{d}_1, \vec{d}_2, \ldots, \vec{d}_n\}$ o conjunto das suas direções extremas, então o cone pode ser dado como
-% \begin{equation*}
-% 	C = \{\vec{x}\ |\ \vec{x} = \displaystyle\sum_{j = 1}^{n}
-% 			\lambda_j \vec{d}_j, \lambda_j \geq 0\}
-% \end{equation*}
-% Porém iremos formalizar isso num resultado futuro.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=2]
