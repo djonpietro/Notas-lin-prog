@@ -1,1 +1,108 @@
-\section{Modelos de Programação Linear}
+\section{O Problema de Programação Linear}
+
+Como dito anteriormente, o problema geral da programação matemática é otimizar
+uma função - seja maximizá-la ou minimizá-la - dada um conjunto de restrições
+sobre suas variáveis. Quando tanto a função quanto suas restrições são lineares,
+chamamos o problema de programação matemática de \textbf{Problema de Programação Linear} (PPL).
+
+Dada uma função $f: \mathbb{R}^n \to \mathbb{R}$ definida como \[f(\vec x) = \vec c^t \vec x,\ \vec c \in \mathbb{R}^n\]e um conjunto de inequações
+\begin{gather*}
+	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n \leq b_1 \\
+	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n \leq b_2 \\
+	\vdots \\
+	a_{m1}x_1 + a_{m2}x_2 + \ldots + a_{mn}x_n \leq b_m
+\end{gather*}
+chamamos a função a ser otimizada $f(\vec x)$ de \textbf{função objetivo}, as
+variáveis $x_1, \ldots, x_2$ de \textbf{variáveis de decisão} e o conjunto de
+inequações de \textbf{restrições}. A verdade é que as restrições não necessariamente
+precisam ser da forma $a^t_i x \leq b_i$, podendo ser da forma $a^t_i x \geq b_i$
+ou  $a^t_i x = b_i$. O conjunto dos vetores $\vec x \in \mathbb{R}^n$ que são solução
+para o Problema de Programação Linear é chamado de \textbf{conjunto viável}, ou factível.
+
+\subsection{Notação Matricial}
+
+Para facilitar a notação, podemos usar a representação matricial para o conjunto de
+restrições. Se $a_{ij}$ é a entrada da i-ésima linha e j-ésima coluna da
+matriz $A$, de modo que
+\begin{gather*}
+A = \begin{bmatrix}
+	a_{11} & a_{12} & \ldots & a_{1n} \\
+	a_{21} & a_{22} & \ldots & a_{2n} \\
+	\vdots & \vdots & \ddots & \vdots \\
+	a_{m1} & a_{m2} & \ldots & a_{mn} \\
+\end{bmatrix}
+\end{gather*}
+então reduzimos as restrições simplesmente a \[A \vec x \leq \vec b\]tal que
+\begin{align*}
+\vec x = \begin{bmatrix}
+	x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}
+\hspace{1cm}
+\vec b = \begin{bmatrix}
+	b_1 \\ b_2 \\ \vdots \\ b_m
+\end{bmatrix}
+\end{align*}
+Notação de desigualdades para matrizes pode parecer estranha, mas em contextos
+aplicados ela é muito comum ao descrever problemas como os quais estamos lidando.
+Nesta notação, temos que: se $\vec x$ e $\vec y$ são vetores com $n$ componentes
+e $\vec x < \vec y$, então para todo $i = 1,\dots,n$ é verdade que $x_i < y_i$.
+A notação é análoga para os demais tipos de desigualdades.
+
+\subsection{Restrições de Não Negatividade}
+Por se tratar de um ramo que se desenvolveu em boa parte a partir de problemas concretos,
+a programação linear lida com variáveis de decisão que geralmente representam
+quantidades de alguma grandeza do mundo real, e por isso são não negativas.
+Logo, é comum a adição ao conjunto de restrições a expressão \[\vec x \geq 0\]
+que significa que todas as componentes do vetor das variáveis de decisão são não negativas.
+
+Mas isso não anula a existência de variáveis que possam assumir valores negativos, que geralmente são chamadas de \textbf{variáveis irrestritas}. Contudo, se $x_j$ for uma variável irrestrita, então podemos expressá-la como $x_j = x_j^+ - x_j^-$, tal que $x_j^+ \geq 0$ e $x_j^- \geq 0$. Portanto, podemos expressar uma variável irrestrita a partir de outras duas não negativas. Ademais, se temos $k$ variáveis irrestritas, necessitaremos de $k$ variáveis $x^+$ e apenas uma $x^-$, que será a mais negativa das expressões $x_j = x^+_j - x^-_j$.
+
+Se $x_j > l_j$ então podemos trocá-la por $x'_j = x_j - l_j$, que será não negativa. De forma análoga, se tivermos que $x_j < u_j$, então podemos trocar essa variável por $x'_j = u_j - x_j$, que também será não negativa.
+
+\subsection{Inequações}
+
+Podemos transitar facilmente entre os tipos de inequações apenas multiplicando-as
+por $-1$. Por exemplo, uma inequação da forma ``menor ou igual'' como $2x_1 + 3x_2 \leq 5$
+é equivalente a $-2x_1 - 3x_2 \geq -5$, que é da forma ``maior ou igual''.
+
+Também é importante sabermos com transitar entre equações e inequações, pois o
+método simplex, por exemplo, aceita a entrada da restrições apenas como igualdades.
+Desse modo, se temos uma inequação como $4x_1 + x_2 \geq 10$, para a transformar
+numa igualdade, iremos subtrair do primeiro membro uma nova variável não
+negativa $x_3$, que é chamada de \textbf{variável de folga}, obtendo assim a igualdade
+$4x_1 + x_2 - x_3 = 10$. Da mesma forma, se tivéssemos a inequação $7x_1 + 2x_2 \leq 9$,
+poderíamos somar a variável de folga $x_3$ a inequação para obter uma igualdade:
+$7x_1 + 2x_2 + x_3 = 9$.
+
+\subsection{Problemas de Maximização e Minimização}
+
+A otimização da função objetivo $f(\vec x) = z$ pode se referir a sua maximização, ou sua minimização.
+Contudo, ambos os problemas são equivalentes. Se o problema é $\max z = \vec c^t \vec x$,
+temos que ele é equivalente ao $ \min z' = -\vec c^t \vec x $, tal que se $\hat{z}$
+é o valor ótimo do primeiro e $\hat{z}'$ o do segundo, então $\hat{z} = -\hat{z}'$.
+
+Logo, para transformar passar de um problema para outro, basta multiplicarmos
+os coeficientes da função por $-1$.
+
+\begin{equation*}
+	\text{maximizar\ } \vec c^tx = \text{minimizar\ } -\vec c^tx
+\end{equation*}
+
+\subsection{Forma Padrão e Canônica}
+Um PPL está na forma \textbf{padrão} se todas as restrições são igualdades e
+todas as variáveis são não negativas. O método simplex, por exemplo, resolve
+programas lineares apenas quando estão na forma padrão.
+
+A forma canônica de um PPL depende do tipo de otimização que estamos buscando.
+Se o problema é de maximização, então sua forma canônica é dada por
+\begin{align*}
+\text{Maximizar:} \quad z & = \vec c^t \vec x \\
+\text{sujeito a:} \quad A \vec x & \leq \vec b \\
+				  \quad \vec x & \geq 0
+\end{align*}
+e quando de minimização, então sua forma canônica é
+\begin{align*}
+	\text{Minimizar:} \quad z & = \vec c^t \vec x \\
+	\text{sujeito a:} \quad A\vec x  & \geq \vec b \\
+	\quad  \vec x  & \geq 0
+\end{align*}
