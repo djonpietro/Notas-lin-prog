@@ -3,6 +3,8 @@
 \newtheorem{def:independencia convexa}[def:conjunto convexo]{Definição}
 \newtheorem{def:simplex}[def:conjunto convexo]{Definição}
 \newtheorem{def:combinação afim}[def:conjunto convexo]{Definição}
+\newtheorem{def:perfil}[def:conjunto convexo]{Definição}
+
 
 % ------------------------- PROPOSIÇÃO --------------------
 \newtheorem{prop:redundancia}[prop:combinação convexa]{Proposição}
@@ -19,13 +21,17 @@
 \newtheorem{thm:conjuntos convexos compactos}[thm:caratheodory]{Teorema}
 
 % ---------------------------- COROLÁRIO -----------------------
+\newtheorem{cor:redundancia}{Corolário}[chapter]
 \newtheorem{cor:caratheodory}{Corolário}[chapter]
 
-\section{Geometria dos Poliedros Convexos}
+\section{Envoltórias Convexas}
 
-Nesta seção iremos obsevar os poliedros convexos a partir de sua
-natureza geométrica ao mesmo tempo que mostramos sua equivalência com
-os conceitos algébricos vistos nas seções anteriores.
+Nesta seção, iremos agora nos concentrar numa outra forma de enxergar os
+conjuntos poliédricos que consiste em observá-los como o conjunto das
+combinações convexas de seus pontos extremos.
+Para isso, iremos investigar um pouco sobre os espaços afim e usar propriedades desses espaços para definir e demonstrar alguns resultados sobre essa nova
+forma de ver os poliedros, inclusive a sua equivalência com a definição
+inicialmente dada.
 
 \subsection{Espaços Afim}
 
@@ -38,7 +44,7 @@ como combinação linear dos demais. Uma classe de combinações
 lineares que nos é últil são as chamadas combinações afim
 
 \begin{def:combinação afim}
-Sejam $\vec v_1, \ldots, \vec v_k$ vetores do $\mathbb{R}$. $u$ é uma
+Sejam $\vec v_1, \ldots, \vec v_k$ vetores do $\mathbb{R}^n$. $\vec u$ é uma
 combinação afim dos vetores citados  se existem $\lambda_1, \ldots,
 \lambda_k$ tal que
 \begin{equation*}
@@ -51,19 +57,14 @@ que acompanham os vetores deve ser igual a 1. Observemos
 também que as combinaçãoes convexas, por sua vez, são uma
 especialização das combinações afim, em que adiciona-se a
 restrição de que os pesos devem ser positivos.
-
 As combinações lineares afim de um conjunto de vetores
-formam um conjunto fechado chamado de \textbf{subsespaço afim},
-que são análogos aos hiperplanos lineares a menos
-da restrição de conterem a
-origem do $\mathbb{R}^n$.
+formam um conjunto fechado chamado de \textbf{subsespaço afim}
 
 % imagem de compração de um hiperplano linear
 % e um afim
 
 Os hiperplanos  afins, de forma análoga ao lineares, podem ser
-definidos a partir de um sistema linear na forma $A\vec x = \vec b$
-ou através de um conjunto de no mínimo $n$ geradores.
+definidos a partir de um sistema linear na forma $A\vec x = \vec b$.
 Um conjunto de vetores em que pelo menos um dos membros
 é combinação afim dos demais é chamado de afimmente dependente.
 Geometricamente, isso significa que pelo menos um dos vetores estará
@@ -72,28 +73,30 @@ no espaço afim gerado pelos demais.
 É sabido que qualquer conjunto com mais de $n$ vetores em
 $\mathbb{R}^n$ é linearmente dependente, mas qual será o número mínimo
 de vetores em um conjunto para afirmarmos com certeza que eles são
-afimmente dependentes?
+afimmente dependentes? É isso que mostraremos no
+resultado a seguir.
 
-A envoltória convexa de dois pontos é um segmento de reta, e,
-por sua vez, o subsespaço afim gerado por esses mesmos pontos é a
-a própria reta que eles definem, ou seja, obtemos o subespaço
-afim gerado ao extender infinitamente o segmento de reta em
-ambos os seus sentido. Já três pontos não colineares
-definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
-esses três pontos é justamnte o plano que contém esse triângulo; é como se
-tivessemos expandido infinitamente a área do triângulo assim como fizemos
-com o comprimento do segmento de reta anteriormente. Por conseguinte,
-para obter o \textit{span} afim a partir de uma envoltória convexa, basta
-extendemos infinitamente a envoltória nas direções possíveis.
+% A envoltória convexa de dois pontos é um segmento de reta, e,
+% por sua vez, o subsespaço afim gerado por esses mesmos pontos é a
+% a própria reta que eles definem, ou seja, obtemos o subespaço
+% afim gerado ao extender infinitamente o segmento de reta em
+% ambos os seus sentido. Já três pontos não colineares
+% definem um triângulo, que é uma figura plana, e o subsespaço afim gerado por
+% esses três pontos é justamnte o plano que contém esse triângulo; é como se
+% tivessemos expandido infinitamente a área do triângulo assim como fizemos
+% com o comprimento do segmento de reta anteriormente. Por conseguinte,
+% para obter o \textit{span} afim a partir de uma envoltória convexa, basta
+% extendemos infinitamente a envoltória nas direções possíveis.
 
-Isso nos permite agora responder a questão feita mais atrás:
-expandir infinitamente um simplex de dimensão $n$ que é gerado
-por $n+1$ vetores do  $\mathbb{R}^n$, é suficiente para obtermos todo o
-$\mathbb{R}^n$ e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
-combinação afim dos pontos extremos do simplex que fora expandido.
-Portanto, a conclusão que chegamos é que qualquer conjunto com mais
-de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
-é provado formalmente com uma abordagem mais algébrica no lema a seguir.
+% Isso nos permite agora responder a questão feita mais atrás:
+% expandir infinitamente um simplex de dimensão $n$ que é gerado
+% por $n+1$ vetores do  $\mathbb{R}^n$, é suficiente para obtermos todo o
+% $\mathbb{R}^n$ e qualquer outro vetor do $\mathbb{R}^n$ pode ser dado como
+% combinação afim dos pontos extremos do simplex que fora expandido.
+% Portanto, a conclusão que chegamos é que qualquer conjunto com mais
+% de $n+1$ vetores é necessariamnte afimmente independente. Esse resultado
+% é provado formalmente com uma abordagem mais algébrica no lema a seguir.
+%
 
 \begin{lemma:afim}
 	\label{lemma:afim}
@@ -210,21 +213,43 @@ são exemplos de conjuntos convexos que não são finitamente gerados.
 \caption{Comparação entre um polígono convexo e um círculo.}
 \end{figure}
 
+\begin{def:perfil}
+  Seja $X$ um conjunto convexo em $\mathbb{R}^d$. Se $P$ é o conjunto
+  dos pontos de extremos de $X$, então $P$ é chamado de perfil de $X$.
+\end{def:perfil}
+
+Agora provemos o resultado a seguir, que diz a envoltória convexa de um
+conjunto de pontos é igual a envoltória do seu perfil.
+
 \begin{prop:redundancia}
-	Seja $P = \{p_1, \ldots, p_m\}$ um conjunto convexo dependente e
-	$P' = \{p_1, \ldots, p_k\}$ um subconjunto convexo-independente
-	de $P$ com $k < m$. Então é correto dizer que
+    \label{prop:redundancia}
+	Seja $P$ um conjunto convexo e
+	$P'$ o perfil de $P$. Então é correto dizer que
 	\begin{equation*}
-		\conv{P'} = \conv{P}
+		\conv{P} = \conv{P'}
 	\end{equation*}
+	\begin{proof}
+	  Suponha que $\vec p_k \in P$ seja
+	  um combinação convexa dos demais pontos de $P$, o que implica,
+	  pela própria definição de envoltória convexa, que
+	  \[
+	  	\conv P = \conv{P \setminus \{\vec p_k\}}
+	  \]
+	  Logo, ao obter a envoltória de $P$ menos os pontos não extremos,
+	  ou seja, a envoltória de seu perfil, o conjunto gerado será o
+	  mesmo que $\conv P$.
+	\end{proof}
 \end{prop:redundancia}
 
-Dado um conjunto de geradores, é fácil observar que, ao obtermos um
-novo conjunto sem as redundâncias, então a envoltória convexa, como
-foi definida em \ref{def:convex hull}, será exatamente a mesmas para
-ambos os conjuntos. Além disso, se $P$ for um conjunto convexo
-independente, então seus elementos são os pontos extremos de \(\conv{P}\),
-como fora observado mais previamente.
+\begin{cor:redundancia}
+  Se $P'$ é perfil de $P$, então $P'$ é perfil de $\conv P$
+  \begin{proof}
+	Como $X = \conv P = \conv{P'}$, então todos os pontos de $X$ são gerados
+	por pontos de $P'$, que é convexo-independente, logo $P'$ trata-se do
+	perfil de $X$.
+  \end{proof}
+
+\end{cor:redundancia}
 
 Uma classe especial de envoltórias convexas são os \textbf{simplex}
 A ideia geométrica por detrás do conceito de simplex é do ``mais simples
@@ -235,13 +260,13 @@ delimitar uma região no espaço são necessários ao menos quatro pontos,
 que definirão um tetraedro. Generalizando essa primitiva, obtemos a definição.
 
 \begin{def:simplex}
-	Chama-se simplex a envoltória convexa de um conjunto de $n+1$ pontos
-	em $\mathbb{R}^n$ afimmente independetes.
+	Chama-se simplex a envoltória convexa de um conjunto de $d+1$ pontos
+	em $\mathbb{R}^d$ afimmente independetes.
 \end{def:simplex}
 
 A razão por detrás da restrição de que os pontos devem ser afimmente independentes
 é porque eles não podem estar todos contidos num mesmo hiperplano afim, de modo
-que o conjunto convexo gerado por eles tenha dimensão igual ao do $\mathbb{R}^n$.
+que o conjunto convexo gerado por eles tenha dimensão igual ao do $\mathbb{R}^d$.
 
 \begin{figure}[h]
 	\centering
@@ -285,7 +310,7 @@ geradores.
 
 \begin{thm:caratheodory}[Carathéodory]
 	Seja $P \subset \mathbb{R}^n$ um conjunto finito de pontos. Se $\vec x \in \conv{P}$, então
-	  $\vec x \in \conv{P'}$ para algum $P' \subset P$ com cardinalidade igual a $n + 1$.
+	  $\vec x \in \conv{P'}$ para algum $P' \subset P$ com cardinalidade igual a $d + 1$.
 
 	\begin{proof}
 		Com efeito, se $\vec x \in \conv{P}$, e $\#P = k$, então existem $\lambda_1, \ldots, \lambda_k
@@ -297,8 +322,16 @@ geradores.
 			\displaystyle\sum_{i=1}^k \mu_i = 1
 		\end{gathered}
 		\end{equation}
-		Se $k \leq n + 1$, então nada há a demonstrar, do contrário, o lema \ref{lemma:afim}
-		garante que existem $\mu_1, \ldots, \mu_n \in \mathbb{R}$ não todos nulos tal que
+		Provemos este resultado por indução em $k$
+
+		Base: trivial
+
+		Hipótse de Indução: se $\vec x \in P$, então existe $P' \subset P$
+		com $\#P = k - 1$ e $\#P' \leq d + 1$ tal
+		que $\vec x \in P'$. Porvemos para o caso em que $\#P = k$.
+
+		Se $k \leq d + 1$, então nada há a demonstrar, do contrário, o lema \ref{lemma:afim}
+		garante que existem $\mu_1, \ldots, \mu_k \in \mathbb{R}$ não todos nulos tal que
 		\[
 		  \displaystyle\sum_{i=1}^k \mu_i \vec p_i = 0 \quad\quad \sum_{i=1}^{k} \mu_i = 0
 		\]
@@ -311,10 +344,10 @@ geradores.
 		donde temos que
 		\[\displaystyle\sum_{i=1}^k (\lambda_i - \alpha \mu_i) = 1\]
 
-		Agora iremos tentar escrever $\vec x$ como uma combinação convexa de até $n + 1$ pontos.
+		Agora iremos tentar escrever $\vec x$ como uma combinação convexa de até $d + 1$ pontos.
 		Para atingir esse objetivo, escolhemos $\alpha$ tal que
 	    \[
-	      \alpha = \min_{i \in \{1, \dots, k\}} \left\{\frac{\lambda_i}{\mu_i}\ |\ \mu_i > 0\right\}
+	      \alpha = \min_{i \in \{1, \dots, k\}} \left\{\frac{\lambda_i}{\mu_i} \mid  \mu_i > 0\right\}
 	    \]
 
 		Logo, $\alpha > 0$, e para $i \in \{1, \ldots, k\}$, temos dois casos.
@@ -331,28 +364,24 @@ geradores.
 		\(\lambda_i - \alpha \mu_i \geq 0\)
 
 		digamos que $j^*$ seja tal que $\alpha = \frac{\lambda_{j^*}}{\mu_{j^*}}$. Observe que
-		$\lambda_{j^*} - \alpha \mu_{j^*} = 0$, e podemos expressar $x$ como
+		$\lambda_{j^*} - \alpha \mu_{j^*} = 0$, e podemos expressar $\vec x$ como
 		\[\vec x = \displaystyle\sum_{i=1}^{j^* - 1} (\lambda_i - \alpha \mu_i)\vec p_i +
 				\displaystyle\sum_{i=j^* + 1}^{k} (\lambda_i - \alpha \mu_i)\vec p_i\]
-		donde concluímos que $x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $\conv{P}$
-
-		Como podemos repetir esse processo enquanto $k > n + 1$, ou seja, enquanto o lema \ref{lemma:afim}
-		puder ser aplicado, então $\vec x$ pode ser escrito como combinação convexa de até $n + 1$ pontos de $\conv{P}$.
+		donde concluímos que $\vec x$ pode ser escrito como combinação convexa de $k - 1$ pontos de $\conv{P}$, caso para o qual vale a hipótese de indução.
+		Logo, $\vec x$ pode ser escrito como combinação convexa de até $d + 1$ pontos de $\conv{P}$.
 	\end{proof}
 \end{thm:caratheodory}
 
-Se $P \subset \mathbb{R}^n$ é um conjunto
-convexo-independente, então para qualquer $\vec x \in \conv{P}$, $\vec x$ pode ser dado
-como combinação convexa de até $n+1$ pontos de $P$, ou seja, de até $n+1$ pontos extremos.
-Formalizemos essa conclusão como corolário do Teorema de Carathéodory.
+Pela proposição \ref{prop:redundancia}, temos que $\vec x \in \conv P$ está
+na envoltória convexa do perfil de $P$. Portanto, $\vec x$ pode ser expresso
+como combinação convexa de até $d+1$ pontos extremos de $P$. Formalizemos
+essas conclusão no corolário a seguir.
 
 \begin{cor:caratheodory}
-	Seja $P \subset \mathbb{R}^n$ um conjunto convexo-independente. Se $\vec x \in \conv{P}$
-	então $\vec x$ pode ser dado como combinação convexa de até $n + 1$ pontos de $P$
+	Seja $P \subset \mathbb{R}^d$ finito. Se $\vec x \in \conv{P}$,
+	então $\vec x$ pode ser dado como combinação convexa de até $d + 1$ pontos
+	extremos de $P$.
 \end{cor:caratheodory}
-
-Em outras palavras, o corolário afirma que um ponto qualquer num fecho convexo
-pode ser dado como combinação convexa de até $n+1$ pontos extremos.
 
 \subsection{Topologia de Evoltórias Convexas}
 
@@ -370,7 +399,7 @@ então $\bar{\vec{x}}$ é um ponto na fronteira de $P$.
   \begin{proof}
     Para provarmos esse resultado, basta mostrarmos que para qualquer bola
     aberta $B$ centrada em $\bar{\vec{x}}$, $B$ intercepta pontos tanto de
-    $P$ quanto de $\mathbb{R}^n / P$. Suponha por contradição que haja uma
+    $P$ quanto de $\mathbb{R}^d \setminus P$. Suponha por contradição que haja uma
     bola aberta centrada em $\bar{\vec{x}}$ tal que $B \subsetneq P$. Isso
     implica que $\bar{\vec{x}}$ está no interior de um segmento de reta
     inteiramente contido em $P$, e não é, pois, ponto extremo.
@@ -378,7 +407,7 @@ então $\bar{\vec{x}}$ é um ponto na fronteira de $P$.
 \end{prop:pontos extremos na fronteira}
 
 Antes de partirmos para o próximo resultado, elucidemos um fato. Suponha que
-$X$ seja um conjunto convexo no $\mathbb{R}^n$ gerado por pontos de $P$.
+$X$ seja um conjunto convexo no $\mathbb{R}^d$ gerado por pontos de $P$.
 Para todo ponto $\vec x$ somente uma das afirmações pode ser verdadeira:
 
 \begin{enumerate}
@@ -405,14 +434,17 @@ Se $C$ é a envoltória convexa de $P$, então $C$ é fechado.
 
     Se $\vec x \notin X$, então existe um hiperplano $H$ com
     equação $\transp a \vec y = b$ que divide
-    o $\mathbb{R}^n$ em dois meio-espaços abertos que separam
+    o $\mathbb{R}^d$ em dois meio-espaços abertos que separam
     $\vec x$ e $X$. Digamos que $\vec x \in H^+$ e que $X \subset H^-$.
     Supnha que $\vec z$ seja um ponto no hiperplano $H$ tal que
     $|| \vec z - \vec x ||$ seja a mínima distância entre $\vec x$
     e o hiperplano $H$.
+    \[
+      \vec z = \underset{\vec v \in H}{\mathrm{argmin}}\{|| \vec v - \vec x ||\}
+    \]
 
     Se $\alpha = || \vec z - \vec x ||$,
-    então temos que toda bola aberta centrada em $\vec x$
+    então a bola aberta centrada em $\vec x$
     e com raio menor que $\alpha$ estará totalmente contida em
     $H^+$. Como meios-espaços são conjuntos convexos, e $X \subset H^-$,
     então existe uma bola aberta centrada em $\vec x$ que não
