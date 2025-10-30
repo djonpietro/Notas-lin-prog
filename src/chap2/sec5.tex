@@ -1,0 +1,153 @@
+%---------------------------- DEFINIÇÕES -------------------------------------
+\newtheorem{def:projecao1}[def:conjunto convexo]{Definição}
+\newtheorem{def:projecao2}[def:conjunto convexo]{Definição}
+
+\section{Equivalência de Representações de Poliedros}
+
+Esta seção se dedicará a provar a equivalência entre conjuntos poliédricos e
+conjuntos convexos dados como fecho de um conjunto de pontos. Para isso, iremos
+apresentar o conceito de projeção de um poliedro e um algoritmo capaz de obter
+essa projeção.
+
+\subsection{Projeção de Poliedros e Eliminição de Fourier-Motzkin}
+
+\begin{def:projecao1}
+  \label{def:projecao1}
+  Seja $X = \{(\vec x, \vec y) \in \mathbb{R}^{d_1} \times \mathbb{R}^{d_2}
+  \mid A \vec x + B \vec y \leq \vec b\}$
+ um conjunto poliédrico. Chamamos $P$ de projeção de $X$ nas variáveis de
+ $\vec y$, se para todo $\vec y$ tamos que
+ \[
+   \vec y \in P \Leftrightarrow \exists \vec x \in \mathbb{R}^{d_1}, (
+   (\vec x, \vec y) \in X )
+  \]
+\end{def:projecao1}
+
+A definição \ref{def:projecao1} é a geralmente dada para caracterizar projeções
+de poliedros. Porém, apresentaremos aqui uma forma alternativa de definir esse
+conceito que nos será mais fácil de aplicar mais adiante. Antes de a
+apresentarmos, introduzemos o conceito de uma \textbf{matriz de seleção de
+variáveis}.
+
+Suponha que temos um vetor $\vec x = (x_1, x_2, x_3)$, e queremos selecionar
+a suas duas últimas componentes. Para isso, podemos aplicar a seguinte matriz
+\[
+ \pi = \begin{pmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1
+ \end{pmatrix}
+\]
+de modo que $\pi \vec x = (x_2, x_3)$. Logo, matrizes de seleção representam
+operadores lineares capazes de realizar uma projeção de um vetor em suas
+componentes. Repare que não estamos utilizando necessariamente o nome ``matriz
+de projeção'', pois nas referências de Álgebra Linear, esse norme destina-se aos
+operadores que realizam a projeção ortogonal de um vetor num subespaço de
+dimensão menor.
+
+Formalmente, uma selção é um operador linear $T: \mathbb{R}^d \to
+\mathbb{R}^n$, com $d > n$ tal que, se $I = \{1, \ldots, d\}$ são os índices
+das componentes de $\vec x$ e $J \subset I$ os índices das componentes
+selecionadas por $T$, então a matriz $\pi$ de $T$ é dada como
+\[
+\pi_{i, j} = \begin{cases}
+  1, &\text{ se } i=j \text{ e } j \in J\\
+  0, &\text{ caso constrário } \\
+\end{cases}
+\]
+Repare que $\pi$ é a matriz identidade do $\mathbb{R}^d$ com apenas as linhas
+cujos índices estão $J$. Observe também que estamos somente considerando
+projeções que preservem a ordem das componentes do vetor original. Dessa forma,
+daremos uma nova definição para projeções de poliedros.
+
+\begin{def:projecao2}
+  Seja $X = \{\vec x \in \mathbb{R}^d \mid A \vec x \leq \vec b\}$ um
+  conjunto poliédrico e $\Pi: \mathbb{R}^d \to \mathbb{R}^n$ um operador de
+  seleção. Chamos $P$ de projeção de $X$ nas variáveis selecionadas por $\Pi$
+  se para todo $y \in \mathbb{R}^n$ é satisfeito que
+  \[
+    \vec y \in P \Longleftrightarrow \exists \vec x \in X, (\Pi(\vec x) = \vec y)
+  \]
+  ou seja, $P$ é a imagem de $\Pi$ aplicado a $X$.
+\end{def:projecao2}
+
+Uma característica de poliedros é que a suas ``sombras'' são também poliedros,
+ou seja, se tomarmos um poliedro tridimensional e o projetarmos em uma superfície
+bidimensional, essa ``sombra'' terá a forma de um polígono. O que faremos
+agora será provar esse fato, isto é, que projeções de poliedros são poliedros.
+
+Para cumprir nossa tarefa, iremos utilizar um clássico algoritmo de resolução
+de sistemas de iniquações linares análogo à Eliminação Gaussiana: o Algoritmo
+de Eliminação de Fourier-Motzkin, criado pelo famoso matemático francês
+Jean-Baptiste Fourier e redescoberto pelo matemático israelo-americano Theodore
+Motzkin. Esse algoritmo recebe um sistema de inequações lineares e elimina uma
+de suas variáveis a fim de facilitar a verificação de existência de uma solução
+ou se o sistema é limitado ou não. O algortimo \ref{alg:passo efm} apresenta
+um passo para obter um novo sistema $B \vec y \leq \vec c$ a partir de
+$A \vec x \leq \vec b$ com uma variável eliminada $x_k$ de $\vec x$ eliminada,
+isto é, a k-ésima coluna de $C$ zerada.
+
+\begin{algorithm}
+\SetAlgoLined
+\Entrada{Um sistema $A \vec x \leq \vec b$ e uma variável $x_k$ de $\vec x$}
+\Saida{Um sistema $B \vec y \leq \vec c$ com a variável $x_k$ eliminada}
+\Inicio{
+  \tcp{Classificação das inequações segundo o sinal de $a_{i,k}$}
+  $I_+ \gets \{\, i \mid a_{i,k} > 0 \,\}$\;
+  $I_- \gets \{\, i \mid a_{i,k} < 0 \,\}$\;
+  $I_0 \gets \{\, i \mid a_{i,k} = 0 \,\}$\;
+
+  \tcp{Inicializa o novo sistema $B \vec y \leq \vec c$}
+  $B \gets [\;]$; \quad $\vec c \gets [\;]$\;
+
+  \tcp{Combina pares de restrições para eliminar $x_k$}
+  \ParaCada{$(i,j) \in I_+ \times I_-$}{
+    \tcp{Calcula combinação linear das linhas $i$ e $j$ }
+    \tcp{de $A$ para eliminar $x_k$}
+    $\alpha \gets \frac{1}{a_{i,k}}$;\quad $\beta \gets -\frac{1}{a_{j,k}}$\;
+    $\vec d \gets \alpha \transp{\vec a}_i + \beta \transp{\vec a}_j$\;
+    $c \gets \alpha b_i + \beta b_j$\;
+    adicionar linha $(\vec d,\, c)$ a $(B, \vec c)$\;
+  }
+
+  \tcp{Mantém as inequações que não dependem de $x_k$}
+  \ParaCada{$i \in I_0$}{
+    adicionar linha $\transp{(\vec a}_i,\, b_i)$ a $(B, \vec c)$\;
+  }
+
+  \Retorna{$B \vec y \leq \vec c$}\;
+}
+\caption{Passo de eliminação da variável $x_k$ no método de Fourier–Motzkin}
+\label{alg:passo efm}
+\end{algorithm}
+
+% Em essência, o que o algoritmo \ref{alg:passo efm} faz pode ser resumido nos
+% seguintes passos:
+% \begin{enumerate}
+%   \item[I.] Obtenha os conjuntos
+%     \[
+%   I_+ = \{ i \mid a_{i,k} > 0 \} \quad I_-=\{ i \mid a_{i,k} < 0 \}
+%   \quad I_0 = \{ i \mid a_{i,k} = 0 \}
+%     \]
+%
+%   \item[II.] obtenha $I = I_+ \times I_-$, e para cada par $(i, j)$ obtenha
+%     uma nova linha para $B$ dada por
+%     \[
+%       \vec d = \alpha \vec a_{i} + \beta \vec a_{j}
+%     \]
+%     e um nova componente para $\vec c$ dada por
+%     \[
+%       c = \alpha b_i + \beta b_j
+%     \]
+%     onde
+%     \[
+%       \alpha = \frac{1}{a_{i, k}} \quad \beta = -\frac{1}{a_{j, k}}
+%     \]
+%     A k-ésima compnente de $\vec v$ estará zerada e será removida.
+%
+%   \item[III.] Obtenha a nova matriz $B$ com as linhas iguais aos vetores $\vec d$
+%     obtidos no passo anterior mais as linhas $\vec a_l$, onde $l \in I_0$, e
+%     vetor $\vec c$, cujas componentes são as contantes $c$ também geradas no
+%     passo anterior
+% \end{enumerate}
+
+\subsection{Teorema da Equivalência}
